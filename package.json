@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "node-sass": "^4.13.1",
+    "reset-css": "^5.0.1"
+  }
+}

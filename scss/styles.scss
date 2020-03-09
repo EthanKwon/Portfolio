@@ -1,0 +1,179 @@
+// 포트폴리오 컬러 지정
+
+$mainColor: #1c1c1c;
+$subColor: #fed000;
+$fontColor: #333334; //subColor 배경시
+
+// font
+
+@import url("https://fonts.googleapis.com/css?family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display&display=swap");
+
+@font-face {
+  font-family: "BMEULJIRO";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "DungGeunMo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "YiSunShinDotumM";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/YiSunShinDotumM.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+// wrap
+.wrap {
+  margin: 0 40px;
+}
+
+// main-profile
+.main-profile {
+  width: 100%;
+
+  position: relative;
+  background-color: $mainColor;
+  margin-top: 160px;
+  padding: 950px 0 100px 200px;
+  .profile__title {
+    width: 750px;
+    height: 450px;
+    padding: 30px;
+    background-color: $subColor;
+    position: absolute;
+    top: 320px;
+    right: 660px;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    color: $fontColor;
+    .title__position {
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .title__name {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-direction: column;
+      font: {
+        family: "Playfair Display", serif;
+        size: 100px;
+        weight: 700;
+      }
+      margin-bottom: 20px;
+    }
+    .title__desc {
+      font: {
+        family: "YiSunShinDotumM", sans-serif;
+        size: 20px;
+      }
+    }
+  }
+
+  //profile__title end
+
+  .profile__photo {
+    width: 800px;
+    height: 1000px;
+    background: {
+      image: url(../images/black.jpg);
+      size: cover;
+      position: bottom right;
+    }
+    position: absolute;
+    top: -150px;
+    right: 40px;
+    &::after {
+      content: "";
+      width: 7px;
+      height: 100%;
+      background-color: $subColor;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  // profile__photo end
+  .profile__about {
+    width: 90%;
+    height: 450px;
+    display: flex;
+    flex-direction: column;
+    .about__title {
+      margin-bottom: 100px;
+      .title {
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        color: $fontColor;
+        background-color: $subColor;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 700;
+      }
+    }
+    // about__title end
+    .about__contents {
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      margin-left: 10px;
+
+      font : {
+        family: "YiSunShinDotumM", sans-serif;
+      }
+
+      .cont {
+        width: 45%;
+      }
+
+      .contents__cont1 {
+        @extend .cont;
+      }
+      .contents__cont2 {
+        @extend .cont;
+      }
+      .title {
+        font : {
+          size: 40px;
+          weight: 700;
+        }
+        margin-bottom: 20px;
+      }
+      // contents__title end
+
+      .date {
+        font : {
+          size: 20px;
+        }
+        margin-bottom: 20px;
+      }
+      // contents__title end
+
+      .desc {
+        font : {
+          size: 24px;
+          weight: 500;
+          family: "Playfair Display", serif;
+        }
+        line-height: 150%;
+      }
+    }
+  }
+  //profile__about end
+}
+
+//profile end

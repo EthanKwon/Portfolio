@@ -1,0 +1,113 @@
+@import url("https://fonts.googleapis.com/css?family=Jua&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Playfair+Display&display=swap");
+@font-face {
+  font-family: "BMEULJIRO";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "DungGeunMo";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "YiSunShinDotumM";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/YiSunShinDotumM.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+.wrap {
+  margin: 0 40px; }
+
+.main-profile {
+  width: 100%;
+  position: relative;
+  background-color: #1c1c1c;
+  margin-top: 160px;
+  padding: 950px 0 100px 200px; }
+  .main-profile .profile__title {
+    width: 750px;
+    height: 450px;
+    padding: 30px;
+    background-color: #fed000;
+    position: absolute;
+    top: 320px;
+    right: 660px;
+    z-index: 10;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: column;
+    color: #333334; }
+    .main-profile .profile__title .title__position {
+      text-transform: uppercase;
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 20px; }
+    .main-profile .profile__title .title__name {
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      flex-direction: column;
+      font-family: "Playfair Display", serif;
+      font-size: 100px;
+      font-weight: 700;
+      margin-bottom: 20px; }
+    .main-profile .profile__title .title__desc {
+      font-family: "YiSunShinDotumM", sans-serif;
+      font-size: 20px; }
+  .main-profile .profile__photo {
+    width: 800px;
+    height: 1000px;
+    background-image: url(../images/black.jpg);
+    background-size: cover;
+    background-position: bottom right;
+    position: absolute;
+    top: -150px;
+    right: 40px; }
+    .main-profile .profile__photo::after {
+      content: "";
+      width: 7px;
+      height: 100%;
+      background-color: #fed000;
+      position: absolute;
+      top: 0;
+      right: 0; }
+  .main-profile .profile__about {
+    width: 90%;
+    height: 450px;
+    display: flex;
+    flex-direction: column; }
+    .main-profile .profile__about .about__title {
+      margin-bottom: 100px; }
+      .main-profile .profile__about .about__title .title {
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        color: #333334;
+        background-color: #fed000;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 700; }
+    .main-profile .profile__about .about__contents {
+      color: #fff;
+      display: flex;
+      justify-content: space-between;
+      margin-left: 10px;
+      font-family: "YiSunShinDotumM", sans-serif; }
+      .main-profile .profile__about .about__contents .cont, .main-profile .profile__about .about__contents .contents__cont1, .main-profile .profile__about .about__contents .contents__cont2 {
+        width: 45%; }
+      .main-profile .profile__about .about__contents .title {
+        font-size: 40px;
+        font-weight: 700;
+        margin-bottom: 20px; }
+      .main-profile .profile__about .about__contents .date {
+        font-size: 20px;
+        margin-bottom: 20px; }
+      .main-profile .profile__about .about__contents .desc {
+        font-size: 24px;
+        font-weight: 500;
+        font-family: "Playfair Display", serif;
+        line-height: 150%; }
