@@ -65,7 +65,7 @@
     background-size: cover;
     background-position: bottom right;
     position: absolute;
-    top: -150px;
+    top: -160px;
     right: 40px; }
     .main-profile .profile__photo::after {
       content: "";
@@ -77,10 +77,10 @@
       right: 0; }
   .main-profile .profile__about {
     width: 90%;
-    height: 450px;
     display: flex;
     flex-direction: column; }
     .main-profile .profile__about .about__title {
+      margin-left: 50px;
       margin-bottom: 100px; }
       .main-profile .profile__about .about__title .title {
         width: 100px;
@@ -92,22 +92,38 @@
         text-align: center;
         font-weight: 700; }
     .main-profile .profile__about .about__contents {
-      color: #fff;
+      color: #fceed3;
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column wrap;
       margin-left: 10px;
       font-family: "YiSunShinDotumM", sans-serif; }
-      .main-profile .profile__about .about__contents .cont, .main-profile .profile__about .about__contents .contents__cont1, .main-profile .profile__about .about__contents .contents__cont2 {
-        width: 45%; }
-      .main-profile .profile__about .about__contents .title {
-        font-size: 40px;
-        font-weight: 700;
-        margin-bottom: 20px; }
-      .main-profile .profile__about .about__contents .date {
-        font-size: 20px;
-        margin-bottom: 20px; }
-      .main-profile .profile__about .about__contents .desc {
-        font-size: 24px;
-        font-weight: 500;
-        font-family: "Playfair Display", serif;
-        line-height: 150%; }
+      .main-profile .profile__about .about__contents .cont, .main-profile .profile__about .about__contents .contents__cont1, .main-profile .profile__about .about__contents .contents__cont2, .main-profile .profile__about .about__contents .contents__cont3, .main-profile .profile__about .about__contents .contents__cont4 {
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 100px; }
+        .main-profile .profile__about .about__contents .cont .cont__photo, .main-profile .profile__about .about__contents .contents__cont1 .cont__photo, .main-profile .profile__about .about__contents .contents__cont2 .cont__photo, .main-profile .profile__about .about__contents .contents__cont3 .cont__photo, .main-profile .profile__about .about__contents .contents__cont4 .cont__photo {
+          width: 400px;
+          height: 300px; }
+          .main-profile .profile__about .about__contents .cont .cont__photo .photo, .main-profile .profile__about .about__contents .contents__cont1 .cont__photo .photo, .main-profile .profile__about .about__contents .contents__cont2 .cont__photo .photo, .main-profile .profile__about .about__contents .contents__cont3 .cont__photo .photo, .main-profile .profile__about .about__contents .contents__cont4 .cont__photo .photo {
+            width: 100%;
+            height: 100%;
+            background-color: #fed000; }
+        .main-profile .profile__about .about__contents .cont .cont__desc, .main-profile .profile__about .about__contents .contents__cont1 .cont__desc, .main-profile .profile__about .about__contents .contents__cont2 .cont__desc, .main-profile .profile__about .about__contents .contents__cont3 .cont__desc, .main-profile .profile__about .about__contents .contents__cont4 .cont__desc {
+          width: 60%;
+          height: 300px; }
+          .main-profile .profile__about .about__contents .cont .cont__desc .title, .main-profile .profile__about .about__contents .contents__cont1 .cont__desc .title, .main-profile .profile__about .about__contents .contents__cont2 .cont__desc .title, .main-profile .profile__about .about__contents .contents__cont3 .cont__desc .title, .main-profile .profile__about .about__contents .contents__cont4 .cont__desc .title {
+            font-size: 40px;
+            font-weight: 700;
+            margin-bottom: 20px; }
+          .main-profile .profile__about .about__contents .cont .cont__desc .date, .main-profile .profile__about .about__contents .contents__cont1 .cont__desc .date, .main-profile .profile__about .about__contents .contents__cont2 .cont__desc .date, .main-profile .profile__about .about__contents .contents__cont3 .cont__desc .date, .main-profile .profile__about .about__contents .contents__cont4 .cont__desc .date {
+            font-size: 20px;
+            margin-bottom: 20px; }
+          .main-profile .profile__about .about__contents .cont .cont__desc .desc, .main-profile .profile__about .about__contents .contents__cont1 .cont__desc .desc, .main-profile .profile__about .about__contents .contents__cont2 .cont__desc .desc, .main-profile .profile__about .about__contents .contents__cont3 .cont__desc .desc, .main-profile .profile__about .about__contents .contents__cont4 .cont__desc .desc {
+            font-size: 24px;
+            font-weight: 500;
+            font-family: "Playfair Display", serif;
+            line-height: 150%; }

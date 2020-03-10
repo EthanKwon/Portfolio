@@ -3,6 +3,7 @@
 $mainColor: #1c1c1c;
 $subColor: #fed000;
 $fontColor: #333334; //subColor 배경시
+$fontColor2: #fceed3; //mainColor 배경시
 
 // font
 
@@ -11,21 +12,24 @@ $fontColor: #333334; //subColor 배경시
 
 @font-face {
   font-family: "BMEULJIRO";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.0/BMEULJIRO.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "DungGeunMo";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/DungGeunMo.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "YiSunShinDotumM";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/YiSunShinDotumM.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/YiSunShinDotumM.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -38,7 +42,6 @@ $fontColor: #333334; //subColor 배경시
 // main-profile
 .main-profile {
   width: 100%;
-
   position: relative;
   background-color: $mainColor;
   margin-top: 160px;
@@ -94,8 +97,9 @@ $fontColor: #333334; //subColor 배경시
       position: bottom right;
     }
     position: absolute;
-    top: -150px;
+    top: -160px;
     right: 40px;
+
     &::after {
       content: "";
       width: 7px;
@@ -109,10 +113,10 @@ $fontColor: #333334; //subColor 배경시
   // profile__photo end
   .profile__about {
     width: 90%;
-    height: 450px;
     display: flex;
     flex-direction: column;
     .about__title {
+      margin-left: 50px;
       margin-bottom: 100px;
       .title {
         width: 100px;
@@ -127,9 +131,13 @@ $fontColor: #333334; //subColor 배경시
     }
     // about__title end
     .about__contents {
-      color: #fff;
+      color: $fontColor2;
       display: flex;
-      justify-content: space-between;
+      // justify-content: space-between;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column wrap;
+
       margin-left: 10px;
 
       font : {
@@ -137,7 +145,51 @@ $fontColor: #333334; //subColor 배경시
       }
 
       .cont {
-        width: 45%;
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 100px;
+
+        .cont__photo {
+          width: 400px;
+          height: 300px;
+          .photo {
+            width: 100%;
+            height: 100%;
+            background-color: $subColor;
+          }
+        }
+
+        .cont__desc {
+          width: 60%;
+          height: 300px;
+          .title {
+            font : {
+              size: 40px;
+              weight: 700;
+            }
+            margin-bottom: 20px;
+          }
+          // contents__title end
+
+          .date {
+            font : {
+              size: 20px;
+            }
+            margin-bottom: 20px;
+          }
+          // contents__title end
+
+          .desc {
+            font : {
+              size: 24px;
+              weight: 500;
+              family: "Playfair Display", serif;
+            }
+            line-height: 150%;
+          }
+        }
       }
 
       .contents__cont1 {
@@ -146,31 +198,32 @@ $fontColor: #333334; //subColor 배경시
       .contents__cont2 {
         @extend .cont;
       }
-      .title {
-        font : {
-          size: 40px;
-          weight: 700;
-        }
-        margin-bottom: 20px;
+      .contents__cont3 {
+        @extend .cont;
       }
-      // contents__title end
+      .contents__cont4 {
+        @extend .cont;
+      }
 
-      .date {
-        font : {
-          size: 20px;
-        }
-        margin-bottom: 20px;
-      }
-      // contents__title end
+      // type 1
+      // .cont {
+      //   width: 45%;
+      // }
 
-      .desc {
-        font : {
-          size: 24px;
-          weight: 500;
-          family: "Playfair Display", serif;
-        }
-        line-height: 150%;
-      }
+      // .contents__cont1 {
+      //   @extend .cont;
+      //   margin-bottom: 100px;
+      // }
+      // .contents__cont2 {
+      //   @extend .cont;
+      //   margin-bottom: 100px;
+      // }
+      // .contents__cont3 {
+      //   @extend .cont;
+      // }
+      // .contents__cont4 {
+      //   @extend .cont;
+      // }
     }
   }
   //profile__about end

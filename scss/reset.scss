@@ -143,6 +143,10 @@ table {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 // html, body 임시크기 지정
 html,
 body {
