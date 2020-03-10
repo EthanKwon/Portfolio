@@ -23,6 +23,5 @@
 
 ### 20. 03. 10 : js 효과 공부하기
 
-    - greensock을 이용한 js 효과
-    - TweenLite와 CSSPlugin 이용
-    - **TweenLite.to** : document를 선택해 지속시간과 효과를 설정한다.
+    - greensock을 이용한 js 효과 예정
+    - About Page 구성
