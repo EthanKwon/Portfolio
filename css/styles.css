@@ -75,55 +75,145 @@
       position: absolute;
       top: 0;
       right: 0; }
-  .main-profile .profile__about {
+  .main-profile .profile__about .about__title {
     width: 90%;
     display: flex;
-    flex-direction: column; }
-    .main-profile .profile__about .about__title {
-      margin-left: 50px;
-      margin-bottom: 100px; }
-      .main-profile .profile__about .about__title .title {
-        width: 100px;
-        height: 30px;
-        line-height: 30px;
-        color: #333334;
-        background-color: #fed000;
-        text-transform: uppercase;
-        text-align: center;
-        font-weight: 700; }
-    .main-profile .profile__about .about__contents {
-      color: #fceed3;
+    flex-direction: column;
+    margin-left: 50px;
+    margin-bottom: 70px; }
+    .main-profile .profile__about .about__title .sub-title {
+      width: 100px;
+      height: 30px;
+      line-height: 30px;
+      color: #333334;
+      background-color: #fed000;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 700; }
+  .main-profile .about__contents {
+    color: #fceed3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column wrap;
+    margin-left: 10px;
+    font-family: "YiSunShinDotumM", sans-serif; }
+    .main-profile .about__contents .cont, .main-profile .about__contents .contents__cont1, .main-profile .about__contents .contents__cont2, .main-profile .about__contents .contents__cont3, .main-profile .about__contents .contents__cont4 {
+      width: 80%;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      flex-flow: column wrap;
-      margin-left: 10px;
-      font-family: "YiSunShinDotumM", sans-serif; }
-      .main-profile .profile__about .about__contents .cont, .main-profile .profile__about .about__contents .contents__cont1, .main-profile .profile__about .about__contents .contents__cont2, .main-profile .profile__about .about__contents .contents__cont3, .main-profile .profile__about .about__contents .contents__cont4 {
-        width: 80%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin-bottom: 100px; }
-        .main-profile .profile__about .about__contents .cont .cont__photo, .main-profile .profile__about .about__contents .contents__cont1 .cont__photo, .main-profile .profile__about .about__contents .contents__cont2 .cont__photo, .main-profile .profile__about .about__contents .contents__cont3 .cont__photo, .main-profile .profile__about .about__contents .contents__cont4 .cont__photo {
-          width: 400px;
-          height: 300px; }
-          .main-profile .profile__about .about__contents .cont .cont__photo .photo, .main-profile .profile__about .about__contents .contents__cont1 .cont__photo .photo, .main-profile .profile__about .about__contents .contents__cont2 .cont__photo .photo, .main-profile .profile__about .about__contents .contents__cont3 .cont__photo .photo, .main-profile .profile__about .about__contents .contents__cont4 .cont__photo .photo {
-            width: 100%;
-            height: 100%;
-            background-color: #fed000; }
-        .main-profile .profile__about .about__contents .cont .cont__desc, .main-profile .profile__about .about__contents .contents__cont1 .cont__desc, .main-profile .profile__about .about__contents .contents__cont2 .cont__desc, .main-profile .profile__about .about__contents .contents__cont3 .cont__desc, .main-profile .profile__about .about__contents .contents__cont4 .cont__desc {
-          width: 60%;
-          height: 300px; }
-          .main-profile .profile__about .about__contents .cont .cont__desc .title, .main-profile .profile__about .about__contents .contents__cont1 .cont__desc .title, .main-profile .profile__about .about__contents .contents__cont2 .cont__desc .title, .main-profile .profile__about .about__contents .contents__cont3 .cont__desc .title, .main-profile .profile__about .about__contents .contents__cont4 .cont__desc .title {
-            font-size: 40px;
-            font-weight: 700;
-            margin-bottom: 20px; }
-          .main-profile .profile__about .about__contents .cont .cont__desc .date, .main-profile .profile__about .about__contents .contents__cont1 .cont__desc .date, .main-profile .profile__about .about__contents .contents__cont2 .cont__desc .date, .main-profile .profile__about .about__contents .contents__cont3 .cont__desc .date, .main-profile .profile__about .about__contents .contents__cont4 .cont__desc .date {
-            font-size: 20px;
-            margin-bottom: 20px; }
-          .main-profile .profile__about .about__contents .cont .cont__desc .desc, .main-profile .profile__about .about__contents .contents__cont1 .cont__desc .desc, .main-profile .profile__about .about__contents .contents__cont2 .cont__desc .desc, .main-profile .profile__about .about__contents .contents__cont3 .cont__desc .desc, .main-profile .profile__about .about__contents .contents__cont4 .cont__desc .desc {
-            font-size: 24px;
-            font-weight: 500;
-            font-family: "Playfair Display", serif;
-            line-height: 150%; }
+      margin-bottom: 100px; }
+      .main-profile .about__contents .cont .cont__photo, .main-profile .about__contents .contents__cont1 .cont__photo, .main-profile .about__contents .contents__cont2 .cont__photo, .main-profile .about__contents .contents__cont3 .cont__photo, .main-profile .about__contents .contents__cont4 .cont__photo {
+        width: 400px;
+        height: 300px; }
+        .main-profile .about__contents .cont .cont__photo .photo, .main-profile .about__contents .contents__cont1 .cont__photo .photo, .main-profile .about__contents .contents__cont2 .cont__photo .photo, .main-profile .about__contents .contents__cont3 .cont__photo .photo, .main-profile .about__contents .contents__cont4 .cont__photo .photo {
+          width: 100%;
+          height: 100%;
+          background-color: #fed000; }
+      .main-profile .about__contents .cont .cont__desc, .main-profile .about__contents .contents__cont1 .cont__desc, .main-profile .about__contents .contents__cont2 .cont__desc, .main-profile .about__contents .contents__cont3 .cont__desc, .main-profile .about__contents .contents__cont4 .cont__desc {
+        width: 60%;
+        height: 300px; }
+        .main-profile .about__contents .cont .cont__desc .title, .main-profile .about__contents .contents__cont1 .cont__desc .title, .main-profile .about__contents .contents__cont2 .cont__desc .title, .main-profile .about__contents .contents__cont3 .cont__desc .title, .main-profile .about__contents .contents__cont4 .cont__desc .title {
+          font-size: 40px;
+          font-weight: 700;
+          margin-bottom: 20px; }
+        .main-profile .about__contents .cont .cont__desc .date, .main-profile .about__contents .contents__cont1 .cont__desc .date, .main-profile .about__contents .contents__cont2 .cont__desc .date, .main-profile .about__contents .contents__cont3 .cont__desc .date, .main-profile .about__contents .contents__cont4 .cont__desc .date {
+          font-size: 20px;
+          margin-bottom: 20px; }
+        .main-profile .about__contents .cont .cont__desc .desc, .main-profile .about__contents .contents__cont1 .cont__desc .desc, .main-profile .about__contents .contents__cont2 .cont__desc .desc, .main-profile .about__contents .contents__cont3 .cont__desc .desc, .main-profile .about__contents .contents__cont4 .cont__desc .desc {
+          font-size: 24px;
+          font-weight: 500;
+          font-family: "Playfair Display", serif;
+          line-height: 150%; }
+
+.profile__skill .skill__title {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  margin-left: 50px;
+  margin-bottom: 70px; }
+  .profile__skill .skill__title .sub-title {
+    width: 100px;
+    height: 30px;
+    line-height: 30px;
+    color: #333334;
+    background-color: #fed000;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700; }
+
+.profile__skill .skill__contents {
+  color: #fceed3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  margin-left: 10px;
+  font-family: "YiSunShinDotumM", sans-serif; }
+  .profile__skill .skill__contents .contents__container {
+    width: 80%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; }
+    .profile__skill .skill__contents .contents__container .skill__component {
+      width: 350px;
+      height: 350px;
+      margin: 30px;
+      display: flex;
+      justify-content: space-around;
+      flex-direction: column;
+      padding-top: 20px; }
+      .profile__skill .skill__contents .contents__container .skill__component:hover .skill__img {
+        filter: none; }
+      .profile__skill .skill__contents .contents__container .skill__component .skill__img {
+        width: 100px;
+        height: 100px;
+        position: relative;
+        filter: grayscale(100%); }
+        .profile__skill .skill__contents .contents__container .skill__component .skill__img::after {
+          position: absolute;
+          top: 30px;
+          right: -200px;
+          content: "90%";
+          font-size: 70px;
+          font-weight: 700; }
+      .profile__skill .skill__contents .contents__container .skill__component .logo1 {
+        background-image: url(../images/logo/html5.svg);
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat; }
+      .profile__skill .skill__contents .contents__container .skill__component .logo2 {
+        background-image: url(../images/logo/css3.svg);
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat; }
+      .profile__skill .skill__contents .contents__container .skill__component .logo3 {
+        background-image: url(../images/logo/logo-javascript.svg);
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat; }
+      .profile__skill .skill__contents .contents__container .skill__component .logo4 {
+        background-image: url(../images/logo/react.svg);
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat; }
+      .profile__skill .skill__contents .contents__container .skill__component .logo5 {
+        background-image: url(../images/logo/typescript.svg);
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat; }
+      .profile__skill .skill__contents .contents__container .skill__component .logo6 {
+        background-image: url(../images/logo/graphql.svg);
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat; }
+      .profile__skill .skill__contents .contents__container .skill__component .skill__desc {
+        margin-left: 20px;
+        font-size: 20px;
+        font-weight: 700; }
+        .profile__skill .skill__contents .contents__container .skill__component .skill__desc .title {
+          margin-bottom: 20px;
+          font-size: 30px;
+          font-weight: 700; }
