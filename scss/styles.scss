@@ -337,3 +337,216 @@ $fontColor2: #fceed3; //mainColor 배경시
   }
 }
 //profile end
+
+.main-project {
+  width: 100%;
+  height: 950px;
+  margin: 300px 0;
+  .project__container {
+    position: relative;
+    .project__center-box {
+      width: 80%;
+      height: 350px;
+      position: absolute;
+      top: 300px;
+      right: 0;
+      background-color: $subColor;
+    }
+    .project__desc-box {
+      width: 400px;
+      height: 350px;
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      left: 450px;
+      top: 370px;
+      color: $fontColor;
+      font : {
+        family: "Playfair Display", serif;
+      }
+      .index {
+        text-transform: uppercase;
+        margin-bottom: 20px;
+      }
+      .name {
+        margin-bottom: 20px;
+        font : {
+          family: "YiSunShinDotumM", sans-serif;
+          size: 70px;
+          weight: 700;
+        }
+      }
+      .desc {
+        margin-bottom: 20px;
+        font : {
+          size: 20px;
+          weight: 500;
+        }
+      }
+    }
+    // project__desc-box end
+    .project_photo1 {
+      width: 400px;
+      height: 300px;
+      position: absolute;
+      right: 470px;
+      top: 140px;
+      background-color: $mainColor;
+    }
+    .project_photo2 {
+      width: 300px;
+      height: 350px;
+      position: absolute;
+      right: 130px;
+      top: 400px;
+      background-color: $mainColor;
+    }
+  }
+}
+
+// main-project end
+
+.main-mini {
+  width: 100%;
+  height: 2250px;
+
+  .mini__container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    &::before {
+      width: 4px;
+      height: 100%;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      background-color: $subColor;
+    }
+    .mini__title {
+      width: 150px;
+      height: 30px;
+      position: absolute;
+      top: -15px;
+      left: 880px;
+      line-height: 30px;
+      color: $fontColor2;
+      background-color: $mainColor;
+      text-transform: uppercase;
+      text-align: center;
+      font-weight: 700;
+    } //mini__title end
+    .cont {
+      width: 80%;
+      height: 500px;
+      margin: 50px 0;
+      position: relative;
+
+      &::before {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        top: 150px;
+        left: 739px;
+        content: "";
+        border-radius: 50%;
+        background-color: $subColor;
+      }
+
+      .mini__desc-box {
+        width: 400px;
+        height: 242px;
+        display: flex;
+        flex-direction: column;
+        color: $fontColor;
+        font : {
+          family: "Playfair Display", serif;
+        }
+        .index {
+          text-transform: uppercase;
+          margin-bottom: 20px;
+        }
+        .name {
+          margin-bottom: 20px;
+          font : {
+            family: "YiSunShinDotumM", sans-serif;
+            size: 70px;
+            weight: 700;
+          }
+        }
+        .desc {
+          margin-bottom: 20px;
+          font : {
+            size: 20px;
+            weight: 500;
+          }
+        }
+      }
+    }
+    .mini__cont1 {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .mini__photo {
+        width: 250px;
+        height: 200px;
+        background-color: $subColor;
+        margin-right: 45px;
+      }
+    }
+    .mini__cont2 {
+      display: flex;
+      align-items: center;
+      .mini__photo {
+        width: 250px;
+        height: 200px;
+        background-color: $subColor;
+        margin-left: 45px;
+      }
+    }
+    .mini__cont3 {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      .mini__photo {
+        width: 250px;
+        height: 200px;
+        background-color: $subColor;
+        margin-right: 45px;
+      }
+    }
+    .mini__cont4 {
+      display: flex;
+      align-items: center;
+      .mini__photo {
+        width: 250px;
+        height: 200px;
+        background-color: $subColor;
+        margin-left: 45px;
+      }
+    }
+  } //mini__container end
+} // main-mini end
+
+.contact {
+  width: 100%;
+  height: 750px;
+  background-color: $subColor;
+  position: relative;
+  .contact__title {
+    width: 100px;
+    height: 30px;
+    position: absolute;
+    top: -15px;
+    left: 905px;
+    line-height: 30px;
+    color: $fontColor2;
+    background-color: $mainColor;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+  }
+} //contact end

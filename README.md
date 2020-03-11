@@ -21,7 +21,14 @@
     - reset.css 설정
     - portfolio main 페이지 (반응형 x)
 
-### 20. 03. 10 : js 효과 공부하기
+### 20. 03. 10 : About Page 구성
 
     - greensock을 이용한 js 효과 예정
     - About Page 구성
+
+### 20. 03. 11 : 전체 페이지 구성
+
+    - Skill Page 구성
+    - Project Page 구성
+    - mini Page 구성 (간단한 프로젝트)
+    - Contact Page 레이아웃
