@@ -32,3 +32,7 @@
     - Project Page 구성
     - mini Page 구성 (간단한 프로젝트)
     - Contact Page 레이아웃
+
+### 20. 03. 14 : 페이지 레이아웃 재수정
+
+    - viewport 단위로 레이아웃 변경
