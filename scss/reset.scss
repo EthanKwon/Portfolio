@@ -150,3 +150,17 @@ body {
   height: 15000px;
   background-color: #fff;
 }
+
+// scroll bar
+body::-webkit-scrollbar {
+  display: none;
+}
+
+//a tag
+
+a {
+  text-decoration: none;
+  &:visited {
+    color: transparent;
+  }
+}

@@ -5,21 +5,20 @@
 @import "./mixin";
 @import "./reset.scss";
 
-// mixin
-
-// layout
-
+// wrap
 .wrap-container {
-  width: 1200px;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.1);
+  width: 80vw;
+  height: 50vw;
 }
 
 .bgBlock {
   @include bg($black);
 }
 
-// header - page top
+/* 
+  header
+*/
+
 .header {
   @extend %container-center;
   position: fixed;
@@ -27,36 +26,311 @@
   top: 0;
   width: 100%;
   height: $header-height;
-  background-color: rgba(255, 255, 255, 0.4);
-  .nav {
-  } //nav-end
+  z-index: 111;
+
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    nav {
+      width: 100%;
+      ul {
+        display: flex;
+        margin-left: 10%;
+        .nav_item {
+          padding: 0.5vw 1vw;
+          margin: 0 0.5vw;
+          color: $font-black;
+          font: {
+            size: 1vw;
+          }
+        } //nav_item-end
+      } // ul-end
+    } //nav-end
+  } // container-end
+  @include responsive("phone") {
+    .container {
+      nav {
+        ul {
+          display: none;
+        } // ul-end
+      } //nav-end
+    } // container-end
+  }
 } //header-end
+
+/* 
+  intro Page
+*/
+
 .intro {
+  @extend %container-center;
+  @extend %profile-layout;
   @include header-margin($header-height);
+
+  .container {
+    position: relative;
+
+    .intro_content {
+      position: absolute;
+      right: 3vw;
+      top: -$header-height;
+      width: 35vw;
+      height: 45vw;
+      background-color: #222;
+      &::after {
+        @include box-line($yellow);
+      }
+      .intro_title {
+        position: absolute;
+        right: 75%;
+        bottom: 10%;
+        width: 37vw;
+        height: 22vw;
+        background-color: $yellow;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+        padding: 2vw;
+        .title_box {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-end;
+          .title_position {
+            text-transform: uppercase;
+            margin: 0.5vw 0;
+            font: {
+              size: 1vw;
+              weight: 700;
+            }
+          } //title_position-end
+          .title_main {
+            margin: 0.5vw 0;
+            font: {
+              size: 4.5vw;
+              weight: 700;
+            }
+          } //title_main-end
+          .title_desc {
+            margin-top: 0.5vw;
+            font: {
+              size: 1vw;
+              weight: 400;
+            }
+          } //title_desc-end
+        } //title_box-end
+      } //intro_title-end
+    } //intro_content-end
+  } //container-end
+
+  @include responsive("tablet") {
+    width: 100%;
+    margin: 0;
+    @include header-margin($header-height);
+
+    .container {
+      .intro_content {
+        position: static;
+        width: 100%;
+        &::after {
+          display: none;
+        }
+        .intro_title {
+          position: static;
+
+          width: 100%;
+          height: 100%;
+          background-color: $yellow;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 2vw;
+          .title_box {
+            align-items: center;
+            .title_position {
+              text-transform: uppercase;
+              margin: 0.5vw 0;
+              font: {
+                size: 1vw;
+                weight: 700;
+              }
+            } //title_position-end
+            .title_main {
+              margin: 0.5vw 0;
+              font: {
+                size: 4.5vw;
+                weight: 700;
+              }
+            } //title_main-end
+            .title_desc {
+              margin-top: 0.5vw;
+              font: {
+                size: 1vw;
+                weight: 400;
+              }
+            } //title_desc-end
+          } //title_box-end
+        } //intro_title-end
+      } //intro_content-end
+    } //container-end
+  }
+} //intro-end
+
+/* 
+  about Page
+*/
+
+.about {
   @extend %container-center;
   @extend %profile-layout;
 
   .container {
-    position: relative;
-    .intro_photo {
-      position: absolute;
-      right: 50px;
-      top: -$header-height;
-      width: 30vw;
-      height: 50vh;
-      img {
-        width: 100%;
-      }
-    }
-  }
-} //intro-end
-.about {
-  @extend %container-center;
-  @extend %profile-layout;
+    @extend %black-container;
+    padding-bottom: 10vmax;
+    .about_title {
+      width: 92%;
+      height: 2.5vw;
+      padding: 0 4%;
+      margin-bottom: 4%;
+      .title {
+        @extend %title;
+      } //title-end
+    } //about_title-end
+    .about_content {
+      @extend %black-contents;
+
+      .cont {
+        @extend %about-cont;
+        .cont_photo {
+          width: 30%;
+          height: 100%;
+          background-color: $yellow;
+        } //cont_photo-end
+        .cont_desc {
+          width: 60%;
+          height: 100%;
+          background-color: #bbb;
+        } //cont_desc
+      } //cont-end
+      .cont_left-photo {
+        flex-direction: row;
+      } //cont_left_photo-end
+      .cont_right-photo {
+        flex-direction: row-reverse;
+      } //cont_right_photo-end
+    } //about_content-end
+  } //container-end
+
+  @include responsive("tablet") {
+    width: 100%;
+    margin: 0;
+  } //responsive-tablet
+  @include responsive("phone") {
+    .container {
+      .about_content {
+        .cont {
+          .cont_photo {
+            display: none;
+          } //cont_photo-end
+          .cont_desc {
+            width: 100%;
+          } //cont_desc
+        } //cont-end
+      } //about_content-end
+    } //container-end
+  } //responsive-phone
 } //about-end
+
+/* 
+  skill Page
+*/
+
 .skill {
   @extend %container-center;
   @extend %profile-layout;
+  .container {
+    @extend %black-container;
+    .skill_title {
+      width: 92%;
+      height: 2.5vw;
+      padding: 0 4%;
+      margin-bottom: 7%;
+      .title {
+        @extend %title;
+      } //title-end
+    } //skill_title-end
+    .skill_contents {
+      @extend %black-contents;
+
+      position: relative;
+      .skill_desc-box {
+        position: absolute;
+        left: 10%;
+        top: 0;
+        width: 30vw;
+        height: 23vw;
+        background-color: $yellow;
+      } //skill_desc-box
+      .cont_grid-box {
+        width: 60vw;
+        height: 45vw;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+
+        .cont_skill-box1 {
+          grid-column: 4/5;
+          background-color: $yellow;
+        }
+        .cont_skill-box2 {
+          grid-column: 3/4;
+          grid-row: 2/3;
+          background-color: $yellow;
+        }
+        .cont_skill-box3 {
+          grid-column: 4/5;
+          grid-row: 2/3;
+          background-color: #aaa;
+        }
+        .cont_skill-box4 {
+          grid-column: 2/3;
+          grid-row: 3/4;
+          background-color: $yellow;
+        }
+        .cont_skill-box5 {
+          grid-column: 3/4;
+          grid-row: 3/4;
+          background-color: #aaa;
+        }
+        .cont_skill-box6 {
+          grid-column: 4/5;
+          grid-row: 3/4;
+          background-color: $yellow;
+        }
+      } //cont_grid-box-end
+    } // skill_contents-end
+  } //container-end
+  @include responsive("tablet") {
+    width: 100%;
+    margin: 0;
+    .container {
+      .skill_contents {
+        .skill_desc-box {
+          width: 40vw;
+          height: 25vw;
+          left: 17%;
+        } //skill_desc-box
+        .cont_grid-box {
+          .cont_skill-box2 {
+            grid-column: 1/2;
+            grid-row: 3/4;
+            background-color: #aaa;
+          }
+        } //cont_grid-box-end
+      } // skill_contents-end
+    } //container-end
+  }
 } //skill-end
 .project {
   @extend %container-center;
