@@ -229,12 +229,16 @@ img {
   background-color: red; }
 
 /* 
-* header - main manu
-*
-*
-*
-*
-*/
+ * --------------------------------------------
+ * mouse effect
+ * --------------------------------------------
+ */
+/* 
+ * --------------------------------------------
+ * header - main manu
+ * --------------------------------------------
+ *
+ */
 .header {
   position: fixed;
   left: 0;
@@ -270,8 +274,7 @@ img {
 .profile {
   margin-top: 150px; }
   .profile .container {
-    display: flex;
-    margin-bottom: 10%; }
+    display: flex; }
     .profile .container .intro_left {
       width: 40%;
       display: flex;
@@ -330,17 +333,17 @@ img {
   .about .container .about_left {
     width: 35%;
     margin-bottom: 40%; }
-    .about .container .about_left figure {
-      filter: invert(30%); }
+    .about .container .about_left figure img {
+      height: 100%; }
   .about .container .about_right {
     width: 65%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     color: #fffffd;
-    line-height: 1.5; }
+    line-height: 1.5;
+    transition: all 0.5s ease-in-out; }
     .about .container .about_right .about_title {
-      transition: all 0.5s ease-in-out;
       transform: translateX(-7vw);
       font-family: MapoFlowerIsland;
       font-size: 4.8vw; }
@@ -376,7 +379,7 @@ img {
 */
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .header {
-    height: 100px; }
+    height: 80px; }
     .header .container {
       background-color: #1c1c1c;
       justify-content: space-between;
@@ -394,7 +397,7 @@ img {
       .header .container nav {
         display: none; }
   .profile {
-    margin-top: 100px; }
+    margin-top: 80px; }
     .profile .container {
       flex-direction: column-reverse;
       justify-content: center; }
@@ -425,7 +428,33 @@ img {
         .profile .container .intro_right figure {
           transform: none; }
           .profile .container .intro_right figure::after {
-            display: none; } }
+            display: none; }
+  .about .container {
+    flex-direction: column;
+    height: auto; }
+    .about .container .about_left {
+      width: 90%;
+      margin: 5%;
+      position: relative; }
+      .about .container .about_left::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 30%;
+        background-color: #1c1c1c; }
+    .about .container .about_right {
+      width: 100%;
+      align-items: center;
+      transform: translateY(-53vw); }
+      .about .container .about_right .about_title {
+        margin-bottom: 10%;
+        font-size: 9vw; }
+      .about .container .about_right .about_content {
+        width: 90%;
+        margin: 0 5%;
+        font-size: 3vw; } }
 
 /*
 * -----------------------------------------------
@@ -434,10 +463,14 @@ img {
 * -----------------------------------------------
 */
 @media screen and (max-width: 1024px) and (orientation: landscape) {
-  .header .container nav {
-    margin: 0 7%; }
-  .profile .container .intro_left .intro_title {
-    margin-top: 0; } }
+  .header {
+    height: 80px; }
+    .header .container nav {
+      margin: 0 7%; }
+  .profile {
+    margin-top: 80px; }
+    .profile .container .intro_left .intro_title {
+      margin-top: 0; } }
 
 /*
 * -----------------------------------------------
@@ -448,15 +481,23 @@ img {
 @media screen and (max-width: 375px) and (orientation: portrait) {
   .header .container {
     padding: 0 5%; }
-  .profile .container .intro_left .intro_title {
-    padding: 5% 0 0 10%; }
-    .profile .container .intro_left .intro_title .desc {
-      font-size: 4vw; }
-      .profile .container .intro_left .intro_title .desc .mobile_desc {
-        font-family: S-CoreDream-1Thin;
-        font-weight: 300; }
-  .profile .container .intro_right figure {
-    margin: 0; } }
+  .profile {
+    margin-top: 80px; }
+    .profile .container .intro_left .intro_title {
+      padding: 5% 0 10% 10%; }
+      .profile .container .intro_left .intro_title .desc {
+        font-size: 4vw; }
+        .profile .container .intro_left .intro_title .desc .mobile_desc {
+          font-family: S-CoreDream-1Thin;
+          font-weight: 300; }
+    .profile .container .intro_right figure {
+      margin: 0; }
+  .about .container .about_left {
+    width: 100%;
+    margin: 0; }
+  .about .container .about_right .about_content {
+    margin: 5% 0 10% 10%;
+    font-size: 4vw; } }
 
 /*
 * -----------------------------------------------
@@ -465,6 +506,8 @@ img {
 * -----------------------------------------------
 */
 @media screen and (max-width: 812px) and (orientation: landscape) {
+  .header .container nav {
+    margin: 0 3%; }
   .profile .container .intro_left .intro_title {
     margin-bottom: 40%; } }
 

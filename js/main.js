@@ -1,51 +1,57 @@
-//window onLoad
+const controller = new ScrollMagic.Controller();
 
-window.onload = () => {
-  pining();
-};
-// window resize
+const tl = new TimelineMax();
 
-//about_photo
+tl.fromTo(
+  "section.skill",
+  1,
+  { xPercent: 100 },
+  { xPercent: 0, ease: Linear.easeNone },
+  "+=1"
+);
 
-$(".js_about_photo").fadeIn(2000);
+tl.fromTo(
+  "section.project",
+  1,
+  { xPercent: 100 },
+  { xPercent: 0, ease: Linear.easeNone },
+  "+=1"
+);
 
-//scroll pining function
+tl.fromTo(
+  "section.mini",
+  1,
+  { yPercent: 100 },
+  { yPercent: 0, ease: Linear.easeNone },
+  "+=1"
+);
 
-const pining = () => {
-  const controller = new ScrollMagic.Controller();
+new ScrollMagic.Scene({
+  triggerElement: "#scrollPin",
+  triggerHook: "onLeave",
+  duration: "150%"
+})
+  .setPin("#scrollPin")
+  .setTween(tl)
+  .addTo(controller);
 
-  var tl = new TimelineMax();
+/*
+ * -----------------------------
+ * GSAP Effect
+ * -----------------------------
+ */
 
-  tl.fromTo(
-    "section.skill",
-    1,
-    { xPercent: 100 },
-    { xPercent: 0, ease: Linear.easeNone },
-    "+=1"
-  );
+//about_title
+gsap.to(".about_title", { x: "-7vw", duration: 2, ease: "expo" });
 
-  tl.fromTo(
-    "section.project",
-    1,
-    { xPercent: 100 },
-    { xPercent: 0, ease: Linear.easeNone },
-    "+=1"
-  );
+//intro
+// const intro_tl = gsap.timeline();
 
-  tl.fromTo(
-    "section.mini",
-    1,
-    { yPercent: 100 },
-    { yPercent: 0, ease: Linear.easeNone },
-    "+=1"
-  );
+// intro_tl.from(".intro_photo", { y: "10vw", duration: 2 });
+// intro_tl.from(".intro_title", { x: "-5vw", duration: 1 }, "-=1");
 
-  new ScrollMagic.Scene({
-    triggerElement: "#scrollPin",
-    triggerHook: "onLeave",
-    duration: "150%"
-  })
-    .setPin("#scrollPin")
-    .setTween(tl)
-    .addTo(controller);
-};
+/*
+ *
+ * follow mouse
+ *
+ */

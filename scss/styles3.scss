@@ -112,12 +112,17 @@
 }
 
 /* 
-* header - main manu
-*
-*
-*
-*
-*/
+ * --------------------------------------------
+ * mouse effect
+ * --------------------------------------------
+ */
+
+/* 
+ * --------------------------------------------
+ * header - main manu
+ * --------------------------------------------
+ *
+ */
 
 .header {
   position: fixed;
@@ -168,7 +173,6 @@
   .container {
     display: flex;
     @extend %wrap-container;
-    margin-bottom: 10%;
     .intro_left {
       width: 40%;
       display: flex;
@@ -250,19 +254,20 @@
       width: 35%;
       margin-bottom: 40%;
       figure {
-        filter: invert(30%);
+        img {
+          height: 100%;
+        }
       }
     } //about_left
     .about_right {
       width: 65%;
-
       display: flex;
       flex-direction: column;
       justify-content: space-around;
       color: $font-white;
       line-height: 1.5;
+      transition: all 0.5s ease-in-out;
       .about_title {
-        transition: all 0.5s ease-in-out;
         transform: translateX(-7vw);
         font: {
           family: MapoFlowerIsland;
@@ -401,6 +406,44 @@
       }
     } //container
   } //profile
+  .about {
+    .container {
+      flex-direction: column;
+      height: auto;
+      .about_left {
+        width: 90%;
+        margin: 5%;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 30%;
+          background-color: $black;
+        }
+      } //about_left
+      .about_right {
+        width: 100%;
+        align-items: center;
+        transform: translateY(-53vw);
+        .about_title {
+          margin-bottom: 10%;
+          font: {
+            size: $about-title-tablet;
+          }
+        } //about_title
+        .about_content {
+          width: 90%;
+          margin: 0 5%;
+          font: {
+            size: $main-text-tablet;
+          }
+        } //about_content
+      } //about_right
+    } //container
+  } //about
 } //tablet-size
 
 /*
@@ -412,6 +455,7 @@
 
 @include responsive("tablet_land") {
   .header {
+    height: $header-mobile;
     .container {
       nav {
         margin: 0 7%;
@@ -419,6 +463,7 @@
     } //container
   } //header
   .profile {
+    @include header-margin($header-mobile);
     .container {
       .intro_left {
         .intro_title {
@@ -444,10 +489,11 @@
   } //header
 
   .profile {
+    @include header-margin($header-mobile);
     .container {
       .intro_left {
         .intro_title {
-          padding: 5% 0 0 10%;
+          padding: 5% 0 10% 10%;
           .desc {
             .mobile_desc {
               font: {
@@ -468,6 +514,22 @@
       } //intro_right
     } //container
   } //profile
+  .about {
+    .container {
+      .about_left {
+        width: 100%;
+        margin: 0;
+      } //about_left
+      .about_right {
+        .about_content {
+          margin: 5% 0 10% 10%;
+          font: {
+            size: $main-text-mobile;
+          }
+        } //about_content
+      } //about_right
+    } //container
+  } //about
 } //mobile-size
 
 /*
@@ -481,8 +543,9 @@
   .header {
     .container {
       nav {
+        margin: 0 3%;
       }
-    } //container
+    }
   } //header
   .profile {
     .container {
