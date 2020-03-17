@@ -1,25 +1,14 @@
-%container-center {
+%wrap-container {
+  max-width: 2000px;
+}
+
+%section-container {
   display: flex;
-  place-content: center center;
+  justify-content: center;
+  align-items: center;
 }
 
 //desktop-layout
-
-%profile-layout {
-  width: 94%;
-  height: 90%;
-  margin: 0 3%;
-}
-
-%about-cont {
-  width: 90%;
-  height: 20%;
-  margin: 2.5% 0;
-
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 %title {
   height: 100%;
@@ -33,27 +22,4 @@
     size: 1vmax;
     weight: 700;
   }
-}
-
-%black-container {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  height: auto;
-}
-
-%black-contents {
-  width: 90%;
-  height: 80vmax;
-  display: flex;
-  align-items: flex-end;
-  flex-direction: column;
-}
-
-%skill-item {
-  width: 60%;
-  height: 60%;
-  background-color: $yellow;
-  border-radius: 50%;
-  position: absolute;
 }

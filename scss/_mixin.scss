@@ -19,24 +19,52 @@
 // responsive
 
 //$min-width-desktop: 1280px;
-//$min-width-laptop: 960px;
+$max-width-laptop: 1024px;
 $max-width-tablet: 768px;
 $max-width-phone: 576px;
 
 @mixin responsive($device) {
-  @if $device == "tablet" {
-    @media screen and (max-width: $max-width-tablet) {
+  @if $device == "laptop" {
+    @media screen and (max-width: $max-width-laptop) and (orientation: portrait) {
+      @content;
+    }
+  } @else if $device == "tablet" {
+    @media screen and (max-width: $max-width-tablet) and (orientation: portrait) {
       @content;
     }
   } @else if $device == "phone" {
-    @media screen and (max-width: $max-width-phone) {
+    @media screen and (max-width: $max-width-phone) and (orientation: portrait) {
       @content;
     }
   }
 }
 
-@mixin mobile {
-  @media screen and (max-width: $min-width-tablet) {
-    @content;
+// text - effect
+
+//--------------------------
+//  nth-trans-delay()
+//  @description: Transition Delay on nth-childs
+//  @param: $delay_items: [7]    - number of nth-of-type items to create
+//  @param: $delay_time:[1.5s]   - transition-dealy value
+//--------------------------
+@mixin nth-trans-delay($delay_items: 7, $delay_time: 0.2s) {
+  @for $i from 1 through $delay_items {
+    &:nth-child(#{$i}) {
+      transition-delay: $delay_time * $i;
+    }
+  }
+}
+
+//--------------------------
+//  nth-ani-delay()
+//  @description: Animation Delay on nth-childs
+//  @param: $delay_items: [7] - number of nth-of-type items to create
+//  @param: $delay_time:[1.5s] - transition-dealy value
+//--------------------------
+@mixin nth-ani-delay($delay_items: 7, $delay_time: 0.2s) {
+  @for $i from 1 through $delay_items {
+    &:nth-child(#{$i}) {
+      animation-delay: $delay_time * $i;
+    }
   }
 }

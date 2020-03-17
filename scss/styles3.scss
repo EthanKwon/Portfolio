@@ -1,0 +1,341 @@
+// import
+
+@import "./varibles";
+@import "./layout";
+@import "./mixin";
+@import "./reset.scss";
+
+//font
+
+@import url("https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean");
+
+@font-face {
+  font-family: "TmonMonsori";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "OTEnjoystoriesBA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OTEnjoystoriesBA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "S-CoreDream-9Black";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "S-CoreDream-2ExtraLight";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Big John Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Big John Regular"), url("Big John.woff") format("woff");
+}
+
+@font-face {
+  font-family: "Hey August Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../font/Hey\ August.woff") format("woff");
+}
+
+@import url("https://fonts.googleapis.com/css?family=Italianno&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,700&display=swap&subset=korean");
+
+@import url("https://fonts.googleapis.com/css?family=Jua&display=swap");
+// wrap
+
+// pinContainer
+#pinContainer {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  .panal {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  }
+}
+
+.bgBlock {
+  @include bg($black);
+}
+
+.bgYellow {
+  @include bg($yellow);
+}
+
+.bgRed {
+  @include bg(red);
+}
+
+/* 
+  header
+*/
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: $header-height;
+  z-index: 111;
+
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    nav {
+      width: 100%;
+      ul {
+        display: flex;
+        margin-left: 20%;
+        .nav_item {
+          padding: 0.5vw 1vw;
+          margin: 0 0.5vw;
+          color: $font-black;
+          font: {
+            size: 1vw;
+          }
+        } //nav_item-end
+      } // ul-end
+    } //nav-end
+  } // container-end
+  @include responsive("phone") {
+    .container {
+      nav {
+        ul {
+          display: none;
+        } // ul-end
+      } //nav-end
+    } // container-end
+  }
+} //header-end
+
+/* 
+  profile Page
+*/
+
+.profile {
+  @include header-margin($header-height);
+  @extend %section-container;
+
+  .container {
+    display: flex;
+    @extend %wrap-container;
+    margin-bottom: 10%;
+    .intro_left {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      .intro_title {
+        width: 80%;
+        height: 50%;
+        padding: 3%;
+        background-color: $yellow;
+        transform: translateX(25%);
+        z-index: 100;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end;
+        .position {
+          text-align: right;
+          font: {
+            family: S-CoreDream-9Black;
+            size: 1vw;
+            weight: 700;
+          }
+        }
+        .title {
+          text-align: right;
+          padding: 5% 0;
+          font: {
+            family: OTEnjoystoriesBA;
+            size: 4vw;
+            weight: 700;
+          }
+        }
+        .desc {
+          text-align: right;
+          font: {
+            family: S-CoreDream-2ExtraLight;
+            size: 1vw;
+            weight: 700;
+          }
+        }
+      }
+    } //intro_left
+    .intro_right {
+      width: 50%;
+      figure {
+        margin: 0 5% 5% 5%;
+        transform: translateY(-$header-height);
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 2%;
+          height: 100%;
+          background-color: $yellow;
+        }
+      }
+    } //intro_right
+  } //container
+} //intro
+
+/* 
+  about Page
+*/
+
+.about {
+  @extend %section-container;
+  .container {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    @extend %wrap-container;
+    transition: all 0.5s linear;
+    .about_left {
+      display: flex;
+      align-items: center;
+      width: 40%;
+      height: 100%;
+
+      figure {
+        display: none;
+        width: 90%;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 2%;
+          height: 100%;
+          background-color: $yellow;
+        }
+      }
+    } //about_left
+    .about_right {
+      width: 60%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      .about_title {
+        color: $font-white;
+        position: relative;
+        font: {
+          family: "Black Han Sans";
+          size: 6vw;
+        }
+      } //about_typo
+      .about_cont {
+        width: 80%;
+        color: $font-white;
+        font: {
+          family: "S-CoreDream-2ExtraLight";
+          weight: 700;
+        }
+        .cont_title {
+          margin-bottom: 3%;
+          font: {
+            size: 18px;
+          }
+        }
+        .cont_desc {
+          letter-spacing: 2px;
+          line-height: 1.5;
+          font : {
+            size: 15px;
+          }
+        }
+      } //about_cont
+    } //about_box
+  } //container
+
+  @include responsive("laptop") {
+    .container {
+      justify-content: flex-end;
+      align-items: center;
+      .about_left {
+        display: none;
+      } //about_left
+      .about_right {
+        justify-content: flex-start;
+        margin: 10% 0 0 10%;
+        width: 100%;
+        .about_title {
+          font-size: 72px;
+          margin-bottom: 10%;
+        } //about_title
+        .about_cont {
+          margin-bottom: 20%;
+          .cont_title {
+            font: {
+              size: 30px;
+            }
+          }
+          .cont_desc {
+            font: {
+              size: 22px;
+            }
+          }
+        }
+      } //about-right
+    } //container
+  } //laptop-size
+} //about-end
+
+/* 
+  skill Page
+*/
+
+.skill {
+  @extend %section-container;
+  .container {
+    @extend %wrap-container;
+  }
+} //skill-end
+
+// keyframe
+
+@keyframes letter-glow {
+  0% {
+    opacity: 0;
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.1);
+  }
+  66% {
+    opacity: 1;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.9);
+  }
+  77% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.7;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0);
+  }
+}

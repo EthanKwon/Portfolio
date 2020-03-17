@@ -1,11 +1,13 @@
+@import url("https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,700&display=swap&subset=korean");
 .header, .intro, .about, .skill, .project, .mini, .contact {
   display: flex;
   place-content: center center; }
 
 .intro, .about, .skill {
-  width: 94%;
+  width: 98%;
   height: 90%;
-  margin: 0 3%; }
+  margin-left: 2%; }
 
 .about .container .about_content .cont {
   width: 90%;
@@ -170,7 +172,6 @@ table {
 html,
 body {
   width: 100%;
-  height: 15000px;
   background-color: #fff; }
 
 body::-webkit-scrollbar {
@@ -181,9 +182,37 @@ a {
   a:visited {
     color: transparent; }
 
+img {
+  width: 100%;
+  border: 0 none; }
+
+@font-face {
+  font-family: "TmonMonsori";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "OTEnjoystoriesBA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OTEnjoystoriesBA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "S-CoreDream-9Black";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "S-CoreDream-2ExtraLight";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
 .wrap-container {
-  width: 80vw;
-  height: 50vw; }
+  width: 98vw;
+  height: 70vw; }
 
 .bgBlock {
   background-color: #1c1c1c; }
@@ -227,8 +256,8 @@ a {
       position: absolute;
       right: 3vw;
       top: -5vw;
-      width: 35vw;
-      height: 45vw;
+      width: 53vw;
+      height: 67vw;
       background-color: #222; }
       .intro .container .intro_content::after {
         content: "";
@@ -243,7 +272,7 @@ a {
         right: 75%;
         bottom: 10%;
         width: 37vw;
-        height: 22vw;
+        height: 40vw;
         background-color: #fed000;
         display: flex;
         justify-content: flex-end;
@@ -253,20 +282,23 @@ a {
           display: flex;
           flex-direction: column;
           justify-content: center;
-          align-items: flex-end; }
+          align-items: flex-end;
+          color: #333334; }
           .intro .container .intro_content .intro_title .title_box .title_position {
             text-transform: uppercase;
             margin: 0.5vw 0;
             font-size: 1vw;
             font-weight: 700; }
           .intro .container .intro_content .intro_title .title_box .title_main {
-            margin: 0.5vw 0;
-            font-size: 4.5vw;
-            font-weight: 700; }
+            margin: 0.3vw 0;
+            font-family: "OTEnjoystoriesBA", sans-serif;
+            font-size: 4vw; }
           .intro .container .intro_content .intro_title .title_box .title_desc {
             margin-top: 0.5vw;
+            text-align: right;
+            font-family: "S-CoreDream-2ExtraLight", sans-serif;
             font-size: 1vw;
-            font-weight: 400; }
+            font-weight: bold; }
   @media screen and (max-width: 768px) {
     .intro {
       width: 100%;

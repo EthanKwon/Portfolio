@@ -1,0 +1,381 @@
+@import url("https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean");
+@import url("https://fonts.googleapis.com/css?family=Italianno&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,700&display=swap&subset=korean");
+@import url("https://fonts.googleapis.com/css?family=Jua&display=swap");
+.profile .container, .about .container, .skill .container {
+  max-width: 2000px; }
+
+.profile, .about, .skill {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline; }
+
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block; }
+
+body {
+  line-height: 1; }
+
+ol,
+ul {
+  list-style: none; }
+
+blockquote,
+q {
+  quotes: none; }
+
+blockquote:before, blockquote:after {
+  content: "";
+  content: none; }
+
+q:before, q:after {
+  content: "";
+  content: none; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+* {
+  box-sizing: border-box; }
+
+html,
+body {
+  width: 100%;
+  background-color: #fff; }
+
+body::-webkit-scrollbar {
+  display: none; }
+
+a {
+  text-decoration: none; }
+  a:visited {
+    color: transparent; }
+
+img {
+  width: 100%;
+  border: 0 none; }
+
+@font-face {
+  font-family: "TmonMonsori";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "OTEnjoystoriesBA";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OTEnjoystoriesBA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "S-CoreDream-9Black";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "S-CoreDream-2ExtraLight";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
+@font-face {
+  font-family: "Big John Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: local("Big John Regular"), url("Big John.woff") format("woff"); }
+
+@font-face {
+  font-family: "Hey August Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../font/Hey August.woff") format("woff"); }
+
+#pinContainer {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative; }
+  #pinContainer .panal {
+    width: 100%;
+    height: 100%;
+    position: absolute; }
+
+.bgBlock {
+  background-color: #1c1c1c; }
+
+.bgYellow {
+  background-color: #fed000; }
+
+.bgRed {
+  background-color: red; }
+
+/* 
+  header
+*/
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 5vw;
+  z-index: 111; }
+  .header .container {
+    height: 100%;
+    display: flex;
+    align-items: center; }
+    .header .container nav {
+      width: 100%; }
+      .header .container nav ul {
+        display: flex;
+        margin-left: 20%; }
+        .header .container nav ul .nav_item {
+          padding: 0.5vw 1vw;
+          margin: 0 0.5vw;
+          color: #333334;
+          font-size: 1vw; }
+  @media screen and (max-width: 576px) and (orientation: portrait) {
+    .header .container nav ul {
+      display: none; } }
+
+/* 
+  profile Page
+*/
+.profile {
+  margin-top: 5vw; }
+  .profile .container {
+    display: flex;
+    margin-bottom: 10%; }
+    .profile .container .intro_left {
+      width: 50%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center; }
+      .profile .container .intro_left .intro_title {
+        width: 80%;
+        height: 50%;
+        padding: 3%;
+        background-color: #fed000;
+        transform: translateX(25%);
+        z-index: 100;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: flex-end; }
+        .profile .container .intro_left .intro_title .position {
+          text-align: right;
+          font-family: S-CoreDream-9Black;
+          font-size: 1vw;
+          font-weight: 700; }
+        .profile .container .intro_left .intro_title .title {
+          text-align: right;
+          padding: 5% 0;
+          font-family: OTEnjoystoriesBA;
+          font-size: 4vw;
+          font-weight: 700; }
+        .profile .container .intro_left .intro_title .desc {
+          text-align: right;
+          font-family: S-CoreDream-2ExtraLight;
+          font-size: 1vw;
+          font-weight: 700; }
+    .profile .container .intro_right {
+      width: 50%; }
+      .profile .container .intro_right figure {
+        margin: 0 5% 5% 5%;
+        transform: translateY(-5vw); }
+        .profile .container .intro_right figure::after {
+          content: "";
+          position: absolute;
+          top: 0;
+          right: 0;
+          width: 2%;
+          height: 100%;
+          background-color: #fed000; }
+
+/* 
+  about Page
+*/
+.about .container {
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  transition: all 0.5s linear; }
+  .about .container .about_left {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    height: 100%; }
+    .about .container .about_left figure {
+      display: none;
+      width: 90%;
+      position: relative; }
+      .about .container .about_left figure::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2%;
+        height: 100%;
+        background-color: #fed000; }
+  .about .container .about_right {
+    width: 60%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around; }
+    .about .container .about_right .about_title {
+      color: #fceed3;
+      position: relative;
+      font-family: "Black Han Sans";
+      font-size: 6vw; }
+    .about .container .about_right .about_cont {
+      width: 80%;
+      color: #fceed3;
+      font-family: "S-CoreDream-2ExtraLight";
+      font-weight: 700; }
+      .about .container .about_right .about_cont .cont_title {
+        margin-bottom: 3%;
+        font-size: 18px; }
+      .about .container .about_right .about_cont .cont_desc {
+        letter-spacing: 2px;
+        line-height: 1.5;
+        font-size: 15px; }
+
+@media screen and (max-width: 1024px) and (orientation: portrait) {
+  .about .container {
+    justify-content: flex-end;
+    align-items: center; }
+    .about .container .about_left {
+      display: none; }
+    .about .container .about_right {
+      justify-content: flex-start;
+      margin: 10% 0 0 10%;
+      width: 100%; }
+      .about .container .about_right .about_title {
+        font-size: 72px;
+        margin-bottom: 10%; }
+      .about .container .about_right .about_cont {
+        margin-bottom: 20%; }
+        .about .container .about_right .about_cont .cont_title {
+          font-size: 30px; }
+        .about .container .about_right .about_cont .cont_desc {
+          font-size: 22px; } }
+
+/* 
+  skill Page
+*/
+.contact {
+  height: 5vw; }
+
+@keyframes letter-glow {
+  0% {
+    opacity: 0;
+    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.1); }
+  66% {
+    opacity: 1;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.9); }
+  77% {
+    opacity: 1; }
+  100% {
+    opacity: 0.7;
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0); } }
