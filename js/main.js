@@ -5,13 +5,6 @@ window.onload = () => {
 };
 // window resize
 
-//scroll effect
-const header = $(".header");
-
-window.addEventListener("scroll", () => {
-  header.hide();
-});
-
 //about_photo
 
 $(".js_about_photo").fadeIn(2000);

@@ -20,8 +20,12 @@
 
 //$min-width-desktop: 1280px;
 $max-width-laptop: 1024px;
+
 $max-width-tablet: 768px;
-$max-width-phone: 576px;
+$max-width-tablet-land: 1024px;
+
+$max-width-mobile: 375px;
+$max-width-mobile-land: 812px;
 
 @mixin responsive($device) {
   @if $device == "laptop" {
@@ -32,8 +36,16 @@ $max-width-phone: 576px;
     @media screen and (max-width: $max-width-tablet) and (orientation: portrait) {
       @content;
     }
-  } @else if $device == "phone" {
-    @media screen and (max-width: $max-width-phone) and (orientation: portrait) {
+  } @else if $device == "tablet_land" {
+    @media screen and (max-width: $max-width-tablet-land) and (orientation: landscape) {
+      @content;
+    }
+  } @else if $device == "mobile" {
+    @media screen and (max-width: $max-width-mobile) and (orientation: portrait) {
+      @content;
+    }
+  } @else if $device == "mobile_land" {
+    @media screen and (max-width: $max-width-mobile-land) and (orientation: landscape) {
       @content;
     }
   }
