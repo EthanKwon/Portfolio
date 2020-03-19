@@ -19,20 +19,15 @@ const menuTitle = document.querySelector(".mobile_menu_title");
 const menuClose = document.querySelector(".menu_close");
 const menuList = document.querySelector(".nav_list");
 
-const menu_tl = gsap.timeline({ default: { duration: 1 } });
-menu_tl
-  .to(menuScreen, { y: 0, ease: "expo.out" })
-  .from(menuTitle, { opacity: 0 })
-  .from(menuList, { opacity: 0, stagger: 0.5 })
-  .pause();
-
 const showMenu = () => {
-  menu_tl.play();
+  const menu_tl = gsap.timeline({ default: { duration: 1 } });
+  menu_tl
+    .to(menuScreen, { y: 0, ease: "expo.out" })
+    .from(menuTitle, { opacity: 0 })
+    .from(menuList, { opacity: 0, stagger: 0.5 });
 };
 
-const hideMenu = () => {
-  menu_tl.reverse();
-};
+const hideMenu = () => {};
 
 menuButton.addEventListener("click", showMenu);
 menuClose.addEventListener("click", hideMenu);
