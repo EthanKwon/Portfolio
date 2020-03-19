@@ -136,8 +136,6 @@ body::-webkit-scrollbar {
 
 a {
   text-decoration: none; }
-  a:visited {
-    color: transparent; }
 
 img {
   width: 100%;

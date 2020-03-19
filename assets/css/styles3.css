@@ -148,8 +148,6 @@ body::-webkit-scrollbar {
 
 a {
   text-decoration: none; }
-  a:visited {
-    color: transparent; }
 
 img {
   width: 100%;
@@ -234,9 +232,9 @@ img {
  * --------------------------------------------
  */
 /* 
- * --------------------------------------------
+ * -------------------------------------------------------------------------
  * header - main manu
- * --------------------------------------------
+ * -------------------------------------------------------------------------
  *
  */
 .header {
@@ -256,20 +254,30 @@ img {
       display: none; }
     .header .container nav {
       width: 76%;
-      margin: 0 10%; }
+      margin: 0 10%;
+      color: #333334; }
+      .header .container nav .mobile_menu_title {
+        display: none;
+        width: 100%;
+        padding: 7% 0;
+        font-family: S-CoreDream-9Black;
+        font-size: 6vw; }
       .header .container nav ul {
         display: flex; }
         .header .container nav ul .nav_item {
           padding: 0.5vw 1vw;
           margin: 0 0.5vw;
-          color: #333334;
           font-family: S-CoreDream-9Black;
           font-size: 1vw; }
+          .header .container nav ul .nav_item a:visited {
+            color: #333334; }
+      .header .container nav .mobile_menu_contact {
+        display: none; }
 
 /* 
- * --------------------------------------------
+ * -------------------------------------------------------------------------
  * profile Page
- * --------------------------------------------
+ * -------------------------------------------------------------------------
  */
 .profile {
   margin-top: 150px; }
@@ -302,6 +310,8 @@ img {
           padding: 5% 0;
           font-family: OTEnjoystoriesBA;
           font-size: 5.5vw; }
+          .profile .container .intro_left .intro_title .title span {
+            display: block; }
         .profile .container .intro_left .intro_title .desc {
           line-height: 1.5;
           font-family: S-CoreDream-4Regular;
@@ -311,30 +321,35 @@ img {
     .profile .container .intro_right {
       width: 60%; }
       .profile .container .intro_right figure {
+        width: 90%;
         margin: 0 5% 5% 5%;
         transition: all 0.5s linear;
-        transform: translateY(-150px); }
-        .profile .container .intro_right figure::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 5px;
-          height: 100%;
-          background-color: #fed000; }
+        transform: translateY(-150px);
+        overflow: hidden; }
+        .profile .container .intro_right figure img {
+          object-fit: cover;
+          border-right: 7px solid #fed000; }
 
 /* 
- * --------------------------------------------
+ * -------------------------------------------------------------------------
  * about Page
- * --------------------------------------------
+ * -------------------------------------------------------------------------
  */
 .about .container {
   display: flex; }
   .about .container .about_left {
     width: 35%;
     margin-bottom: 40%; }
-    .about .container .about_left figure img {
-      height: 100%; }
+    .about .container .about_left figure {
+      position: relative; }
+      .about .container .about_left figure .about_photo-masking {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #1c1c1c; }
+      .about .container .about_left figure img {
+        height: 100%; }
   .about .container .about_right {
     width: 65%;
     display: flex;
@@ -358,12 +373,13 @@ img {
   skill Page
 */
 /*
-* -----------------------------
+* -------------------------------------------------------------------------
 * Responsive
-* -----------------------------
 *
 * laptop
 * (769px ~ 1024px)
+*
+* -------------------------------------------------------------------------
 */
 @media screen and (max-width: 1024px) and (orientation: portrait) {
   .profile .container {
@@ -372,10 +388,12 @@ img {
       margin-top: 0; } }
 
 /*
-* -----------------------------------------------
+* -------------------------------------------------------------------------
+*
 * Tablet
 * (376px ~ 768px)
-* -----------------------------------------------
+*
+* -------------------------------------------------------------------------
 */
 @media screen and (max-width: 768px) and (orientation: portrait) {
   .header {
@@ -383,19 +401,60 @@ img {
     .header .container {
       background-color: #1c1c1c;
       justify-content: space-between;
-      padding: 0 5%; }
+      padding: 0 5%;
+      color: #fffffd; }
       .header .container .mobile_logo {
         display: block;
-        color: #fffffd;
         font-family: S-CoreDream-9Black;
         font-size: 4vw; }
       .header .container .mobile_menu {
         display: block;
-        color: #fffffd;
         font-family: S-CoreDream-9Black;
         font-size: 3vw; }
       .header .container nav {
-        display: none; }
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        background-color: #1c1c1c;
+        color: #fffffd;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transform: translateY(-100vh); }
+        .header .container nav .mobile_menu_title {
+          display: flex;
+          justify-content: space-around;
+          position: relative; }
+          .header .container nav .mobile_menu_title::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 5px;
+            width: 100%;
+            background-color: #fffffd; }
+        .header .container nav ul {
+          height: 80%;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          margin-left: 15%; }
+          .header .container nav ul .nav_item {
+            margin: 7% 0;
+            font-size: 7vw; }
+            .header .container nav ul .nav_item a:visited {
+              color: #fffffd; }
+        .header .container nav .mobile_menu_contact {
+          height: 10%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-decoration: underline;
+          font-family: S-CoreDream-4Regular;
+          font-size: 5vw; }
   .profile {
     margin-top: 80px; }
     .profile .container {
@@ -457,10 +516,12 @@ img {
         font-size: 3vw; } }
 
 /*
-* -----------------------------------------------
+* -------------------------------------------------------------------------
+*
 * Tablet- landscape 
 * (813px ~ 1024px)
-* -----------------------------------------------
+*
+* -------------------------------------------------------------------------
 */
 @media screen and (max-width: 1024px) and (orientation: landscape) {
   .header {
@@ -473,10 +534,12 @@ img {
       margin-top: 0; } }
 
 /*
-* -----------------------------------------------
+* -------------------------------------------------------------------------
+*
 * Mobile 
 * (320px ~ 375px)
-* -----------------------------------------------
+*
+* -------------------------------------------------------------------------
 */
 @media screen and (max-width: 375px) and (orientation: portrait) {
   .header .container {
@@ -500,10 +563,12 @@ img {
     font-size: 4vw; } }
 
 /*
-* -----------------------------------------------
+* -------------------------------------------------------------------------
+*
 * Mobile - landscape 
 * (567px ~ 812px)
-* -----------------------------------------------
+*
+* -------------------------------------------------------------------------
 */
 @media screen and (max-width: 812px) and (orientation: landscape) {
   .header .container nav {
@@ -512,9 +577,11 @@ img {
     margin-bottom: 40%; } }
 
 /*
-* ------------------------------------------------
+* -------------------------------------------------------------------------
+*
 * keyframe
 *
+* -------------------------------------------------------------------------
 */
 @keyframes letter-glow {
   0% {

@@ -11,48 +11,42 @@
 
 @font-face {
   font-family: "TmonMonsori";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff")
-    format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "OTEnjoystoriesBA";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OTEnjoystoriesBA.woff")
-    format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OTEnjoystoriesBA.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "S-CoreDream-9Black";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff")
-    format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "S-CoreDream-4Regular";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff")
-    format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "S-CoreDream-2ExtraLight";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff")
-    format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "S-CoreDream-1Thin";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff")
-    format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -79,8 +73,7 @@
 
 @font-face {
   font-family: "MapoFlowerIsland";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff")
-    format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff") format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -118,9 +111,9 @@
  */
 
 /* 
- * --------------------------------------------
+ * -------------------------------------------------------------------------
  * header - main manu
- * --------------------------------------------
+ * -------------------------------------------------------------------------
  *
  */
 
@@ -144,26 +137,43 @@
     nav {
       width: 76%;
       margin: 0 10%;
+      color: $font-black;
+      .mobile_menu_title {
+        display: none;
+        width: 100%;
+        padding: 7% 0;
+        font: {
+          family: S-CoreDream-9Black;
+          size: $menu-mobile-title;
+        }
+      }
       ul {
         display: flex;
         .nav_item {
           padding: 0.5vw 1vw;
           margin: 0 0.5vw;
-          color: $font-black;
           font: {
             family: S-CoreDream-9Black;
             size: $menu-font;
           }
+          a {
+            &:visited {
+              color: $font-black;
+            }
+          } //a
         } //nav_item-end
       } // ul-end
+      .mobile_menu_contact {
+        display: none;
+      }
     } //nav-end
   } // container-end
 } //header-end
 
 /* 
- * --------------------------------------------
+ * -------------------------------------------------------------------------
  * profile Page
- * --------------------------------------------
+ * -------------------------------------------------------------------------
  */
 
 .profile {
@@ -206,6 +216,9 @@
             family: OTEnjoystoriesBA;
             size: $profile-title-size;
           }
+          span {
+            display: block;
+          }
         }
         .desc {
           line-height: 1.5;
@@ -222,27 +235,25 @@
     .intro_right {
       width: 60%;
       figure {
+        width: 90%;
         margin: 0 5% 5% 5%;
         transition: all 0.5s linear;
         transform: translateY(-$header-height);
-        &::after {
-          content: "";
-          position: absolute;
-          top: 0;
-          right: 0;
-          width: 5px;
-          height: 100%;
-          background-color: $yellow;
+        overflow: hidden;
+
+        img {
+          object-fit: cover;
+          border-right: 7px solid $yellow;
         }
-      }
+      } //figure
     } //intro_right
   } //container
 } //intro
 
 /* 
- * --------------------------------------------
+ * -------------------------------------------------------------------------
  * about Page
- * --------------------------------------------
+ * -------------------------------------------------------------------------
  */
 
 .about {
@@ -254,6 +265,14 @@
       width: 35%;
       margin-bottom: 40%;
       figure {
+        position: relative;
+        .about_photo-masking {
+          position: absolute;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: $black;
+        }
         img {
           height: 100%;
         }
@@ -300,12 +319,13 @@
 } //skill-end
 
 /*
-* -----------------------------
+* -------------------------------------------------------------------------
 * Responsive
-* -----------------------------
 *
 * laptop
 * (769px ~ 1024px)
+*
+* -------------------------------------------------------------------------
 */
 
 @include responsive("laptop") {
@@ -322,10 +342,12 @@
 } //laptop-size
 
 /*
-* -----------------------------------------------
+* -------------------------------------------------------------------------
+*
 * Tablet
 * (376px ~ 768px)
-* -----------------------------------------------
+*
+* -------------------------------------------------------------------------
 */
 
 @include responsive("tablet") {
@@ -335,9 +357,9 @@
       background-color: $black;
       justify-content: space-between;
       padding: 0 5%;
+      color: $font-white;
       .mobile_logo {
         display: block;
-        color: $font-white;
         font: {
           family: S-CoreDream-9Black;
           size: $menu-logo;
@@ -345,14 +367,69 @@
       }
       .mobile_menu {
         display: block;
-        color: $font-white;
         font: {
           family: S-CoreDream-9Black;
           size: $menu-mobile;
         }
       } //mobile_menu
       nav {
-        display: none;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        background-color: $black;
+        color: $font-white;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        transform: translateY(-100vh);
+
+        .mobile_menu_title {
+          display: flex;
+          justify-content: space-around;
+          position: relative;
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            height: 5px;
+            width: 100%;
+            background-color: $font-white;
+          }
+        } //mobile_menu_title
+        ul {
+          height: 80%;
+          flex-direction: column;
+          justify-content: center;
+          align-items: flex-start;
+          margin-left: 15%;
+
+          .nav_item {
+            margin: 7% 0;
+            font: {
+              size: $menu-mobile-item;
+            }
+            a {
+              &:visited {
+                color: $font-white;
+              }
+            } //a
+          } //nav_item
+        } //ul
+        .mobile_menu_contact {
+          height: 10%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          text-decoration: underline;
+          font: {
+            family: S-CoreDream-4Regular; // 폰트 변경 필요
+            size: $menu-mobile-contact;
+          }
+        }
       } //nav
     } //container
   } //header
@@ -447,10 +524,12 @@
 } //tablet-size
 
 /*
-* -----------------------------------------------
+* -------------------------------------------------------------------------
+*
 * Tablet- landscape 
 * (813px ~ 1024px)
-* -----------------------------------------------
+*
+* -------------------------------------------------------------------------
 */
 
 @include responsive("tablet_land") {
@@ -475,10 +554,12 @@
 } //tablet_land-size
 
 /*
-* -----------------------------------------------
+* -------------------------------------------------------------------------
+*
 * Mobile 
 * (320px ~ 375px)
-* -----------------------------------------------
+*
+* -------------------------------------------------------------------------
 */
 
 @include responsive("mobile") {
@@ -533,10 +614,12 @@
 } //mobile-size
 
 /*
-* -----------------------------------------------
+* -------------------------------------------------------------------------
+*
 * Mobile - landscape 
 * (567px ~ 812px)
-* -----------------------------------------------
+*
+* -------------------------------------------------------------------------
 */
 
 @include responsive("mobile_land") {
@@ -559,9 +642,11 @@
 } // mobile_land-size
 
 /*
-* ------------------------------------------------
+* -------------------------------------------------------------------------
+*
 * keyframe
 *
+* -------------------------------------------------------------------------
 */
 
 @keyframes letter-glow {
