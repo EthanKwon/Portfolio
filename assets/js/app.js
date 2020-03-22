@@ -62,7 +62,7 @@ const profile_tl = gsap.timeline({ defaults: { duration: 1 } });
 
 profile_tl
   .from(intro_title, { x: "-10%", opacity: 0, stagger: 0.6 })
-  .from(intro_photo, { scale: 1.1, duration: 1.2 }, "-=1");
+  .from(intro_photo, { scale: 1.1, duration: 1.2 }, "-=2");
 
 /*
  *
@@ -75,3 +75,11 @@ profile_tl
 const about_photoMasking = document.querySelector(".about_photo-masking");
 
 gsap.to(about_photoMasking, { x: "-100%", duration: 1 });
+
+/*
+ *
+ *
+ * Skill
+ *
+ *
+ */

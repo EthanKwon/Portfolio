@@ -11,42 +11,48 @@
 
 @font-face {
   font-family: "TmonMonsori";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "OTEnjoystoriesBA";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OTEnjoystoriesBA.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OTEnjoystoriesBA.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "S-CoreDream-9Black";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "S-CoreDream-4Regular";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "S-CoreDream-2ExtraLight";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "S-CoreDream-1Thin";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -73,7 +79,8 @@
 
 @font-face {
   font-family: "MapoFlowerIsland";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
@@ -308,14 +315,70 @@
 } //about-end
 
 /* 
-  skill Page
-*/
+ * -------------------------------------------------------------------------
+ * Skill Page
+ * -------------------------------------------------------------------------
+ */
 
 .skill {
   @extend %section-container;
   .container {
     @extend %wrap-container;
-  }
+    color: $font-white;
+    display: flex;
+    flex-direction: column;
+
+    .skill_title {
+      display: flex;
+      justify-content: f;
+      position: relative;
+
+      .title {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: flex-end;
+        font: {
+          family: MapoFlowerIsland;
+          size: $skill-title-size;
+        }
+      } //title
+      .skill_logo {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 5vw;
+        height: 5vw;
+        opacity: 0;
+        transform: rotate(160deg) scale(0);
+      }
+    } //skill_title
+    .skill_content {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      .skill_list {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .skill_item {
+          margin: 10% 0;
+          display: flex;
+          font: {
+            family: S-CoreDream-4Regular;
+            size: $skill-item-size;
+          }
+          .skill_per {
+            margin-right: 2vw;
+            padding-right: 1vw;
+            border-right: 5px solid $font-white;
+          } //skill_per
+        } //skill_item
+      } //skill_list
+    } //skill_content
+  } //container
 } //skill-end
 
 /*

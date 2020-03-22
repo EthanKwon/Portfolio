@@ -370,8 +370,51 @@ img {
       font-size: 2vw; }
 
 /* 
-  skill Page
-*/
+ * -------------------------------------------------------------------------
+ * Skill Page
+ * -------------------------------------------------------------------------
+ */
+.skill .container {
+  color: #fffffd;
+  display: flex;
+  flex-direction: column; }
+  .skill .container .skill_title {
+    display: flex;
+    justify-content: f;
+    position: relative; }
+    .skill .container .skill_title .title {
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: flex-end;
+      font-family: MapoFlowerIsland;
+      font-size: 4.8vw; }
+    .skill .container .skill_title .skill_logo {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 5vw;
+      height: 5vw;
+      opacity: 0;
+      transform: rotate(160deg) scale(0); }
+  .skill .container .skill_content {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }
+    .skill .container .skill_content .skill_list {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start; }
+      .skill .container .skill_content .skill_list .skill_item {
+        margin: 10% 0;
+        display: flex;
+        font-family: S-CoreDream-4Regular;
+        font-size: 6vw; }
+        .skill .container .skill_content .skill_list .skill_item .skill_per {
+          margin-right: 2vw;
+          padding-right: 1vw;
+          border-right: 5px solid #fffffd; }
+
 /*
 * -------------------------------------------------------------------------
 * Responsive
