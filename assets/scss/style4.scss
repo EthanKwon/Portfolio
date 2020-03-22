@@ -1,5 +1,4 @@
 // import
-
 @import "./varibles";
 @import "./layout";
 @import "./mixin";
@@ -7,35 +6,11 @@
 
 //font
 
-@import url("https://fonts.googleapis.com/css?family=Black+Han+Sans&display=swap&subset=korean");
-
-@font-face {
-  font-family: "TmonMonsori";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/TmonMonsori.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "OTEnjoystoriesBA";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/OTEnjoystoriesBA.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
+@import url("https://fonts.googleapis.com/css?family=Abril+Fatface&display=swap");
 
 @font-face {
   font-family: "S-CoreDream-9Black";
   src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "S-CoreDream-4Regular";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff")
     format("woff");
   font-weight: normal;
   font-style: normal;
@@ -48,74 +23,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
-@font-face {
-  font-family: "S-CoreDream-1Thin";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-1Thin.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Big John Regular";
-  font-style: normal;
-  font-weight: normal;
-  src: local("Big John Regular"), url("Big John.woff") format("woff");
-}
-
-@font-face {
-  font-family: "Hey August Regular";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../font/Hey\ August.woff") format("woff");
-}
-
-@import url("https://fonts.googleapis.com/css?family=Italianno&display=swap");
-
-@import url("https://fonts.googleapis.com/css?family=Noto+Sans+KR:300,400,700&display=swap&subset=korean");
-
-@import url("https://fonts.googleapis.com/css?family=Jua&display=swap");
-
-@font-face {
-  font-family: "MapoFlowerIsland";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff")
-    format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-// wrap
-
-// pinContainer
-#pinContainer {
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  position: relative;
-  .panal {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-  }
-}
-
-.bgBlock {
-  @include bg($black);
-}
-
-.bgYellow {
-  @include bg($yellow);
-}
-
-.bgRed {
-  @include bg(red);
-}
-
-/* 
- * --------------------------------------------
- * mouse effect
- * --------------------------------------------
- */
 
 /* 
  * -------------------------------------------------------------------------
@@ -142,6 +49,7 @@
       display: none;
     } //mobile_menu
     nav {
+      display: none;
       width: 76%;
       margin: 0 10%;
       color: $font-black;
@@ -185,75 +93,62 @@
 
 .profile {
   @include header-margin($header-height);
-  @extend %section-container;
 
+  height: 100vh;
   .container {
     display: flex;
-    @extend %wrap-container;
+    justify-content: flex-end;
+    background-color: $black;
+    margin: 0 0.5%;
     .intro_left {
-      width: 40%;
+      width: 30%;
+      height: 69vh;
+      background-color: $yellow;
       display: flex;
-      justify-content: flex-end;
-      align-items: center;
-
+      align-items: flex-end;
+      z-index: 10;
+      transform: translate(50%, 20%);
+      transition: height 0.5s ease-out;
       .intro_title {
-        width: 100%;
-        height: 40%;
-        padding: 5%;
-        margin-top: 18%;
-        background-color: $yellow;
-        transition: all 0.5s ease-in-out;
-        transform: translateX(30%);
-        z-index: 10;
-
         display: flex;
         flex-direction: column;
-        align-items: flex-end;
         justify-content: flex-end;
+        width: 100%;
+        padding: 10% 5%;
         text-align: right;
         .position {
-          font: {
+          font : {
             family: S-CoreDream-9Black;
-            size: $main-text-size;
-            weight: 700;
+            size: $profile-position-size;
           }
         }
         .title {
-          padding: 5% 0;
+          padding: 7% 0;
+          line-height: 1.5;
           font: {
-            family: OTEnjoystoriesBA;
+            family: "Abril Fatface", cursive;
             size: $profile-title-size;
-          }
-          span {
-            display: block;
           }
         }
         .desc {
           line-height: 1.5;
+          font: {
+            family: S-CoreDream-2ExtraLight;
+            size: $main-text-size;
+            weight: bold;
+          }
           .mobile_desc {
             display: none;
           }
-          font: {
-            family: S-CoreDream-4Regular;
-            size: $main-text-size;
-          }
         }
-      }
+      } //intro_title
     } //intro_left
     .intro_right {
       width: 60%;
       figure {
-        width: 90%;
-        margin: 0 5% 5% 5%;
-        transition: all 0.5s linear;
+        padding: 0 5% 5% 5%;
         transform: translateY(-$header-height);
-        overflow: hidden;
-
-        img {
-          object-fit: cover;
-          border-right: 7px solid $yellow;
-        }
-      } //figure
+      }
     } //intro_right
   } //container
 } //intro
@@ -265,10 +160,9 @@
  */
 
 .about {
-  @extend %section-container;
   .container {
     display: flex;
-    @extend %wrap-container;
+
     .about_left {
       width: 35%;
       margin-bottom: 40%;
@@ -315,73 +209,6 @@
   } //container
 } //about-end
 
-/* 
- * -------------------------------------------------------------------------
- * Skill Page
- * -------------------------------------------------------------------------
- */
-
-.skill {
-  @extend %section-container;
-  .container {
-    @extend %wrap-container;
-    color: $font-white;
-    display: flex;
-    flex-direction: column;
-
-    .skill_title {
-      display: flex;
-      justify-content: f;
-      position: relative;
-
-      .title {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-        align-items: flex-end;
-        font: {
-          family: MapoFlowerIsland;
-          size: $skill-title-size;
-        }
-      } //title
-      .skill_logo {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 5vw;
-        height: 5vw;
-        opacity: 0;
-        transform: rotate(160deg) scale(0);
-      }
-    } //skill_title
-    .skill_content {
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-
-      .skill_list {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-
-        .skill_item {
-          margin: 10% 0;
-          display: flex;
-          font: {
-            family: S-CoreDream-4Regular;
-            size: $skill-item-size;
-          }
-          .skill_per {
-            margin-right: 2vw;
-            padding-right: 1vw;
-            border-right: 5px solid $font-white;
-          } //skill_per
-        } //skill_item
-      } //skill_list
-    } //skill_content
-  } //container
-} //skill-end
-
 /*
 * -------------------------------------------------------------------------
 * Responsive
@@ -397,22 +224,31 @@
     .container {
       margin-bottom: 0;
       .intro_left {
-        .intro_title {
-          margin-top: 0;
-        }
-      }
+        height: 34vh;
+      } //intro_left
     } //container
   } //profile
 } //laptop-size
 
+@include responsive("laptop_land") {
+  .profile {
+    .container {
+      margin-bottom: 0;
+      .intro_left {
+        height: 64vh;
+      } //intro_left
+    } //container
+  } //profile
+} //laptop-land-size
+
 /*
-* -------------------------------------------------------------------------
-*
-* Tablet
-* (376px ~ 768px)
-*
-* -------------------------------------------------------------------------
-*/
+  * -------------------------------------------------------------------------
+  *
+  * Tablet
+  * (376px ~ 768px)
+  *
+  * -------------------------------------------------------------------------
+  */
 
 @include responsive("tablet") {
   .header {
@@ -588,13 +424,13 @@
 } //tablet-size
 
 /*
-* -------------------------------------------------------------------------
-*
-* Tablet- landscape 
-* (813px ~ 1024px)
-*
-* -------------------------------------------------------------------------
-*/
+  * -------------------------------------------------------------------------
+  *
+  * Tablet- landscape 
+  * (813px ~ 1024px)
+  *
+  * -------------------------------------------------------------------------
+  */
 
 @include responsive("tablet_land") {
   .header {
@@ -618,13 +454,13 @@
 } //tablet_land-size
 
 /*
-* -------------------------------------------------------------------------
-*
-* Mobile 
-* (320px ~ 375px)
-*
-* -------------------------------------------------------------------------
-*/
+  * -------------------------------------------------------------------------
+  *
+  * Mobile 
+  * (320px ~ 375px)
+  *
+  * -------------------------------------------------------------------------
+  */
 
 @include responsive("mobile") {
   .header {
@@ -678,13 +514,13 @@
 } //mobile-size
 
 /*
-* -------------------------------------------------------------------------
-*
-* Mobile - landscape 
-* (567px ~ 812px)
-*
-* -------------------------------------------------------------------------
-*/
+  * -------------------------------------------------------------------------
+  *
+  * Mobile - landscape 
+  * (567px ~ 812px)
+  *
+  * -------------------------------------------------------------------------
+  */
 
 @include responsive("mobile_land") {
   .header {
@@ -704,29 +540,3 @@
     } //container
   } //profile
 } // mobile_land-size
-
-/*
-* -------------------------------------------------------------------------
-*
-* keyframe
-*
-* -------------------------------------------------------------------------
-*/
-
-@keyframes letter-glow {
-  0% {
-    opacity: 0;
-    text-shadow: 0px 0px 1px rgba(255, 255, 255, 0.1);
-  }
-  66% {
-    opacity: 1;
-    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.9);
-  }
-  77% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0.7;
-    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0);
-  }
-}

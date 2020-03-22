@@ -6,20 +6,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-//desktop-layout
-
-%title {
-  height: 100%;
-  width: 10%;
-  background-color: $yellow;
-  text-transform: uppercase;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font: {
-    size: 1vmax;
-    weight: 700;
-  }
+  height: 100vh;
+  background-color: $black;
 }
