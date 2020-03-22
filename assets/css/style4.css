@@ -154,6 +154,12 @@ img {
   font-weight: normal;
   font-style: normal; }
 
+@font-face {
+  font-family: "MapoFlowerIsland";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
 /* 
  * -------------------------------------------------------------------------
  * header - main manu
@@ -302,6 +308,14 @@ img {
     .profile .container .intro_left {
       height: 34vh; } }
 
+/*
+  * -------------------------------------------------------------------------
+  *
+  * Laptop -landscape
+  * (1025px ~ 1366px)
+  *
+  * -------------------------------------------------------------------------
+  */
 @media screen and (max-width: 1366px) and (orientation: landscape) {
   .profile .container {
     margin-bottom: 0; }
@@ -317,76 +331,20 @@ img {
   * -------------------------------------------------------------------------
   */
 @media screen and (max-width: 768px) and (orientation: portrait) {
-  .header {
-    height: 80px; }
-    .header .container {
-      background-color: #1c1c1c;
-      justify-content: space-between;
-      padding: 0 5%;
-      color: #fffffd; }
-      .header .container .mobile_logo {
-        display: block;
-        font-family: S-CoreDream-9Black;
-        font-size: 4vw; }
-      .header .container .mobile_menu {
-        display: block;
-        font-family: S-CoreDream-9Black;
-        font-size: 3vw; }
-      .header .container nav {
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 100%;
-        height: 100vh;
-        margin: 0;
-        background-color: #1c1c1c;
-        color: #fffffd;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        transform: translateY(-100vh); }
-        .header .container nav .mobile_menu_title {
-          display: flex;
-          justify-content: space-around;
-          position: relative; }
-          .header .container nav .mobile_menu_title::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 5px;
-            width: 100%;
-            background-color: #fffffd; }
-        .header .container nav ul {
-          height: 80%;
-          flex-direction: column;
-          justify-content: center;
-          align-items: flex-start;
-          margin-left: 15%; }
-          .header .container nav ul .nav_item {
-            margin: 7% 0;
-            font-size: 7vw; }
-            .header .container nav ul .nav_item a:visited {
-              color: #fffffd; }
-        .header .container nav .mobile_menu_contact {
-          height: 10%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: underline;
-          font-family: S-CoreDream-4Regular;
-          font-size: 5vw; }
   .profile {
-    margin-top: 80px; }
+    margin-top: 80px;
+    height: auto; }
     .profile .container {
       flex-direction: column-reverse;
       justify-content: center; }
       .profile .container .intro_left {
-        width: 100%; }
+        width: 100%;
+        height: auto;
+        transform: none;
+        background-color: transparent; }
         .profile .container .intro_left .intro_title {
           transform: none;
           align-items: flex-start;
-          background-color: transparent;
           color: #fffffd;
           text-align: left; }
           .profile .container .intro_left .intro_title .position {
@@ -406,6 +364,7 @@ img {
       .profile .container .intro_right {
         width: 100%; }
         .profile .container .intro_right figure {
+          padding: 5%;
           transform: none; }
           .profile .container .intro_right figure::after {
             display: none; }
@@ -451,8 +410,8 @@ img {
       margin: 0 7%; }
   .profile {
     margin-top: 80px; }
-    .profile .container .intro_left .intro_title {
-      margin-top: 0; } }
+    .profile .container .intro_left {
+      height: 61vh; } }
 
 /*
   * -------------------------------------------------------------------------
@@ -475,7 +434,7 @@ img {
           font-family: S-CoreDream-1Thin;
           font-weight: 300; }
     .profile .container .intro_right figure {
-      margin: 0; }
+      padding: 0; }
   .about .container .about_left {
     width: 100%;
     margin: 0; }
@@ -493,6 +452,4 @@ img {
   */
 @media screen and (max-width: 812px) and (orientation: landscape) {
   .header .container nav {
-    margin: 0 3%; }
-  .profile .container .intro_left .intro_title {
-    margin-bottom: 40%; } }
+    margin: 0 3%; } }

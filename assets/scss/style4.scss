@@ -24,6 +24,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "MapoFlowerIsland";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* 
  * -------------------------------------------------------------------------
  * header - main manu
@@ -230,6 +238,15 @@
   } //profile
 } //laptop-size
 
+/*
+  * -------------------------------------------------------------------------
+  *
+  * Laptop -landscape
+  * (1025px ~ 1366px)
+  *
+  * -------------------------------------------------------------------------
+  */
+
 @include responsive("laptop_land") {
   .profile {
     .container {
@@ -251,99 +268,21 @@
   */
 
 @include responsive("tablet") {
-  .header {
-    height: $header-mobile;
-    .container {
-      background-color: $black;
-      justify-content: space-between;
-      padding: 0 5%;
-      color: $font-white;
-      .mobile_logo {
-        display: block;
-        font: {
-          family: S-CoreDream-9Black;
-          size: $menu-logo;
-        }
-      }
-      .mobile_menu {
-        display: block;
-        font: {
-          family: S-CoreDream-9Black;
-          size: $menu-mobile;
-        }
-      } //mobile_menu
-      nav {
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 100%;
-        height: 100vh;
-        margin: 0;
-        background-color: $black;
-        color: $font-white;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        transform: translateY(-100vh);
-
-        .mobile_menu_title {
-          display: flex;
-          justify-content: space-around;
-          position: relative;
-          &::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            height: 5px;
-            width: 100%;
-            background-color: $font-white;
-          }
-        } //mobile_menu_title
-        ul {
-          height: 80%;
-          flex-direction: column;
-          justify-content: center;
-          align-items: flex-start;
-          margin-left: 15%;
-
-          .nav_item {
-            margin: 7% 0;
-            font: {
-              size: $menu-mobile-item;
-            }
-            a {
-              &:visited {
-                color: $font-white;
-              }
-            } //a
-          } //nav_item
-        } //ul
-        .mobile_menu_contact {
-          height: 10%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          text-decoration: underline;
-          font: {
-            family: S-CoreDream-4Regular; // 폰트 변경 필요
-            size: $menu-mobile-contact;
-          }
-        }
-      } //nav
-    } //container
-  } //header
   .profile {
     @include header-margin($header-mobile);
+    height: auto;
     .container {
       flex-direction: column-reverse;
       justify-content: center;
       .intro_left {
         width: 100%;
+        height: auto;
+        transform: none;
+        background-color: transparent;
         .intro_title {
           transform: none;
           align-items: flex-start;
-          background-color: transparent;
+
           color: $font-white;
           text-align: left;
           .position {
@@ -375,6 +314,7 @@
       .intro_right {
         width: 100%;
         figure {
+          padding: 5%;
           transform: none;
           &::after {
             display: none;
@@ -445,9 +385,7 @@
     @include header-margin($header-mobile);
     .container {
       .intro_left {
-        .intro_title {
-          margin-top: 0;
-        } //intro_title
+        height: 61vh;
       } //intro_left
     } //container
   } //profile
@@ -490,7 +428,7 @@
       } //intro_left
       .intro_right {
         figure {
-          margin: 0;
+          padding: 0;
         } //figure
       } //intro_right
     } //container
@@ -534,7 +472,6 @@
     .container {
       .intro_left {
         .intro_title {
-          margin-bottom: 40%;
         } //intro_title
       } //intro_left
     } //container
