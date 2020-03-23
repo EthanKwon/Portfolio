@@ -45,7 +45,7 @@
 
   .header_nav {
     display: grid;
-    grid-template-columns: 15% 1fr 60%;
+    grid-template-columns: 10% 1fr 63%;
     min-height: 10vh;
     ul {
       grid-column: 2/3;
@@ -53,16 +53,19 @@
       grid-template-columns: repeat(4, 1fr);
       justify-items: center;
       align-items: center;
-    }
+    } //ul
+  } //header_nav
+  .mobile_nav {
+    display: none;
   }
-}
+} //header
 
 .nav_list {
   .nav_item {
     text-transform: uppercase;
     font: {
       family: "Roboto";
-      size: 17px;
+      size: 1vw;
     }
   }
 }
@@ -83,17 +86,14 @@
 
 .profile_contents {
   display: flex;
-
   .profile_left {
     width: 40vw;
-    height: 100vh;
     display: grid;
     grid-template-columns: 25% 1fr;
     z-index: 11;
   } //profile_left
   .profile_right {
     width: 60vw;
-    height: 100vh;
     z-index: 10;
   } //profile_right
 } //profile_contents
@@ -108,15 +108,14 @@
       color: $black;
     }
     width: 100%;
-    height: 100vh;
+    height: 100%;
   }
 }
 
 .profile_title_box {
-  width: 100%;
   height: 38vw;
+  max-height: 800px;
   margin-top: 4vw;
-  padding: 10% 5%;
   grid-column: 2/3;
   background-color: $yellow;
   transform: translateX(30%);
@@ -125,6 +124,7 @@
   justify-content: flex-end;
   align-items: flex-end;
   text-align: right;
+  color: $black;
   .title {
     padding-bottom: 3vh;
     font: {
@@ -140,9 +140,162 @@
       weight: bold;
     }
   } //desc
+  .mobile_desc {
+    display: none;
+  }
 } //profile_title_box;
 
 .profile_photo {
   padding-right: 5vw;
   transform: translateY(-10vh);
 }
+
+/*
+* -------------------------------------------------------------------------
+* Responsive
+*
+* Desktop
+* (1025px ~ 1280px)
+*
+* -------------------------------------------------------------------------
+*/
+
+@include responsive("desktop") {
+} //laptop-size
+
+/*
+* -------------------------------------------------------------------------
+*
+* Laptop
+* (769px ~ 1024px)
+*
+* -------------------------------------------------------------------------
+*/
+
+@include responsive("laptop") {
+} //laptop-size
+
+/*
+* -------------------------------------------------------------------------
+*
+* Tablet
+* (376px ~ 768px)
+*
+* -------------------------------------------------------------------------
+*/
+
+@include responsive("tablet") {
+  /*
+   * Header
+   */
+  .header {
+    background-color: $black;
+    .header_nav {
+      display: none;
+    } //header_nav
+    .mobile_nav {
+      height: 10vh;
+      padding: 0 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $font-white;
+      font: {
+        family: S-CoreDream-9Black;
+        size: 5vw;
+      }
+    }
+  }
+
+  /*
+   * Profile 
+   */
+
+  .profile {
+    .container {
+      padding: 0;
+    }
+  }
+
+  .profile_contents {
+    flex-direction: column-reverse;
+    .profile_left {
+      width: 100%;
+      display: flex;
+    } //profile_left
+    .profile_right {
+      width: 100%;
+    }
+  } //profile_contents
+
+  .profile_title_box {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 5vw;
+    transform: none;
+    background-color: transparent;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: $font-white;
+    text-align: left;
+    .title {
+      display: none;
+    } //title
+    .desc {
+      margin-bottom: 4vh;
+      font: {
+        size: 2.8vw;
+      }
+    } //desc
+    .mobile_desc {
+      display: block;
+      line-height: 1.5;
+
+      font: {
+        family: "S-CoreDream-2ExtraLight";
+        size: 2.8vw;
+      }
+    }
+  }
+  .profile_photo {
+    padding: 5vw;
+    transform: none;
+  } //profile_photo
+} //tablet-size
+
+/*
+* -------------------------------------------------------------------------
+*
+* Tablet- landscape 
+* (813px ~ 1024px)
+*
+* -------------------------------------------------------------------------
+*/
+
+@include responsive("tablet_land") {
+} //tablet_land-size
+
+/*
+* -------------------------------------------------------------------------
+*
+* Mobile 
+* (320px ~ 375px)
+*
+* -------------------------------------------------------------------------
+*/
+
+@include responsive("mobile") {
+} //mobile-size
+
+/*
+* -------------------------------------------------------------------------
+*
+* Mobile - landscape 
+* (567px ~ 812px)
+*
+* -------------------------------------------------------------------------
+*/
+
+@include responsive("mobile_land") {
+} // mobile_land-size

@@ -174,7 +174,7 @@ img {
   z-index: 100; }
   .header .header_nav {
     display: grid;
-    grid-template-columns: 15% 1fr 60%;
+    grid-template-columns: 10% 1fr 63%;
     min-height: 10vh; }
     .header .header_nav ul {
       grid-column: 2/3;
@@ -182,11 +182,13 @@ img {
       grid-template-columns: repeat(4, 1fr);
       justify-items: center;
       align-items: center; }
+  .header .mobile_nav {
+    display: none; }
 
 .nav_list .nav_item {
   text-transform: uppercase;
   font-family: "Roboto";
-  font-size: 17px; }
+  font-size: 1vw; }
 
 /*
  *
@@ -203,13 +205,11 @@ img {
   display: flex; }
   .profile_contents .profile_left {
     width: 40vw;
-    height: 100vh;
     display: grid;
     grid-template-columns: 25% 1fr;
     z-index: 11; }
   .profile_contents .profile_right {
     width: 60vw;
-    height: 100vh;
     z-index: 10; }
 
 .profile_contents {
@@ -220,13 +220,12 @@ img {
     top: 0;
     background-color: #1c1c1c;
     width: 100%;
-    height: 100vh; }
+    height: 100%; }
 
 .profile_title_box {
-  width: 100%;
   height: 38vw;
+  max-height: 800px;
   margin-top: 4vw;
-  padding: 10% 5%;
   grid-column: 2/3;
   background-color: #fed000;
   transform: translateX(30%);
@@ -234,7 +233,8 @@ img {
   flex-direction: column;
   justify-content: flex-end;
   align-items: flex-end;
-  text-align: right; }
+  text-align: right;
+  color: #1c1c1c; }
   .profile_title_box .title {
     padding-bottom: 3vh;
     font-family: "Abril Fatface", cursive;
@@ -244,7 +244,113 @@ img {
     font-family: "S-CoreDream-2ExtraLight";
     font-size: 1vw;
     font-weight: bold; }
+  .profile_title_box .mobile_desc {
+    display: none; }
 
 .profile_photo {
   padding-right: 5vw;
   transform: translateY(-10vh); }
+
+/*
+* -------------------------------------------------------------------------
+* Responsive
+*
+* Desktop
+* (1025px ~ 1280px)
+*
+* -------------------------------------------------------------------------
+*/
+/*
+* -------------------------------------------------------------------------
+*
+* Laptop
+* (769px ~ 1024px)
+*
+* -------------------------------------------------------------------------
+*/
+/*
+* -------------------------------------------------------------------------
+*
+* Tablet
+* (376px ~ 768px)
+*
+* -------------------------------------------------------------------------
+*/
+@media screen and (max-width: 768px) and (orientation: portrait) {
+  /*
+   * Header
+   */
+  .header {
+    background-color: #1c1c1c; }
+    .header .header_nav {
+      display: none; }
+    .header .mobile_nav {
+      height: 10vh;
+      padding: 0 5vw;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fffffd;
+      font-family: S-CoreDream-9Black;
+      font-size: 5vw; }
+  /*
+   * Profile 
+   */
+  .profile .container {
+    padding: 0; }
+  .profile_contents {
+    flex-direction: column-reverse; }
+    .profile_contents .profile_left {
+      width: 100%;
+      display: flex; }
+    .profile_contents .profile_right {
+      width: 100%; }
+  .profile_title_box {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 5vw;
+    transform: none;
+    background-color: transparent;
+    justify-content: flex-start;
+    align-items: flex-start;
+    color: #fffffd;
+    text-align: left; }
+    .profile_title_box .title {
+      display: none; }
+    .profile_title_box .desc {
+      margin-bottom: 4vh;
+      font-size: 2.8vw; }
+    .profile_title_box .mobile_desc {
+      display: block;
+      line-height: 1.5;
+      font-family: "S-CoreDream-2ExtraLight";
+      font-size: 2.8vw; }
+  .profile_photo {
+    padding: 5vw;
+    transform: none; } }
+
+/*
+* -------------------------------------------------------------------------
+*
+* Tablet- landscape 
+* (813px ~ 1024px)
+*
+* -------------------------------------------------------------------------
+*/
+/*
+* -------------------------------------------------------------------------
+*
+* Mobile 
+* (320px ~ 375px)
+*
+* -------------------------------------------------------------------------
+*/
+/*
+* -------------------------------------------------------------------------
+*
+* Mobile - landscape 
+* (567px ~ 812px)
+*
+* -------------------------------------------------------------------------
+*/

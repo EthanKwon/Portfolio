@@ -426,7 +426,7 @@ img {
 *
 * -------------------------------------------------------------------------
 */
-@media screen and (max-width: 1024px) and (orientation: portrait) {
+@media screen and (max-width: 1024px) {
   .profile .container {
     margin-bottom: 0; }
     .profile .container .intro_left .intro_title {
