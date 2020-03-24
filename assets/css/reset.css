@@ -136,6 +136,8 @@ body::-webkit-scrollbar {
 
 a {
   text-decoration: none; }
+  a:visited {
+    color: inherit; }
 
 img {
   width: 100%;

@@ -159,6 +159,9 @@ body::-webkit-scrollbar {
 
 a {
   text-decoration: none;
+  &:visited {
+    color: inherit;
+  }
 }
 
 //img tag

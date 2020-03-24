@@ -137,6 +137,8 @@ body::-webkit-scrollbar {
 
 a {
   text-decoration: none; }
+  a:visited {
+    color: inherit; }
 
 img {
   width: 100%;
@@ -187,8 +189,9 @@ img {
 
 .nav_list .nav_item {
   text-transform: uppercase;
-  font-family: "Roboto";
-  font-size: 1vw; }
+  color: #333334;
+  font-family: "S-CoreDream-9Black";
+  font-size: 0.8vw; }
 
 /*
  *
@@ -218,7 +221,7 @@ img {
     position: absolute;
     left: 0;
     top: 0;
-    background-color: #1c1c1c;
+    background: #1c1c1c;
     width: 100%;
     height: 100%; }
 
@@ -234,7 +237,7 @@ img {
   justify-content: flex-end;
   align-items: flex-end;
   text-align: right;
-  color: #1c1c1c; }
+  color: #333334; }
   .profile_title_box .title {
     padding-bottom: 3vh;
     font-family: "Abril Fatface", cursive;
@@ -246,6 +249,10 @@ img {
     font-weight: bold; }
   .profile_title_box .mobile_desc {
     display: none; }
+
+.profile_text .title1,
+.profile_text .title2 {
+  display: block; }
 
 .profile_photo {
   padding-right: 5vw;
@@ -292,7 +299,7 @@ img {
       align-items: center;
       color: #fffffd;
       font-family: S-CoreDream-9Black;
-      font-size: 5vw; }
+      font-size: 3vw; }
   /*
    * Profile 
    */
