@@ -63,6 +63,10 @@
   }
 } //header
 
+.header.scrolldown {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 .nav_list {
   .nav_item {
     text-transform: uppercase;
@@ -249,7 +253,10 @@
     color: $font-white;
     text-align: left;
     .title {
-      display: none;
+      font: {
+        family: MapoFlowerIsland;
+        size: $profile-title-tablet;
+      }
     } //title
     .desc {
       margin-bottom: 4vh;

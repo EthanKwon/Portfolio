@@ -37,7 +37,7 @@ $max-width-mobile-land: 812px;
       @content;
     }
   } @else if $device == "tablet" {
-    @media screen and (max-width: $max-width-tablet) and (orientation: portrait) {
+    @media screen and (max-width: $max-width-tablet) {
       @content;
     }
   } @else if $device == "tablet_land" {
