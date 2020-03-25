@@ -1,12 +1,3 @@
-const desktopToMobileClass = () => {
-  header.classList.remove("header_scroll");
-  profileMobile.classList.add("profile_text", "profile_mobile");
-};
-
-const mobileToDesktopClass = () => {
-  profileMobile.classList.remove("profile_text", "profile_mobile");
-};
-
 /*
  *
  * GSAP Animation
@@ -106,6 +97,7 @@ const headerSlideUp = type => {
     case "scrollDown": {
       headerTl.to(header, 0.5, {
         y: "-10vh",
+        backgroundColor: "transparent",
         ease: Power2.easeInOut
       });
       break;
@@ -156,7 +148,7 @@ const profileMobile = profileTitleBox.querySelector(".mobile_desc");
 
 //profile Timeline
 
-const profileAni = () => {
+const profileOnload = () => {
   const profileTl = gsap.timeline();
 
   profileTl
@@ -203,13 +195,6 @@ const profileAni = () => {
       { x: -30, opacity: 0, display: "inline-block" },
       { x: 0, opacity: 1, ease: Power2.easeInOut },
       "-=1"
-    )
-    .fromTo(
-      ".profile_mobile",
-      1,
-      { x: -30, opacity: 0, display: "inline-block" },
-      { x: 0, opacity: 1, ease: Power2.easeInOut },
-      "-=1"
     );
 };
 
@@ -222,6 +207,8 @@ window.onload = () => {
   //너비에 따른 클래스 지정
   if (wWidth < 768) {
     desktopToMobileClass();
+  } else {
+    profileOnload();
   }
 
   //스크롤 위치에 따른 클래스 지정
@@ -230,8 +217,6 @@ window.onload = () => {
   } else {
     headerSlideUp("onload");
   }
-
-  profileAni();
 };
 
 window.onresize = () => {
@@ -239,16 +224,9 @@ window.onresize = () => {
   const wScroll = window.scrollY;
   console.log("wW : " + wWidth);
   if (wWidth < 768) {
-    desktopToMobileClass();
-    headerColor("onMobile");
-    headerSlideUp("toMoblie");
+    headerSlideDown("toMoblie");
   } else {
-    mobileToDesktopClass();
-    if (wScroll == 0) {
-      headerColor("onDesktop");
-    } else {
-      headerSlideUp("scrollDown");
-    }
+    headerSlideUp("scrollDown");
   }
 };
 

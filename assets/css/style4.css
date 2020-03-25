@@ -260,7 +260,9 @@ img {
 
 .profile_photo {
   padding-right: 5vw;
-  transform: translateY(-10vh); }
+  transform: translateY(-10vh);
+  width: 80%;
+  height: 100%; }
 
 /*
 * -------------------------------------------------------------------------
