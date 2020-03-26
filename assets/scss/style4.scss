@@ -29,6 +29,20 @@
   font-style: normal;
 }
 
+//scroll show
+
+.scroll_show {
+  position: fixed;
+  left: 3vw;
+  top: 3vw;
+  width: 100px;
+  height: 70px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 /*
  *
  * Header SCSS
@@ -105,6 +119,7 @@
 
 .profile_contents {
   position: relative;
+  padding-bottom: 25vh;
   .profile_slider {
     position: absolute;
     left: 0;
@@ -175,7 +190,6 @@
 
 .about_contents {
   background-color: $black;
-  padding-top: 20vh;
   display: flex;
 
   .about_left {
@@ -248,6 +262,14 @@
 */
 
 @include responsive("laptop") {
+  .profile_title_box {
+    .desc {
+      font: {
+        size: 1.5vw;
+      }
+    } //desc
+  } //profile_title_box
+
   .about_contents {
     .about_right {
       grid-template-columns: 5vw 1fr 5vw;
@@ -255,10 +277,15 @@
   } //about_contents
   .about_text {
     grid-column: 2/3;
-    grid-template-columns: 15vw 1fr;
+    grid-template-columns: 7vw 1fr;
     .about_title {
       transform: none;
     } //about_title
+    .about_desc {
+      font: {
+        size: 1.5vw;
+      }
+    }
   } //about_text
 } //laptop-size
 
@@ -306,6 +333,7 @@
 
   .profile_contents {
     flex-direction: column-reverse;
+    padding-bottom: 15vh;
     .profile_left {
       width: 100%;
       display: flex;
@@ -346,8 +374,9 @@
         family: "S-CoreDream-2ExtraLight";
         size: 2.8vw;
       }
-    }
-  }
+    } //mobile_desc
+  } //profile_title_box
+
   .profile_photo {
     padding: 5vw;
     transform: none;
@@ -365,7 +394,7 @@
 
   .about_contents {
     flex-direction: column;
-    padding-top: 15vh;
+
     .about_left {
       width: 100%;
     } //about_left
@@ -424,9 +453,9 @@
 */
 
 @include responsive("mobile") {
-  .about_contents {
-    padding-top: 10vh;
-  } //about_contents
+  .profile_contents {
+    padding-bottom: 10vh;
+  } //profile_contents
 
   .about_photo {
     height: 50vh;

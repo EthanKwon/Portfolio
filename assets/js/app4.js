@@ -199,9 +199,11 @@ const profileOnload = () => {
 };
 
 // about photo hover effect
+const aboutPhoto = document.querySelector(".about_photo");
+const aboutText = document.querySelector(".about_text");
 
 new hoverEffect({
-  parent: document.querySelector(".about_photo"),
+  parent: aboutPhoto,
   intensity: 0.2,
   image1: "./assets/img/about.jpg",
   image2: "./assets/img/about2.jpg",
@@ -210,6 +212,41 @@ new hoverEffect({
   speedOut: 1,
   easing: Power1.easeInOut
 });
+
+//about animation
+
+const Controller = new ScrollMagic.Controller();
+
+const aboutTl = gsap.timeline();
+
+aboutTl
+  .from(aboutText, 0.5, {
+    opacity: 0
+  })
+  .from(
+    aboutPhoto,
+    1.5,
+    {
+      opacity: 0,
+      x: "-41.4vw"
+    },
+    "-=0.5"
+  );
+
+new ScrollMagic.Scene({
+  triggerElement: ".about",
+  triggerHook: "onLeave",
+  duration: "200%"
+})
+  .setPin(".about")
+  .setTween(aboutTl)
+  .addIndicators({
+    colorTrigger: "white",
+    colorStart: "white",
+    colorEnd: "white",
+    indent: 40
+  })
+  .addTo(Controller);
 
 //setTimeout(() => {}, 1000);
 
@@ -257,11 +294,13 @@ window.onload = () => {
 
   let lastScrollTop = 0;
 
+  const scrollShow = document.querySelector(".scroll_show");
+
   window.addEventListener("scroll", () => {
     const wScroll = window.scrollY;
     const wWidth = window.innerWidth;
-    console.log("wS : " + wScroll);
-    console.log("lS : " + lastScrollTop);
+
+    scrollShow.innerHTML = `scroll : ${wScroll}`;
 
     if (wWidth <= 768) {
       headerColor("onMobile");

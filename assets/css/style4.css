@@ -163,6 +163,17 @@ img {
   font-weight: normal;
   font-style: normal; }
 
+.scroll_show {
+  position: fixed;
+  left: 3vw;
+  top: 3vw;
+  width: 100px;
+  height: 70px;
+  background-color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 /*
  *
  * Header SCSS
@@ -220,7 +231,8 @@ img {
     z-index: 10; }
 
 .profile_contents {
-  position: relative; }
+  position: relative;
+  padding-bottom: 25vh; }
   .profile_contents .profile_slider {
     position: absolute;
     left: 0;
@@ -273,7 +285,6 @@ img {
 
 .about_contents {
   background-color: #1c1c1c;
-  padding-top: 20vh;
   display: flex; }
   .about_contents .about_left {
     width: 40%; }
@@ -328,13 +339,17 @@ img {
 * -------------------------------------------------------------------------
 */
 @media screen and (max-width: 1024px) {
+  .profile_title_box .desc {
+    font-size: 1.5vw; }
   .about_contents .about_right {
     grid-template-columns: 5vw 1fr 5vw; }
   .about_text {
     grid-column: 2/3;
-    grid-template-columns: 15vw 1fr; }
+    grid-template-columns: 7vw 1fr; }
     .about_text .about_title {
-      transform: none; } }
+      transform: none; }
+    .about_text .about_desc {
+      font-size: 1.5vw; } }
 
 /*
 * -------------------------------------------------------------------------
@@ -367,7 +382,8 @@ img {
   .profile .container {
     padding: 0; }
   .profile_contents {
-    flex-direction: column-reverse; }
+    flex-direction: column-reverse;
+    padding-bottom: 15vh; }
     .profile_contents .profile_left {
       width: 100%;
       display: flex; }
@@ -404,8 +420,7 @@ img {
   .about .container {
     padding: 0; }
   .about_contents {
-    flex-direction: column;
-    padding-top: 15vh; }
+    flex-direction: column; }
     .about_contents .about_left {
       width: 100%; }
     .about_contents .about_right {
@@ -444,8 +459,8 @@ img {
 * -------------------------------------------------------------------------
 */
 @media screen and (max-width: 375px) {
-  .about_contents {
-    padding-top: 10vh; }
+  .profile_contents {
+    padding-bottom: 10vh; }
   .about_photo {
     height: 50vh; } }
 
