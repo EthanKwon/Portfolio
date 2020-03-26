@@ -95,7 +95,7 @@ const headerSlideUp = type => {
       break;
     }
     case "scrollDown": {
-      headerTl.to(header, 0.5, {
+      headerTl.to(header, 0.3, {
         y: "-10vh",
         backgroundColor: "transparent",
         ease: Power2.easeInOut
@@ -198,62 +198,73 @@ const profileOnload = () => {
     );
 };
 
+new hoverEffect({
+  parent: document.querySelector(".about_photo"),
+  intensity: 0.2,
+  image1: "./assets/img/about.jpg",
+  image2: "./assets/img/about2.jpg",
+  displacementImage: "./assets/img/displacement/4.png",
+  speedIn: 1,
+  speedOut: 1,
+  easing: Power1.easeInOut
+});
+
 //setTimeout(() => {}, 1000);
 
-window.onload = () => {
-  const wWidth = window.innerWidth; // loadding시 화면 너비
-  const wScroll = window.scrollY; //loading시 스크롤의 위치
+// window.onload = () => {
+//   const wWidth = window.innerWidth; // loadding시 화면 너비
+//   const wScroll = window.scrollY; //loading시 스크롤의 위치
 
-  //너비에 따른 클래스 지정
-  if (wWidth < 768) {
-    desktopToMobileClass();
-  } else {
-    profileOnload();
-  }
+//   //너비에 따른 클래스 지정
+//   if (wWidth < 768) {
+//     desktopToMobileClass();
+//   } else {
+//     profileOnload();
+//   }
 
-  //스크롤 위치에 따른 클래스 지정
-  if (wScroll == 0) {
-    headerSlideDown("onload");
-  } else {
-    headerSlideUp("onload");
-  }
-};
+//   //스크롤 위치에 따른 클래스 지정
+//   if (wScroll == 0) {
+//     headerSlideDown("onload");
+//   } else {
+//     headerSlideUp("onload");
+//   }
+// };
 
-window.onresize = () => {
-  const wWidth = window.innerWidth;
-  const wScroll = window.scrollY;
-  console.log("wW : " + wWidth);
-  if (wWidth < 768) {
-    headerSlideDown("toMoblie");
-  } else {
-    headerSlideUp("scrollDown");
-  }
-};
+// window.onresize = () => {
+//   const wWidth = window.innerWidth;
+//   const wScroll = window.scrollY;
+//   console.log("wW : " + wWidth);
+//   if (wWidth < 768) {
+//     headerSlideDown("toMoblie");
+//   } else {
+//     headerSlideUp("scrollDown");
+//   }
+// };
 
-//window scroll
+// //window scroll
 
-let lastScrollTop = 0;
+// let lastScrollTop = 0;
 
-window.addEventListener("scroll", () => {
-  const wScroll = window.scrollY;
-  const wWidth = window.innerWidth;
-  console.log("wS : " + wScroll);
-  console.log("lS : " + lastScrollTop);
+// window.addEventListener("scroll", () => {
+//   const wScroll = window.scrollY;
+//   const wWidth = window.innerWidth;
+//   console.log("wS : " + wScroll);
+//   console.log("lS : " + lastScrollTop);
 
-  if (wWidth < 768) {
-    headerColor("onMobile");
-    headerSlideDown("toMoblie");
-  } else {
-    if (wScroll == 0) {
-      headerSlideDown("scrollTop");
-    } else if (wScroll >= lastScrollTop) {
-      // Scroll Down 시
-      headerSlideUp("scrollDown");
-    } else if (wScroll < lastScrollTop) {
-      //scroll Up 시
-      headerSlideDown("scrollUp");
-    }
-  }
+//   if (wWidth < 768) {
+//     headerColor("onMobile");
+//     headerSlideDown("toMoblie");
+//   } else {
+//     if (wScroll == 0) {
+//       headerSlideDown("scrollTop");
+//     } else if (wScroll >= lastScrollTop) {
+//       // Scroll Down 시
+//       headerSlideUp("scrollDown");
+//     } else if (wScroll < lastScrollTop) {
+//       //scroll Up 시
+//       headerSlideDown("scrollUp");
+//     }
+//   }
 
-  lastScrollTop = wScroll;
-});
+//   lastScrollTop = wScroll;
+// });
