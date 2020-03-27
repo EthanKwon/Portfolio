@@ -130,18 +130,14 @@ const headerSlideUp = type => {
  *
  */
 const profile = document.querySelector(".profile");
-const profileBg = document.querySelector(".profile_slider");
-const profilePhoto = document.querySelector(".profile_photo>figure>img");
-const profileTitleBox = document.querySelector(".profile_title_box");
-
+const profileBg = profile.querySelector(".profile_slider");
+const profilePhoto = profile.querySelector(".profile_photo>figure>img");
+const profileTitleBox = profile.querySelector(".profile_title_box");
 const profileTitle = profileTitleBox.querySelectorAll(".title span");
-
-console.log(profileTitle);
-
-textArraySplit(profileTitle);
-
 const profileDesc = profileTitleBox.querySelector(".desc");
 const profileMobile = profileTitleBox.querySelector(".mobile_desc");
+
+textArraySplit(profileTitle);
 
 //profile Timeline
 
@@ -195,18 +191,17 @@ const profileOnload = () => {
       "-=1"
     );
 };
-
 //profile photo location
 
 const profilePhotoTl = gsap.timeline();
 
 profilePhotoTl.to(profilePhoto, {
-  y: "-30vh"
+  y: "-30vmin"
 });
 
 const profileScroll = new ScrollMagic.Scene({
   triggerElement: profile,
-  triggerHook: "onLeave",
+  triggerHook: 0,
   duration: "60%"
 })
   .setPin(profile)
@@ -241,16 +236,7 @@ const aboutTitle = aboutText.querySelectorAll(".about_title span");
 textArraySplit(aboutTitle);
 
 //about animation
-
 const aboutTl = gsap.timeline();
-
-// .fromTo(
-//   //title animation1
-//   profileTitle[0].children,
-//   1,
-//   { scale: 1.2, opacity: 0, display: "inline-block" },
-//   { scale: 1, opacity: 1, stagger: 0.05, ease: Power2.easeInOut }
-// )
 
 aboutTl
   .fromTo(
@@ -289,6 +275,7 @@ const aboutScroll = new ScrollMagic.Scene({
   triggerHook: 0.7,
   duration: 0
 })
+  .reverse(false)
   .setTween(aboutTl)
   .addIndicators({
     colorTrigger: "white",

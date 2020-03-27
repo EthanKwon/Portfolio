@@ -335,8 +335,6 @@ img {
 * -------------------------------------------------------------------------
 */
 @media screen and (max-width: 1024px) {
-  .profile_title_box .desc {
-    font-size: 1.5vw; }
   .about_contents .about_right {
     grid-template-columns: 5vw 1fr 5vw; }
   .about_text {
