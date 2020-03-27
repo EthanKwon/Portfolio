@@ -1,9 +1,27 @@
+//text split function
+
+const textArraySplit = textDocument => {
+  const textArray = Array.prototype.slice.call(textDocument);
+  const textStr = textArray.map(text => text.textContent);
+  const textSplit = textStr.map(text => text.split(""));
+
+  textArray.map(text => (text.textContent = ""));
+
+  textSplit.map((text, index) =>
+    text.map(split => {
+      textArray[index].innerHTML += `<span>${split}</span>`;
+    })
+  );
+};
+
 /*
  *
  * GSAP Animation
  *
  *
  */
+
+const controller = new ScrollMagic.Controller();
 
 /*
  *
@@ -111,39 +129,18 @@ const headerSlideUp = type => {
  *
  *
  */
-
+const profile = document.querySelector(".profile");
 const profileBg = document.querySelector(".profile_slider");
 const profilePhoto = document.querySelector(".profile_photo>figure>img");
 const profileTitleBox = document.querySelector(".profile_title_box");
 
-//profile title animation
+const profileTitle = profileTitleBox.querySelectorAll(".title span");
 
-const profileTitle1 = profileTitleBox.querySelector(".title> .title1");
-const strPT1 = profileTitle1.textContent;
-const splitPT1 = strPT1.split("");
+console.log(profileTitle);
 
-profileTitle1.textContent = "";
-
-splitPT1.map(split => {
-  profileTitle1.innerHTML += `<span>${split}</span>`;
-});
-
-const profileTitle2 = profileTitleBox.querySelector(".title > .title2");
-const strPT2 = profileTitle2.textContent;
-const splitPT2 = strPT2.split("");
-
-profileTitle2.textContent = "";
-
-splitPT2.map(split => {
-  profileTitle2.innerHTML += `<span>${split}</span>`;
-});
-
-//profile desc
+textArraySplit(profileTitle);
 
 const profileDesc = profileTitleBox.querySelector(".desc");
-
-// profile mobile desc
-
 const profileMobile = profileTitleBox.querySelector(".mobile_desc");
 
 //profile Timeline
@@ -176,19 +173,20 @@ const profileOnload = () => {
     )
     .fromTo(
       //title animation1
-      profileTitle1.children,
+      profileTitle[0].children,
       1,
       { scale: 1.2, opacity: 0, display: "inline-block" },
       { scale: 1, opacity: 1, stagger: 0.05, ease: Power2.easeInOut }
     )
     .fromTo(
       //title animation2
-      profileTitle2.children,
+      profileTitle[1].children,
       1,
       { scale: 1.2, opacity: 0, display: "inline-block" },
       { scale: 1, opacity: 1, stagger: 0.05, ease: Power2.easeInOut },
-      "-=1"
+      "-=0.7"
     )
+
     .fromTo(
       profileDesc,
       1,
@@ -197,6 +195,29 @@ const profileOnload = () => {
       "-=1"
     );
 };
+
+//profile photo location
+
+const profilePhotoTl = gsap.timeline();
+
+profilePhotoTl.to(profilePhoto, {
+  y: "-30vh"
+});
+
+const profileScroll = new ScrollMagic.Scene({
+  triggerElement: profile,
+  triggerHook: "onLeave",
+  duration: "60%"
+})
+  .setPin(profile)
+  .setTween(profilePhotoTl)
+  .addIndicators({
+    colorTrigger: "blue",
+    colorStart: "blue",
+    colorEnd: "blue",
+    indent: 40
+  })
+  .addTo(controller);
 
 // about photo hover effect
 const aboutPhoto = document.querySelector(".about_photo");
@@ -213,16 +234,46 @@ new hoverEffect({
   easing: Power1.easeInOut
 });
 
-//about animation
+//about text split
 
-const Controller = new ScrollMagic.Controller();
+const aboutTitle = aboutText.querySelectorAll(".about_title span");
+
+textArraySplit(aboutTitle);
+
+//about animation
 
 const aboutTl = gsap.timeline();
 
+// .fromTo(
+//   //title animation1
+//   profileTitle[0].children,
+//   1,
+//   { scale: 1.2, opacity: 0, display: "inline-block" },
+//   { scale: 1, opacity: 1, stagger: 0.05, ease: Power2.easeInOut }
+// )
+
 aboutTl
-  .from(aboutText, 0.5, {
-    opacity: 0
-  })
+  .fromTo(
+    aboutTitle[0].children,
+    1,
+    {
+      rotation: -30,
+      opacity: 0,
+      display: "inline-block"
+    },
+    { rotation: 0, opacity: 1, stagger: 0.05, ease: Power2.easeInOut }
+  )
+  .fromTo(
+    aboutTitle[1].children,
+    1,
+    {
+      rotation: -30,
+      opacity: 0,
+      display: "inline-block"
+    },
+    { rotation: 0, opacity: 1, stagger: 0.05, ease: Power2.easeInOut },
+    "-=0.7"
+  )
   .from(
     aboutPhoto,
     1.5,
@@ -230,15 +281,14 @@ aboutTl
       opacity: 0,
       x: "-41.4vw"
     },
-    "-=0.5"
+    "-=1.5"
   );
 
-new ScrollMagic.Scene({
+const aboutScroll = new ScrollMagic.Scene({
   triggerElement: ".about",
-  triggerHook: "onLeave",
-  duration: "200%"
+  triggerHook: 0.7,
+  duration: 0
 })
-  .setPin(".about")
   .setTween(aboutTl)
   .addIndicators({
     colorTrigger: "white",
@@ -246,7 +296,7 @@ new ScrollMagic.Scene({
     colorEnd: "white",
     indent: 40
   })
-  .addTo(Controller);
+  .addTo(controller);
 
 //setTimeout(() => {}, 1000);
 

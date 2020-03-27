@@ -43,6 +43,12 @@
   align-items: center;
 }
 
+//title_br
+
+.title_br {
+  display: block;
+}
+
 /*
  *
  * Header SCSS
@@ -119,7 +125,7 @@
 
 .profile_contents {
   position: relative;
-  padding-bottom: 25vh;
+
   .profile_slider {
     position: absolute;
     left: 0;
@@ -163,13 +169,6 @@
   }
 } //profile_title_box;
 
-.profile_text {
-  .title1,
-  .title2 {
-    display: block;
-  }
-} //profile_text
-
 .profile_photo {
   padding-right: 3vw;
   transform: translateY(-10vh);
@@ -191,7 +190,6 @@
 .about_contents {
   background-color: $black;
   display: flex;
-
   .about_left {
     width: 40%;
   } //about_left
@@ -223,9 +221,6 @@
       family: MapoFlowerIsland;
       size: 5vw;
     }
-    span {
-      display: block;
-    } //span
   } //about_title
   .about_desc {
     grid-row: 2/3;
@@ -333,7 +328,7 @@
 
   .profile_contents {
     flex-direction: column-reverse;
-    padding-bottom: 15vh;
+
     .profile_left {
       width: 100%;
       display: flex;
@@ -453,10 +448,6 @@
 */
 
 @include responsive("mobile") {
-  .profile_contents {
-    padding-bottom: 10vh;
-  } //profile_contents
-
   .about_photo {
     height: 50vh;
   } //about_photo
