@@ -10,23 +10,63 @@
 
 @font-face {
   font-family: "S-CoreDream-9Black";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-9Black.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "S-CoreDream-2ExtraLight";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: "MapoFlowerIsland";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff") format("woff");
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoFlowerIslandA.woff")
+    format("woff");
   font-weight: normal;
   font-style: normal;
+}
+
+//curser
+
+.curser {
+  position: fixed;
+  background-color: $font-white;
+  width: 10px;
+  height: 10px;
+  left: -10px;
+  top: -10px;
+  border-radius: 50%;
+  z-index: 1000;
+  transform: scale(1);
+  &.active {
+    opacity: 1;
+    transform: scale(0);
+  }
+}
+
+.curser_follow {
+  position: fixed;
+  border: 1px solid $font-white;
+  width: 30px;
+  height: 30px;
+  left: -21px;
+  top: -21px;
+  border-radius: 100%;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10000;
+  //overflow: hidden;
+  transform: scale(1);
+  &.active {
+    transform: scale(3);
+  }
 }
 
 //scroll show
@@ -182,6 +222,7 @@
  */
 
 .about {
+  margin-bottom: 100vh;
   .container {
     padding: 0 3vw;
   } //container
@@ -233,6 +274,21 @@
     }
   } //about_desc
 } //about_text
+
+// skill
+
+.skill {
+  height: 100vh;
+
+  .container {
+    padding: 0 3vw;
+  } //container
+} //skill
+
+.skill_contents {
+  height: 100vh;
+  background-color: $black;
+} //skill_contents
 
 /*
 * -------------------------------------------------------------------------

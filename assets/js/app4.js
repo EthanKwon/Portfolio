@@ -14,6 +14,18 @@ const textArraySplit = textDocument => {
   );
 };
 
+//curser Effect
+
+const curser = document.querySelector(".curser");
+const follow = document.querySelector(".curser_follow");
+
+const moveCircle = e => {
+  gsap.to(curser, 0.3, { x: e.clientX, y: e.clientY });
+  gsap.to(follow, 0.7, { x: e.clientX, y: e.clientY });
+};
+
+window.addEventListener("mousemove", moveCircle);
+
 /*
  *
  * GSAP Animation
@@ -131,7 +143,7 @@ const headerSlideUp = type => {
  */
 const profile = document.querySelector(".profile");
 const profileBg = profile.querySelector(".profile_slider");
-const profilePhoto = profile.querySelector(".profile_photo>figure>img");
+const profilePhoto = profile.querySelector(".profile_photo");
 const profileTitleBox = profile.querySelector(".profile_title_box");
 const profileTitle = profileTitleBox.querySelectorAll(".title span");
 const profileDesc = profileTitleBox.querySelector(".desc");
@@ -202,7 +214,7 @@ profilePhotoTl.to(profilePhoto, {
 const profileScroll = new ScrollMagic.Scene({
   triggerElement: profile,
   triggerHook: 0,
-  duration: "60%"
+  duration: "70%"
 })
   .setPin(profile)
   .setTween(profilePhotoTl)
@@ -217,6 +229,7 @@ const profileScroll = new ScrollMagic.Scene({
 // about photo hover effect
 const aboutPhoto = document.querySelector(".about_photo");
 const aboutText = document.querySelector(".about_text");
+const aboutDesc = aboutText.querySelector(".about_desc");
 
 new hoverEffect({
   parent: aboutPhoto,
@@ -241,24 +254,31 @@ const aboutTl = gsap.timeline();
 aboutTl
   .fromTo(
     aboutTitle[0].children,
-    1,
+    0.7,
     {
-      rotation: -30,
+      y: 20,
       opacity: 0,
       display: "inline-block"
     },
-    { rotation: 0, opacity: 1, stagger: 0.05, ease: Power2.easeInOut }
+    { y: 0, opacity: 1, stagger: 0.03, ease: Power2.Out }
   )
   .fromTo(
     aboutTitle[1].children,
-    1,
+    0.7,
     {
-      rotation: -30,
+      y: 20,
       opacity: 0,
       display: "inline-block"
     },
-    { rotation: 0, opacity: 1, stagger: 0.05, ease: Power2.easeInOut },
-    "-=0.7"
+    { y: 0, opacity: 1, stagger: 0.03, ease: Power2.Out },
+    "-=0.5"
+  )
+  .fromTo(
+    aboutDesc,
+    1.5,
+    { x: -100, opacity: 0 },
+    { x: 0, opacity: 1, ease: Power2.Out },
+    "-=1"
   )
   .from(
     aboutPhoto,
@@ -275,7 +295,6 @@ const aboutScroll = new ScrollMagic.Scene({
   triggerHook: 0.7,
   duration: 0
 })
-  .reverse(false)
   .setTween(aboutTl)
   .addIndicators({
     colorTrigger: "white",
@@ -285,7 +304,38 @@ const aboutScroll = new ScrollMagic.Scene({
   })
   .addTo(controller);
 
+const aboutScreen = new ScrollMagic.Scene({
+  triggerElement: ".about",
+  triggerHook: "onLeave",
+  duration: "200%"
+})
+  .setPin(".about", { pushFollowers: false })
+  .addIndicators({
+    colorTrigger: "white",
+    colorStart: "white",
+    colorEnd: "white",
+    indent: 40
+  })
+  .addTo(controller);
+
 //setTimeout(() => {}, 1000);
+
+// skill part
+
+const skillScreen = new ScrollMagic.Scene({
+  triggerElement: ".skill",
+  triggerHook: "onLeave",
+  duration: "200%"
+})
+  .setPin(".skill", { pushFollowers: false })
+  .addIndicators({
+    name: "skill",
+    colorTrigger: "red",
+    colorStart: "red",
+    colorEnd: "red",
+    indent: 40
+  })
+  .addTo(controller);
 
 //onload desktop animation
 

@@ -163,6 +163,36 @@ img {
   font-weight: normal;
   font-style: normal; }
 
+.curser {
+  position: fixed;
+  background-color: #fffffd;
+  width: 10px;
+  height: 10px;
+  left: -10px;
+  top: -10px;
+  border-radius: 50%;
+  z-index: 1000;
+  transform: scale(1); }
+  .curser.active {
+    opacity: 1;
+    transform: scale(0); }
+
+.curser_follow {
+  position: fixed;
+  border: 1px solid #fffffd;
+  width: 30px;
+  height: 30px;
+  left: -21px;
+  top: -21px;
+  border-radius: 100%;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+  z-index: 10000;
+  transform: scale(1); }
+  .curser_follow.active {
+    transform: scale(3); }
+
 .scroll_show {
   position: fixed;
   left: 3vw;
@@ -278,8 +308,10 @@ img {
  *
  *
  */
-.about .container {
-  padding: 0 3vw; }
+.about {
+  margin-bottom: 100vh; }
+  .about .container {
+    padding: 0 3vw; }
 
 .about_contents {
   background-color: #1c1c1c;
@@ -316,6 +348,15 @@ img {
     font-family: "S-CoreDream-2ExtraLight";
     font-size: 1vw;
     font-weight: bold; }
+
+.skill {
+  height: 100vh; }
+  .skill .container {
+    padding: 0 3vw; }
+
+.skill_contents {
+  height: 100vh;
+  background-color: #1c1c1c; }
 
 /*
 * -------------------------------------------------------------------------
