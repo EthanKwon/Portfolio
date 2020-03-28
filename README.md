@@ -2,12 +2,7 @@
 
 ## :clipboard: 해야 할 일 목록
 
-- [ ] 전체적인 레이아웃 잡기
-- [ ] 컨텐츠 구조잡기
-- [ ] 부드러운 스크롤링 작업 하기
-- [ ] 반응형 작업하기
-- [ ] 스크롤바 없애기
-- [ ] 마우스 커서 변경하기
+
 
 ## :star: 프로젝트 특징
 
@@ -47,3 +42,16 @@
     - skill 부분 폰트 설정 후, hover 시 어떤 애니메이션 넣을 것인지 생각해 볼 것 
   -  intro 부분 text 애니메이션 찾기 
 
+### 20. 03. 28 : 현재까지 진행 사항 
+
+    - header, profile, about 부분 레이아웃 
+    - header, profile, about 부분 반응형
+    - <desktop> header 스크롤 이벤트 작성
+    - <desktop> profile onload 이벤트 작성
+    - <desktop> about scrollmagic 이벤트 작성 
+
+    해야할 것 
+
+    - [ ] <desktop> about desc 텍스트 이벤트 
+    - [ ] <mobile> header 스크롤 이벤트 정지
+    - [ ] <mobile> profile onload 이벤트 작성
