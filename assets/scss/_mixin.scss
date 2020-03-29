@@ -1,21 +1,3 @@
-@mixin bg($color) {
-  background-color: $color;
-}
-
-@mixin header-margin($height) {
-  margin-top: $height;
-}
-
-@mixin box-line($color) {
-  content: "";
-  width: 0.5vw;
-  height: 100%;
-  background-color: $color;
-  position: absolute;
-  top: 0;
-  right: 0;
-}
-
 // responsive
 
 $max-width-desktop: 1280px;

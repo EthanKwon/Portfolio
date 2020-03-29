@@ -1,0 +1,115 @@
+@import "./reset.scss";
+
+//color
+
+$white: #ebeded;
+$red: #e83c38;
+
+//font
+
+@font-face {
+  font-family: "Perpetua Titling MT";
+  src: url(../fonts/PerpetuaTitlingMT-Light.woff2) format("woff2"),
+    url(../fonts/PerpetuaTitlingMT-Light.woff) format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+// layout
+#header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 10vh;
+  background-color: $white;
+}
+
+#section1 {
+  position: relative;
+  min-height: 100vh;
+}
+
+#section2 {
+  .container {
+    height: 100vh;
+    background-color: $white;
+  }
+}
+
+// sec1
+
+.sec1_fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  .container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+} //sec1_fixed
+
+.on_top {
+  z-index: 3;
+} //on-top
+
+.sec1_title_wrap {
+  text-align: center;
+}
+
+.sec1_title {
+  color: $red;
+  text-transform: uppercase;
+  line-height: 1.1;
+  font: {
+    family: Perpetua Titling MT;
+    size: 5.7vw;
+    weight: 300;
+  }
+  .sec1_title_line {
+    &:nth-child(1) {
+      opacity: 0;
+    }
+    &:nth-child(2) {
+      opacity: 1;
+    }
+    &:nth-child(3) {
+      opacity: 0;
+    }
+  } //sec1_title_line
+}
+
+.on_top {
+  .sec1_title_line {
+    &:nth-child(1) {
+      opacity: 1;
+    }
+    &:nth-child(2) {
+      opacity: 0;
+    }
+    &:nth-child(3) {
+      opacity: 1;
+    }
+  } //sec1_title_line
+} //on-top
+
+.section1_img1 {
+  position: absolute;
+  left: 50vw;
+  bottom: 5.6vw;
+  z-index: 2;
+}
+
+.sec1_img1_wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 50%;
+  width: 25vw;
+  height: 14vw;
+  background-color: yellow;
+  z-index: -4;
+}
