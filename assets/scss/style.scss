@@ -5,6 +5,11 @@
 $white: #ebeded;
 $red: #e83c38;
 
+#page-background {
+  background-color: $white;
+  color: $red;
+}
+
 //font
 
 @font-face {
@@ -15,26 +20,51 @@ $red: #e83c38;
   font-style: normal;
 }
 
+@import url("https://fonts.googleapis.com/css?family=Karla&display=swap");
+
 // layout
+.container {
+  position: relative;
+  padding: 0 1.5vw;
+}
+
+.flex {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: -2.7vw;
+}
+
+.quarter {
+  width: 25%;
+}
+
+.three-quarters {
+  width: 75%;
+}
+
+.quarter,
+.three-quarters {
+  padding-left: 2.7vw;
+}
+
 #header {
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
   height: 10vh;
-  background-color: $white;
 }
 
 #section1 {
   position: relative;
   min-height: 100vh;
+  margin-bottom: 8vw;
 }
 
 #section2 {
-  .container {
-    height: 100vh;
-    background-color: $white;
-  }
+  position: relative;
+  z-index: 5;
 }
 
 // sec1
@@ -112,4 +142,118 @@ $red: #e83c38;
   height: 14vw;
   background-color: yellow;
   z-index: -4;
+}
+
+//section2
+
+.sec2_contents {
+  display: flex;
+  justify-content: flex-end;
+  .sec2_right {
+    width: 75%;
+    padding-left: 3vw;
+  }
+}
+
+.sec_bg {
+  background-color: $white;
+  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+// section2 - about
+
+.about {
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    z-index: 2;
+    background-color: $red;
+    transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1),
+      -webkit-transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+} //about
+
+.about_grid {
+  display: flex;
+  .about_left,
+  .about_right {
+    width: 50%;
+    padding-left: 2.7vw;
+  }
+  .about_right {
+    padding-left: 3vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+} //about_grid
+
+.about_img_wrap {
+  //overflow: hidden;
+  .img {
+    width: 100%;
+    height: 100vh;
+    background: {
+      image: url("../img/me.jpg");
+
+      size: cover;
+      position: center center;
+    }
+  } //img
+} //about_img_wrap
+
+.about_text {
+  padding-right: 3vw;
+  font : {
+    family: "Karla", sans-serif;
+  }
+  .about_desc {
+    font : {
+      size: 1.8vw;
+      weight: 300;
+    }
+  }
+}
+
+//section2 - skill
+
+.skill {
+  position: relative;
+  &:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    height: 1px;
+    z-index: 2;
+    background-color: $red;
+    transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1),
+      -webkit-transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  .sec_bg {
+    padding-top: 20vw;
+  }
+  .grid {
+    height: 100vh;
+  }
+} //skill
+
+.skill_title {
+  max-width: 54vw;
+  margin-left: 12.5vw;
+  padding-bottom: 4.5vw;
+  font : {
+    family: Perpetua Titling MT;
+    size: 5.7vw;
+  }
+} //skill_title
+
+.skill_contents {
+  height: 100vh;
 }

@@ -55,3 +55,9 @@
     - [ ] <desktop> intro 구성 하기
     - [ ] <mobile> header 스크롤 이벤트 정지
     - [ ] <mobile> profile onload 이벤트 작성
+
+
+### 20. 03. 29 : 포트폴리오 초기화 및 새로운 디자인으로 작업
+
+    - mainpage z-index 효과 
+    - font 적용 
