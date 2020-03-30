@@ -22,6 +22,24 @@ $red: #e83c38;
 
 @import url("https://fonts.googleapis.com/css?family=Karla&display=swap");
 
+.scroll_show {
+  position: fixed;
+  left: 10px;
+  top: 10px;
+  z-index: 10000;
+  width: 40px;
+  height: 40px;
+  background: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  text-align: center;
+  line-height: 40px;
+}
+
+.page-background-anim {
+  transition: transform 1.6s 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+    opacity 1.6s 0s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 1.6s 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
 // layout
 .container {
   position: relative;
@@ -132,6 +150,8 @@ $red: #e83c38;
   left: 50vw;
   bottom: 5.6vw;
   z-index: 2;
+  transition: transform 1.6s 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+    opacity 1.6s 0s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 1.6s 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 .sec1_img1_wrap {
@@ -143,6 +163,48 @@ $red: #e83c38;
   background-color: yellow;
   z-index: -4;
 }
+
+.intro_btn_wrap {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding-bottom: 1.2vw;
+  z-index: 4;
+  text-align: center;
+  .intro_btn {
+    width: 10vw;
+    height: 10vw;
+    transform: translate3d(0, 3.4vw, 0);
+    text-align: center;
+    display: inline-block;
+    background-color: transparent;
+    &:before {
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      bottom: 2px;
+      left: 2px;
+      content: "";
+      border-radius: 50%;
+      background-color: $white;
+      opacity: 1;
+    }
+  } //intro_btn
+} //intro_btn_wrap
+
+.intro_btn {
+  position: relative;
+  .btn_circle {
+    width: 10vw;
+    height: 10vw;
+    margin-top: -5vw;
+    margin-left: -5vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+  } //btn_circle
+} //intro_btn
 
 //section2
 
@@ -178,11 +240,13 @@ $red: #e83c38;
   }
 } //about
 
-.about_grid {
+.about_flex {
   display: flex;
   .about_left,
   .about_right {
     width: 50%;
+  }
+  .about_left {
     padding-left: 2.7vw;
   }
   .about_right {
@@ -237,7 +301,7 @@ $red: #e83c38;
       -webkit-transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   .sec_bg {
-    padding-top: 20vw;
+    padding-top: 15vw;
   }
   .grid {
     height: 100vh;
@@ -248,6 +312,7 @@ $red: #e83c38;
   max-width: 54vw;
   margin-left: 12.5vw;
   padding-bottom: 4.5vw;
+  transition: transform 0.1 ease;
   font : {
     family: Perpetua Titling MT;
     size: 5.7vw;
@@ -256,4 +321,126 @@ $red: #e83c38;
 
 .skill_contents {
   height: 100vh;
+  .title {
+    position: relative;
+    padding: 1.2vw 0;
+
+    &:before,
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background-color: $red;
+      transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+        transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+    }
+    &:before {
+      top: 0;
+    }
+    &:after {
+      bottom: 0;
+    }
+    h3 {
+      text-transform: uppercase;
+      font: {
+        family: "Karla", sans-serif;
+        size: 1.3vw;
+      }
+    }
+  }
+}
+
+.skill_list {
+  display: flex;
+  flex-wrap: wrap;
+  .skill_item {
+    width: 50%;
+    padding: 3.4vw 0 3.4vw 8.7vw;
+    display: flex;
+    align-items: center;
+    &:nth-child(2n) {
+      padding: 3.4vw 0 3.4vw 11.6vw;
+      .item_logo {
+        left: 2.8vw;
+      }
+    }
+  } //skill_item
+} //skill_list
+
+.skill_item {
+  position: relative;
+  &:before {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    content: "";
+    background-color: $red;
+  }
+
+  .item_logo {
+    position: absolute;
+    left: 0;
+    top: 3.4vw;
+    width: 5vw;
+    height: 5vw;
+    .logo {
+      width: 5vw;
+      height: 5vw;
+      background: {
+        size: contain;
+        position: center center;
+        repeat: no-repeat;
+      }
+    }
+  } //item_logo
+
+  &:nth-child(2n-1):after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    content: "";
+    background-color: $red;
+  }
+} //skill_item
+
+.logo_html {
+  background: {
+    image: url(../img/logo/html5.svg);
+  }
+} //item_html
+.logo_css {
+  background: {
+    image: url(../img/logo/css3.svg);
+  }
+} //item_css
+.logo_js {
+  background: {
+    image: url(../img/logo/logo-javascript.svg);
+  }
+} //item_js
+.logo_react {
+  background: {
+    image: url(../img/logo/react.svg);
+  }
+} //item_react
+.logo_type {
+  background: {
+    image: url(../img/logo/typescript.svg);
+  }
+} //item_type
+
+.item_text {
+  .item_name {
+    margin-bottom: 1.2vw;
+    font: {
+      family: "Perpetua Titling MT";
+      size: 1.2vw;
+    }
+  }
 }
