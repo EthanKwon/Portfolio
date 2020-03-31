@@ -1,3 +1,22 @@
+//font
+
+@font-face {
+  font-family: "Perpetua Titling MT";
+  src: url(../font/PerpetuaTitlingMT-Light.woff2) format("woff2"),
+    url(../font/PerpetuaTitlingMT-Light.woff) format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "S-CoreDream-2ExtraLight";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import url("https://fonts.googleapis.com/css?family=Karla&display=swap");
+
 html,
 body,
 div,
@@ -143,11 +162,14 @@ table {
   box-sizing: border-box;
 }
 
-// html, body 임시크기 지정
-html,
-body {
-  width: 100%;
-  background-color: #fff;
+// html
+html {
+  line-height: 1.4;
+  height: 100%;
+  font: {
+    family: "Perpetua Titling MT";
+    size: 16px;
+  }
 }
 
 // scroll bar
@@ -169,4 +191,10 @@ a {
 img {
   width: 100%;
   border: 0 none;
+}
+
+//p
+
+p {
+  line-height: 1.3;
 }

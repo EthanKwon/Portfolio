@@ -1,11 +1,5 @@
 @import "./reset.scss";
 
-html {
-  font: {
-    size: 13px;
-  }
-}
-
 //color
 
 $white: #ebeded;
@@ -15,25 +9,6 @@ $red: #e83c38;
   background-color: $white;
   color: $red;
 }
-
-//font
-
-@font-face {
-  font-family: "Perpetua Titling MT";
-  src: url(../fonts/PerpetuaTitlingMT-Light.woff2) format("woff2"),
-    url(../fonts/PerpetuaTitlingMT-Light.woff) format("woff");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "S-CoreDream-2ExtraLight";
-  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@import url("https://fonts.googleapis.com/css?family=Karla&display=swap");
 
 .scroll_show {
   position: fixed;
@@ -56,18 +31,18 @@ $red: #e83c38;
 // layout
 .container {
   position: relative;
-  padding: 0 1.5vw;
 }
 
 .flex {
   position: relative;
   display: flex;
   justify-content: flex-end;
-  margin-left: -2.7vw;
+  margin-left: -5rem;
 }
 .quarter,
-.three-quarters {
-  padding-left: 2.7vw;
+.three-quarters,
+.half {
+  padding-left: 5rem;
 }
 
 .quarter {
@@ -76,6 +51,20 @@ $red: #e83c38;
 
 .three-quarters {
   width: 75%;
+}
+
+.half {
+  width: 50%;
+}
+
+.img_anim {
+  opacity: 0;
+  pointer-events: none;
+  transform: perspective(1000px) rotateX(-90deg);
+  transform-origin: top center;
+  transition: transform 1.6s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+    -webkit-transform 1.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-delay: 0.3s;
 }
 
 #header {
@@ -90,7 +79,7 @@ $red: #e83c38;
 #section1 {
   position: relative;
   min-height: 100vh;
-  margin-bottom: 8vw;
+  margin-bottom: 11.25rem;
 }
 
 #section2 {
@@ -104,8 +93,8 @@ $red: #e83c38;
   &:before {
     top: 0;
     bottom: 0;
-    right: 1.5vw;
-    left: 1.5vw;
+    right: 2.5rem;
+    left: 2.5rem;
     position: absolute;
     content: "";
     background-color: $white;
@@ -159,7 +148,11 @@ $red: #e83c38;
 
 // sec1
 
-.sec1_fixed {
+.intro {
+  position: relative;
+}
+
+.intro_fixed {
   position: absolute;
   top: 0;
   left: 0;
@@ -177,11 +170,15 @@ $red: #e83c38;
   z-index: 3;
 } //on-top
 
-.sec1_title_wrap {
+.intro_title_wrap {
   text-align: center;
+  transform: translate3d(0, 3.1428571429vw, 0);
+  transition: transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1),
+    -webkit-transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition-delay: 1.8s;
 }
 
-.sec1_title {
+.intro_title {
   color: $red;
   text-transform: uppercase;
   line-height: 1.1;
@@ -190,22 +187,40 @@ $red: #e83c38;
     size: 5.7vw;
     weight: 300;
   }
-  .sec1_title_line {
-    transition: display 0.5 ease-out;
+  .intro_title_line {
     &:nth-child(1) {
       opacity: 0;
+      transform: translate3d(0, 3.1428571429vw, 0);
+      transition: transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1),
+        -webkit-transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transition-delay: 0.9s;
+      span {
+        transition-delay: 0.3s;
+      }
     }
     &:nth-child(2) {
       opacity: 1;
+      span {
+        transition-delay: 1.2s;
+      }
     }
     &:nth-child(3) {
       opacity: 0;
+      span {
+        transition-delay: 2.1s;
+      }
     }
+    span {
+      display: inline-block;
+      transform: scale3d(1, 0, 0);
+      transition: transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+        -webkit-transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+    } //span
   } //sec1_title_line
 }
 
 .on_top {
-  .sec1_title_line {
+  .intro_title_line {
     &:nth-child(1) {
       opacity: 1;
     }
@@ -218,14 +233,17 @@ $red: #e83c38;
   } //sec1_title_line
 } //on-top
 
-.section1_img1 {
+.intro_img {
   position: absolute;
   left: 50vw;
   bottom: 5.6vw;
   z-index: 2;
-}
+  .img_anim {
+    transition-delay: 2.8s;
+  }
+} //intro_img
 
-.sec1_img1_wrap {
+.intro_img_wrap {
   position: absolute;
   left: 50%;
   bottom: 50%;
@@ -313,15 +331,7 @@ $red: #e83c38;
 
 .about_flex {
   display: flex;
-  .about_left,
   .about_right {
-    width: 50%;
-  }
-  .about_left {
-    padding-left: 2.7vw;
-  }
-  .about_right {
-    padding-left: 3vw;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -344,13 +354,14 @@ $red: #e83c38;
 
 .about_text {
   padding-right: 8vw;
+  margin-bottom: 3.125rem;
   font : {
     family: "S-CoreDream-2ExtraLight";
   }
   .about_desc {
     line-height: 1.7;
     font : {
-      size: 1.2vw;
+      size: 1.8rem;
       weight: 700;
     }
   }
@@ -381,7 +392,7 @@ $red: #e83c38;
 } //skill
 
 .skill_title {
-  max-width: 54vw;
+  max-width: 58vw; //54vw
   margin-left: 12.5vw;
   padding-bottom: 4.5vw;
   transition: transform 0.1 ease;
@@ -418,7 +429,7 @@ $red: #e83c38;
       text-transform: uppercase;
       font: {
         family: "Karla", sans-serif;
-        size: 1.3vw;
+        size: 1.625rem;
       }
     }
   }
@@ -429,7 +440,7 @@ $red: #e83c38;
   flex-wrap: wrap;
   .skill_item {
     width: 50%;
-    padding: 3.4vw 0 3.4vw 8.7vw;
+    padding: 3.4vw 2.8vw 3.4vw 8.7vw;
     display: flex;
     align-items: center;
     &:nth-child(2n) {
@@ -512,10 +523,16 @@ $red: #e83c38;
     margin-bottom: 1.2vw;
     font: {
       family: "Perpetua Titling MT";
-      size: 1.2vw;
+      size: 1.625rem;
+    }
+  } //item_name
+  .item_desc {
+    font: {
+      family: Karla, Helvetica, Arial, sans-serif;
+      size: 1.1875rem;
     }
   }
-}
+} //item_text
 
 //is-show
 
@@ -526,3 +543,38 @@ $red: #e83c38;
     }
   } //header_stroke
 } //is-show
+
+//media query
+
+@media (max-width: 1999px) and (min-width: 1600px) {
+  html {
+    font-size: 13px;
+  }
+} //media 1600px ~ 1999px;
+
+@media (min-width: 1000px) {
+  .container {
+    padding: 0 2.5rem;
+  }
+}
+
+//is loaded
+
+.is-loaded {
+  .intro_title_wrap {
+    transform: translate3d(0, 0, 0);
+    .intro_title_line {
+      &:nth-child(1) {
+        transform: translate3d(0, 0, 0);
+      }
+      span {
+        transform: scale3d(1, 1, 1);
+      }
+    }
+  } //intro_title_wrap
+  .img_anim.is-show {
+    pointer-events: auto;
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0);
+  } //about_img_anim
+} //is-loaded
