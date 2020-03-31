@@ -145,6 +145,9 @@ img {
   width: 100%;
   border: 0 none; }
 
+html {
+  font-size: 13px; }
+
 #page-background {
   background-color: #ebeded;
   color: #e83c38; }
@@ -153,6 +156,12 @@ img {
   font-family: "Perpetua Titling MT";
   src: url(../fonts/PerpetuaTitlingMT-Light.woff2) format("woff2"), url(../fonts/PerpetuaTitlingMT-Light.woff) format("woff");
   font-weight: 300;
+  font-style: normal; }
+
+@font-face {
+  font-family: "S-CoreDream-2ExtraLight";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff") format("woff");
+  font-weight: normal;
   font-style: normal; }
 
 .scroll_show {
@@ -180,22 +189,22 @@ img {
   justify-content: flex-end;
   margin-left: -2.7vw; }
 
+.quarter,
+.three-quarters {
+  padding-left: 2.7vw; }
+
 .quarter {
   width: 25%; }
 
 .three-quarters {
   width: 75%; }
 
-.quarter,
-.three-quarters {
-  padding-left: 2.7vw; }
-
 #header {
   position: fixed;
   left: 0;
   top: 0;
   width: 100%;
-  height: 10vh; }
+  z-index: 100; }
 
 #section1 {
   position: relative;
@@ -205,6 +214,48 @@ img {
 #section2 {
   position: relative;
   z-index: 5; }
+
+.header_stroke:before {
+  top: 0;
+  bottom: 0;
+  right: 1.5vw;
+  left: 1.5vw;
+  position: absolute;
+  content: "";
+  background-color: #ebeded;
+  border-bottom: 1px solid #e83c38;
+  transform: translate3d(0, -102%, 0);
+  transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), border 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1); }
+
+.header_contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; }
+
+.header_list {
+  margin-left: -0.5vw;
+  display: flex; }
+  .header_list .header_item {
+    position: relative; }
+    .header_list .header_item:not(:last-child):before {
+      position: absolute;
+      top: 40%;
+      right: 0;
+      width: 1px;
+      height: 0.8vw;
+      background-color: #e83c38;
+      content: ""; }
+    .header_list .header_item .item_link {
+      text-transform: uppercase;
+      padding: 2.5rem 0.75rem;
+      display: inline-block;
+      font-family: "Karla", sans-serif;
+      font-size: 1.1875rem; }
+
+.header_portfolio {
+  text-transform: uppercase;
+  font-family: "Karla", sans-serif;
+  font-size: 1.1875rem; }
 
 .sec1_fixed {
   position: absolute;
@@ -231,12 +282,14 @@ img {
   font-family: Perpetua Titling MT;
   font-size: 5.7vw;
   font-weight: 300; }
-  .sec1_title .sec1_title_line:nth-child(1) {
-    opacity: 0; }
-  .sec1_title .sec1_title_line:nth-child(2) {
-    opacity: 1; }
-  .sec1_title .sec1_title_line:nth-child(3) {
-    opacity: 0; }
+  .sec1_title .sec1_title_line {
+    transition: display 0.5 ease-out; }
+    .sec1_title .sec1_title_line:nth-child(1) {
+      opacity: 0; }
+    .sec1_title .sec1_title_line:nth-child(2) {
+      opacity: 1; }
+    .sec1_title .sec1_title_line:nth-child(3) {
+      opacity: 0; }
 
 .on_top .sec1_title_line:nth-child(1) {
   opacity: 1; }
@@ -251,8 +304,7 @@ img {
   position: absolute;
   left: 50vw;
   bottom: 5.6vw;
-  z-index: 2;
-  transition: transform 1.6s 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 1.6s 0s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 1.6s 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  z-index: 2; }
 
 .sec1_img1_wrap {
   position: absolute;
@@ -340,16 +392,17 @@ img {
 .about_img_wrap .img {
   width: 100%;
   height: 100vh;
-  background-image: url("../img/me.jpg");
+  background-image: url("../img/me2.jpg");
   background-size: cover;
   background-position: center center; }
 
 .about_text {
-  padding-right: 3vw;
-  font-family: "Karla", sans-serif; }
+  padding-right: 8vw;
+  font-family: "S-CoreDream-2ExtraLight"; }
   .about_text .about_desc {
-    font-size: 1.8vw;
-    font-weight: 300; }
+    line-height: 1.7;
+    font-size: 1.2vw;
+    font-weight: 700; }
 
 .skill {
   position: relative; }
@@ -461,3 +514,6 @@ img {
   margin-bottom: 1.2vw;
   font-family: "Perpetua Titling MT";
   font-size: 1.2vw; }
+
+.is-show .header_stroke:before {
+  transform: translate3d(0, 0, 0); }
