@@ -56,8 +56,19 @@
     - [ ] <mobile> header 스크롤 이벤트 정지
     - [ ] <mobile> profile onload 이벤트 작성
 
-
 ### 20. 03. 29 : 포트폴리오 초기화 및 새로운 디자인으로 작업
 
-    - mainpage z-index 효과 
-    - font 적용 
+    - mainpage z-index 효과
+    - font 적용
+
+### 20. 03. 30 : 포트폴리오 intro, about, skill 레이아웃 작업
+
+    해결해야할 문제점
+
+    - [ ] scroll 부드럽게 하는 효과를 찾지 못함
+
+    내일 해야 할 일
+
+    - 페이지에 사진 넣기
+    - 페이지 전체 문구 수정하기
+    -
