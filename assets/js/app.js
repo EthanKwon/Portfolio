@@ -2,8 +2,6 @@
 
 const scrollShow = document.querySelector(".scroll_show");
 
-const scrollContent = document.querySelector(".scroll_content");
-
 //header
 
 const header = document.querySelector("#header");
@@ -31,9 +29,10 @@ const skillTitle = skill.querySelector(".skill_title");
 //project part
 
 const project = document.querySelector(".project");
-const project_title = project.querySelector(".project_header");
-const project_items = project.querySelectorAll(".project_item");
-const project_img = project.querySelectorAll(".img_anim");
+const projectHeader = project.querySelector(".project_header");
+const projectTitleWrap = project.querySelector(".project_title_wrap");
+const projectItems = project.querySelectorAll(".project_item");
+const projectImg = project.querySelectorAll(".img_anim");
 
 //onload effect
 
@@ -58,12 +57,10 @@ window.addEventListener("scroll", () => {
 
   // scroll
 
-  scrollContent.style.transform = `translate3d(0,${-wScroll}px,0)`;
-
   if (wScroll < 1000) {
     //intro scrolling
     introFixed.forEach(fixed => {
-      fixed.style.transform = `translate3d(0,${2 * wScroll}px,0)`;
+      //fixed.style.transform = `translate3d(0,${2 * wScroll}px,0)`;
     });
 
     introImg.style.transform = `translate3d(0,${wScrollSlow(10)}px,0)`;
@@ -87,17 +84,27 @@ window.addEventListener("scroll", () => {
     header.classList.remove("is-show");
   }
   //skill scrolling
-  if (wScroll >= 600 && wScroll < 1600) {
+  if (wScroll >= 1200) {
     const skillTitlePos = skillTitle.getBoundingClientRect().top;
+    const skilltrans = skillTitlePos - 350;
 
-    skillTitle.style.transform = `translate3d(${-skillTitlePos /
-      5}px,${-skillTitlePos / 5}px,0)`;
+    skillTitle.style.transform = `translate3d(${-skilltrans /
+      10}px,${-skillTitlePos / 10}px,0)`;
   }
 
-  if (wScroll >= 1850) {
-    project_title.style.transform = `translate3d(0,${2 *
-      (wScroll - 1850)}px,0)`;
-    project_img.forEach(img => {
+  if (wScroll >= 3500) {
+    // project_title.style.transform = `translate3d(0,${2 *
+    //   (wScroll - 1850)}px,0)`;
+
+    projectHeaderOffset = projectHeader.getBoundingClientRect().top;
+    console.log(projectHeaderOffset);
+    if (projectHeaderOffset < 0) {
+      projectTitleWrap.classList.add("sticky");
+    } else {
+      projectTitleWrap.classList.remove("sticky");
+    }
+
+    projectImg.forEach(img => {
       img.classList.add("is-show");
     });
   }
@@ -112,73 +119,3 @@ setInterval(() => {
 
   index < 4 ? index++ : (index = 1);
 }, 2000);
-
-//scroll magic
-
-const controller = new ScrollMagic.Controller();
-
-const projectTl1 = gsap.timeline();
-
-projectTl1
-  .fromTo(
-    project_items[0],
-    {
-      y: -77
-    },
-    { y: 77, ease: Power2.out }
-  )
-  .fromTo(
-    project_items[1],
-    {
-      y: -154
-    },
-    { y: 154, ease: Power2.out },
-    "0"
-  );
-
-const projectTl2 = gsap.timeline();
-
-projectTl2
-  .fromTo(
-    project_items[2],
-    {
-      y: -75
-    },
-    { y: 75, ease: Power2.out }
-  )
-  .fromTo(
-    project_items[3],
-    {
-      y: -151
-    },
-    { y: 151, ease: Power2.out },
-    "0"
-  );
-
-const projectScene1 = new ScrollMagic.Scene({
-  triggerElement: project_items[0],
-  triggerHook: 0.8,
-  duration: "50%"
-})
-  .addIndicators({
-    colorTrigger: "black",
-    colorStart: "black",
-    colorEnd: "red",
-    indent: 5
-  })
-  .setTween(projectTl1)
-  .addTo(controller);
-
-const projectScene2 = new ScrollMagic.Scene({
-  triggerElement: project_items[2],
-  triggerHook: "onEnter",
-  duration: "50%"
-})
-  .addIndicators({
-    colorTrigger: "black",
-    colorStart: "black",
-    colorEnd: "red",
-    indent: 5
-  })
-  .setTween(projectTl2)
-  .addTo(controller);
