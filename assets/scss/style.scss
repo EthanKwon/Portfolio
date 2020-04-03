@@ -26,7 +26,8 @@ $red: #e83c38;
 
 .page-background-anim {
   transition: transform 1.6s 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
-    opacity 1.6s 0s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 1.6s 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    opacity 1.6s 0s cubic-bezier(0.075, 0.82, 0.165, 1),
+    -webkit-transform 1.6s 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 
 // layout
@@ -63,7 +64,8 @@ $red: #e83c38;
   pointer-events: none;
   transform: perspective(1000px) rotateX(-90deg);
   transform-origin: top center;
-  transition: transform 1.6s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+  transition: transform 1.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+    opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
     -webkit-transform 1.6s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition-delay: 0.3s;
 }
@@ -101,8 +103,10 @@ $red: #e83c38;
     background-color: $white;
     border-bottom: 1px solid $red;
     transform: translate3d(0, -102%, 0);
-    transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
-      border 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1),
+      background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+      border 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+      -webkit-transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 } //header_stroke
 
@@ -214,7 +218,8 @@ $red: #e83c38;
     span {
       display: inline-block;
       transform: scale3d(1, 0, 0);
-      transition: transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+      transition: transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1),
+        opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
         -webkit-transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
     } //span
   } //sec1_title_line
@@ -357,7 +362,8 @@ $red: #e83c38;
     stroke-dashoffset: -308;
     stroke-width: 0.5;
 
-    transition: stroke 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s 2.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition: stroke 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+      opacity 0.3s 2.4s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 } //btn_circle
 
@@ -390,7 +396,8 @@ $red: #e83c38;
     height: 1px;
     z-index: 2;
     background-color: $red;
-    transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1),
+    transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+      transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1),
       -webkit-transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 } //about
@@ -446,7 +453,8 @@ $red: #e83c38;
     height: 1px;
     z-index: 2;
     background-color: $red;
-    transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1),
+    transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+      transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1),
       -webkit-transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
   .sec_bg {
@@ -481,8 +489,11 @@ $red: #e83c38;
       right: 0;
       height: 1px;
       background-color: $red;
+      transform: scale3d(0, 1, 1);
+      transform-origin: left center;
       transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
-        transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+        transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1),
+        -webkit-transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
     }
     &:before {
       top: 0;
@@ -527,6 +538,14 @@ $red: #e83c38;
     height: 1px;
     content: "";
     background-color: $red;
+    transform: scale3d(0, 1, 1);
+    transform-origin: right center;
+    transition: transform 0.9s 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+      background 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+      -webkit-transform 0.9s 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+  &:nth-child(2n):before {
+    transform-origin: left center;
   }
 
   .item_logo {
@@ -535,14 +554,23 @@ $red: #e83c38;
     top: 3.4vw;
     width: 5vw;
     height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
     .logo {
       width: 5vw;
       height: 5vw;
-      background: {
-        size: contain;
-        position: center center;
-        repeat: no-repeat;
+      font: {
+        family: Karla, Helvetica, Arial, sans-serif;
+        size: 6.25rem;
+        weight: 300;
       }
+      // background: {
+      //   size: contain;
+      //   position: center center;
+      //   repeat: no-repeat;
+      // }
     }
   } //item_logo
 
@@ -554,34 +582,37 @@ $red: #e83c38;
     width: 1px;
     content: "";
     background-color: $red;
+    transform: scale3d(1, 0, 1);
+    //transform-origin: top center;
+    transition: transform 0.9s 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+      background 0.3s cubic-bezier(0.075, 0.82, 0.165, 1),
+      -webkit-transform 0.9s 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 } //skill_item
 
 .logo_html {
-  background: {
-    image: url(../img/logo/html5.svg);
-  }
+  width: 5vw;
+  height: 5vw;
 } //item_html
 .logo_css {
-  background: {
-    image: url(../img/logo/css3.svg);
-  }
+  width: 5vw;
+  height: 5vw;
 } //item_css
-.logo_js {
-  background: {
-    image: url(../img/logo/logo-javascript.svg);
-  }
-} //item_js
-.logo_react {
-  background: {
-    image: url(../img/logo/react.svg);
-  }
-} //item_react
-.logo_type {
-  background: {
-    image: url(../img/logo/typescript.svg);
-  }
-} //item_type
+// .logo_js {
+//   background: {
+//     image: url(../img/logo/logo-javascript.svg);
+//   }
+// } //item_js
+// .logo_react {
+//   background: {
+//     image: url(../img/logo/react.svg);
+//   }
+// } //item_react
+// .logo_type {
+//   background: {
+//     image: url(../img/logo/typescript.svg);
+//   }
+// } //item_type
 
 .item_text {
   .item_name {
@@ -612,7 +643,8 @@ $red: #e83c38;
     right: 0;
     height: 1px;
     content: "";
-    transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.9s cubic-bezier(0.075, 0.82, 0.165, 1),
+    transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1),
+      background 0.9s cubic-bezier(0.075, 0.82, 0.165, 1),
       -webkit-transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
     background-color: $red;
   }
@@ -781,6 +813,22 @@ $red: #e83c38;
     left: 0;
     top: 0;
   } //project_header.sticky
+  .skill_contents {
+    .title.is-show {
+      &:before,
+      &:after {
+        transform: scale3d(1, 1, 1);
+      }
+    }
+  } //skill_contents
+  .skill_item.is-show {
+    &:before {
+      transform: scale3d(1, 1, 1);
+    }
+    &:after {
+      transform: scale3d(1, 1, 1);
+    }
+  }
 } //is-loaded
 
 @keyframes animCircle {

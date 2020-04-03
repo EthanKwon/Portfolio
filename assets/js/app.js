@@ -25,6 +25,8 @@ const aboutText = document.querySelector(".about_desc");
 //skill part
 const skill = document.querySelector(".skill");
 const skillTitle = skill.querySelector(".skill_title");
+const skillContTitle = skill.querySelector(".skill_contents .title");
+const skillItems = skill.querySelectorAll(".skill_item");
 
 //project part
 
@@ -90,6 +92,13 @@ window.addEventListener("scroll", () => {
 
     skillTitle.style.transform = `translate3d(${-skilltrans /
       10}px,${-skillTitlePos / 10}px,0)`;
+  }
+
+  if (wScroll >= 2000) {
+    skillContTitle.classList.add("is-show");
+    skillItems.forEach(item => {
+      item.classList.add("is-show");
+    });
   }
 
   if (wScroll >= 3500) {

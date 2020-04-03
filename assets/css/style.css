@@ -513,6 +513,8 @@ p {
       right: 0;
       height: 1px;
       background-color: #e83c38;
+      transform: scale3d(0, 1, 1);
+      transform-origin: left center;
       transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1); }
     .skill_contents .title:before {
       top: 0; }
@@ -545,19 +547,27 @@ p {
     left: 0;
     height: 1px;
     content: "";
-    background-color: #e83c38; }
+    background-color: #e83c38;
+    transform: scale3d(0, 1, 1);
+    transform-origin: right center;
+    transition: transform 0.9s 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.9s 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .skill_item:nth-child(2n):before {
+    transform-origin: left center; }
   .skill_item .item_logo {
     position: absolute;
     left: 0;
     top: 3.4vw;
     width: 5vw;
-    height: 5vw; }
+    height: 5vw;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
     .skill_item .item_logo .logo {
       width: 5vw;
       height: 5vw;
-      background-size: contain;
-      background-position: center center;
-      background-repeat: no-repeat; }
+      font-family: Karla, Helvetica, Arial, sans-serif;
+      font-size: 6.25rem;
+      font-weight: 300; }
   .skill_item:nth-child(2n-1):after {
     position: absolute;
     top: 0;
@@ -565,22 +575,17 @@ p {
     right: 0;
     width: 1px;
     content: "";
-    background-color: #e83c38; }
+    background-color: #e83c38;
+    transform: scale3d(1, 0, 1);
+    transition: transform 0.9s 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), -webkit-transform 0.9s 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
 .logo_html {
-  background-image: url(../img/logo/html5.svg); }
+  width: 5vw;
+  height: 5vw; }
 
 .logo_css {
-  background-image: url(../img/logo/css3.svg); }
-
-.logo_js {
-  background-image: url(../img/logo/logo-javascript.svg); }
-
-.logo_react {
-  background-image: url(../img/logo/react.svg); }
-
-.logo_type {
-  background-image: url(../img/logo/typescript.svg); }
+  width: 5vw;
+  height: 5vw; }
 
 .item_text .item_name {
   margin-bottom: 1.2vw;
@@ -718,6 +723,15 @@ p {
   position: fixed;
   left: 0;
   top: 0; }
+
+.is-loaded .skill_contents .title.is-show:before, .is-loaded .skill_contents .title.is-show:after {
+  transform: scale3d(1, 1, 1); }
+
+.is-loaded .skill_item.is-show:before {
+  transform: scale3d(1, 1, 1); }
+
+.is-loaded .skill_item.is-show:after {
+  transform: scale3d(1, 1, 1); }
 
 @keyframes animCircle {
   0% {
