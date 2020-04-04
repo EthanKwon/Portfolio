@@ -1,9 +1,7 @@
 //document
-
 const scrollShow = document.querySelector(".scroll_show");
 
 //header
-
 const header = document.querySelector("#header");
 
 //intro
@@ -25,8 +23,9 @@ const aboutText = document.querySelector(".about_desc");
 //skill part
 const skill = document.querySelector(".skill");
 const skillTitle = skill.querySelector(".skill_title");
+const skillContents = skill.querySelector(".skill_contents");
 const skillContTitle = skill.querySelector(".skill_contents .title");
-const skillItems = skill.querySelectorAll(".skill_item");
+const skillItemLines = skill.querySelectorAll(".skill_item_wrap");
 
 //project part
 
@@ -47,8 +46,6 @@ window.onload = () => {
 };
 
 //scroll effect
-
-const scrollTl = gsap.timeline();
 
 window.addEventListener("scroll", () => {
   const wScroll = Math.round(this.scrollY);
@@ -96,8 +93,8 @@ window.addEventListener("scroll", () => {
 
   if (wScroll >= 2000) {
     skillContTitle.classList.add("is-show");
-    skillItems.forEach(item => {
-      item.classList.add("is-show");
+    skillItemLines.forEach(line => {
+      line.classList.add("is-show");
     });
   }
 
