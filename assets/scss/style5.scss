@@ -1,0 +1,101 @@
+@import "./reset5.scss"; // layout
+
+#header {
+}
+#sec1 {
+  position: relative;
+  min-height: 100vh;
+  margin-bottom: 11.25rem;
+} //intro
+#sec2 {
+  min-height: 100vh;
+}
+#sec3 {
+}
+#sec4 {
+}
+#sec5 {
+}
+#footer {
+}
+
+.container {
+  position: relative;
+}
+
+.grid {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: -5rem;
+}
+
+.quarter,
+.three-quarters,
+.half,
+.third {
+  padding-left: 5rem;
+}
+
+.quarter {
+  width: 25%;
+}
+
+.three-quarters {
+  width: 75%;
+}
+.half {
+  width: 50%;
+}
+
+.third {
+  width: 33.3333%;
+}
+
+// intro
+
+.intro_fixed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  .container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  } //container
+} //intro_fixed
+
+.intro_title {
+  font-size: 5.714vw;
+  text-align: center;
+}
+
+.intro_fixed.on-top {
+  z-index: 3;
+}
+
+// color
+
+$white: #ebeded;
+$red: #e83c38;
+$green: #00a19a;
+$green2: #a6d1c9;
+$black: #282b29;
+$pink: #f4c4c4;
+
+.theme-1 {
+  .page {
+    color: $red;
+    background-color: $white;
+  }
+}
+
+.theme-2 {
+  .page {
+    color: $white;
+    background-color: $green;
+  }
+}
