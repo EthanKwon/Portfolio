@@ -14,7 +14,8 @@ const body = document.querySelector("body");
     // linear interpolation
     lerp: (a, b, n) => (1 - n) * a + n * b,
     // Random float
-    getRandomFloat: (min, max) => (Math.random() * (max - min) + min).toFixed(2)
+    getRandomFloat: (min, max) =>
+      (Math.random() * (max - min) + min).toFixed(2),
   };
 
   /*
@@ -28,7 +29,7 @@ const body = document.querySelector("body");
   const calcWinsize = () => {
     winsize = {
       width: window.innerWidth,
-      height: window.innerHeight
+      height: window.innerHeight,
     };
   };
   calcWinsize(); // 최초 창의 크기 초기화
@@ -65,22 +66,26 @@ const body = document.querySelector("body");
       this.DOM = { intro: document.querySelector(".intro") };
       this.DOM.titles = this.DOM.intro.querySelectorAll(".intro_fixed");
       this.DOM.image = this.DOM.intro.querySelector(".intro_img");
-      this.DOM.circle = this.DOM.intro.querySelector(".intro_circle");
+      this.DOM.imgPara = this.DOM.intro.querySelector(".intro_img_parallax");
+      this.DOM.btnWrap = this.DOM.intro.querySelector(".intro_btn_wrap");
 
-      this.observer = new IntersectionObserver(entries => {
+      this.observer = new IntersectionObserver((entries) => {
         entries.forEach(
-          entry => (this.isVisible = entry.intersectionRatio > 0)
+          (entry) => (this.isVisible = entry.intersectionRatio > 0)
         );
       });
       this.observer.observe(this.DOM.intro);
     }
 
     layout(value) {
-      this.DOM.titles.forEach(title => {
+      this.DOM.titles.forEach((title) => {
         title.style.transform = `translate3d(0, ${value}px, 0)`;
       });
       this.DOM.image.style.transform = `translate3d(0, ${value / 10}px, 0)`;
-      this.DOM.circle.style.transform = `translate3d(0, ${value / 20}px, 0)`;
+      this.DOM.imgPara.style.transform = `translate3d(0, ${
+        (-1 * value) / 10
+      }px, 0)`;
+      this.DOM.btnWrap.style.transform = `translate3d(0, ${value / 20}px, 0)`;
     }
   }
 
@@ -111,8 +116,8 @@ const body = document.querySelector("body");
           previous: 0,
           current: 0,
           ease: 0.1,
-          setValue: () => docScroll
-        }
+          setValue: () => docScroll,
+        },
       };
       this.setSize();
       this.update();
@@ -134,8 +139,9 @@ const body = document.querySelector("body");
     }
 
     layout() {
-      this.DOM.scrollable.style.transform = `translate3d(0,${-1 *
-        this.renderedStyles.translationY.previous}px,0)`;
+      this.DOM.scrollable.style.transform = `translate3d(0,${
+        -1 * this.renderedStyles.translationY.previous
+      }px,0)`;
     }
 
     setSize() {
