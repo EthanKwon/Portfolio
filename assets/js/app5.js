@@ -125,6 +125,9 @@ const body = document.querySelector("body");
         this.renderedStyles[key].current = this.renderedStyles[
           key
         ].previous = this.renderedStyles[key].setValue();
+        //최솟값 0 보정
+        if (this.renderedStyles[key].previous < 0.1)
+          this.renderedStyles[key].previous = 0;
       }
       //scroll element에 효과 부여
       this.layout();
@@ -133,9 +136,6 @@ const body = document.querySelector("body");
     layout() {
       this.DOM.scrollable.style.transform = `translate3d(0,${-1 *
         this.renderedStyles.translationY.previous}px,0)`;
-      //   this.introItem.titles.forEach(title => {
-      //     title.style.transform = `translate3d(0,${this.renderedStyles.translationY.previous}px,0)`;
-      //   });
     }
 
     setSize() {
@@ -163,6 +163,9 @@ const body = document.querySelector("body");
           this.renderedStyles[key].current,
           this.renderedStyles[key].ease
         );
+        //최솟값 0 보정
+        if (this.renderedStyles[key].previous < 0.1)
+          this.renderedStyles[key].previous = 0;
       }
       this.layout();
 
