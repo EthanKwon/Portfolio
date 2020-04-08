@@ -650,6 +650,18 @@ h6 {
   .-parallax {
     transform: none !important; } }
 
+@media (min-width: 1800px) {
+  .header_change-btn,
+  .header_main-link,
+  .header_portfolio {
+    font-size: 1.1875rem; } }
+
+@media (max-width: 1799px) and (min-width: 1200px) {
+  .header_change-btn,
+  .header_main-link,
+  .header_portfolio {
+    font-size: 1.1875rem; } }
+
 @media (max-width: 1199px) and (min-width: 1000px) {
   .header_change-btn,
   .header_main-link,
