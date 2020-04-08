@@ -57,6 +57,21 @@ const body = document.querySelector("body");
 
   /*
    *
+   * header Item
+   *
+   */
+
+  class header {
+    constructor() {
+      this.DOM = {
+        header: document.querySelector(".header"),
+      };
+      this.DOM.stroke = this.DOM.header.querySelector(".js-stroke");
+    }
+  }
+
+  /*
+   *
    * intro Item
    *
    */
