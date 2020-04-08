@@ -11,6 +11,12 @@
   font-weight: normal;
   font-style: normal; }
 
+@font-face {
+  font-family: "S-CoreDream-4Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal; }
+
 html,
 body,
 div,
@@ -171,6 +177,28 @@ h6 {
   font-family: "Perpetua Titling MT";
   font-weight: 300; }
 
+button,
+.button {
+  display: inline-block;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  background: 0 0;
+  color: inherit;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  font: inherit;
+  line-height: normal;
+  cursor: pointer;
+  user-select: none; }
+  button:hover,
+  .button:hover {
+    text-decoration: none; }
+
 .page {
   will-change: transform; }
 
@@ -191,7 +219,9 @@ h6 {
   margin-bottom: 11.25rem; }
 
 #sec2 {
-  min-height: 100vh; }
+  position: relative;
+  z-index: 5;
+  pointer-events: none; }
 
 .container {
   position: relative; }
@@ -223,6 +253,53 @@ h6 {
   position: absolute;
   transform: translate3d(-50%, 0, 0);
   left: 50%; }
+
+.anim-img {
+  transition: transform 1.6s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform-origin: top center;
+  transform: perspective(1000px) rotateX(-90deg);
+  transition-delay: 0.3s;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none; }
+
+.sec_bg {
+  pointer-events: auto;
+  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+
+.button {
+  text-transform: uppercase;
+  font-weight: 300;
+  position: relative; }
+  .button .button_circle {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translate3d(0, -50%, 0); }
+    .button .button_circle path {
+      fill: none;
+      stroke-miterlimit: 10;
+      stroke-dasharray: 164;
+      stroke-dashoffset: 0;
+      stroke-width: 1;
+      transition: stroke-dashoffset 1.2s cubic-bezier(0.075, 0.82, 0.165, 1), stroke 0.9s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .button .button_label {
+    display: inline-block;
+    position: relative;
+    transition: opacity 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+    .button .button_label:before {
+      position: absolute;
+      left: 0;
+      right: 0;
+      content: "";
+      height: 1px;
+      transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+      transform: scale3d(0, 1, 1);
+      transform-origin: right center; }
+  .button:hover .button_circle path {
+    stroke-dashoffset: -164; }
+  .button:hover .button_label::before {
+    transform: scale3d(1, 1, 1); }
 
 /* 
  *
@@ -400,7 +477,7 @@ h6 {
   position: absolute;
   top: 50%;
   left: 50%; }
-  .btn_circle .btn_circle_path {
+  .btn_circle .btn_circle-path {
     fill: none;
     stroke-dasharray: 308;
     stroke-dashoffset: -308;
@@ -409,6 +486,61 @@ h6 {
 
 /*
  *
+ * About Part
+ *
+ */
+.about_main {
+  padding: 0;
+  position: relative; }
+  .about_main:before {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    transform-origin: right center;
+    content: "";
+    z-index: 2;
+    transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .about_main .about_main-grid {
+    display: flex; }
+
+.about_img-wrap {
+  width: 100%;
+  position: relative;
+  object-fit: cover;
+  overflow: hidden; }
+  .about_img-wrap img {
+    width: 100%;
+    transform: scale3d(1.2, 1.2, 1);
+    transition: transform 2.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-delay: 0.3s; }
+  .about_img-wrap .about_img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover;
+    transform: translate3d(-50%, -50%, 0);
+    background-image: url(../img/me2.jpg);
+    background-size: cover;
+    background-position: center center; }
+
+.about_text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%; }
+  .about_text .about_title {
+    margin-top: 0;
+    font-family: "S-CoreDream-4Regular"; }
+    .about_text .about_title strong {
+      display: block;
+      margin-bottom: 2rem; }
+
+/*
  *
  * Theme Color
  *
@@ -416,19 +548,27 @@ h6 {
 .theme-1 {
   color: #e83c38;
   background-color: #ebeded; }
-  .theme-1 .header_stroke:before {
-    background-color: #ebeded;
-    border-bottom: 1px solid #e83c38; }
-  .theme-1 .header_stroke:after {
-    background-color: #e83c38; }
-  .theme-1 .header_main-item:not(:last-child):before {
-    background-color: #e83c38; }
   .theme-1 .small-circle {
     stroke: #e83c38; }
-  .theme-1 .intro_btn:before {
+  .theme-1 .sec_bg {
     background-color: #ebeded; }
-  .theme-1 .btn_circle_path {
+  .theme-1 .button path {
     stroke: #e83c38; }
+  .theme-1 .button .button_label:before {
+    background-color: #e83c38; }
+  .theme-1 .header .header_stroke:before {
+    background-color: #ebeded;
+    border-bottom: 1px solid #e83c38; }
+  .theme-1 .header .header_stroke:after {
+    background-color: #e83c38; }
+  .theme-1 .header .header_main-item:not(:last-child):before {
+    background-color: #e83c38; }
+  .theme-1 .intro .intro_btn:before {
+    background-color: #ebeded; }
+  .theme-1 .intro .btn_circle-path {
+    stroke: #e83c38; }
+  .theme-1 .about .about_main:before {
+    background-color: #e83c38; }
 
 .theme-2 .page {
   color: #ebeded;
@@ -439,36 +579,38 @@ h6 {
  * DOM is Laaded
  *
  */
+.dom-is-loaded .small-circle {
+  transition-delay: 2s;
+  transition: stroke-dashoffset 0.3s linear, stroke 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); }
+
+.dom-is-loaded .header.is-show .header_stroke:before {
+  transform: translate3d(0, 0, 0); }
+
 .dom-is-loaded .header_main {
   transform: translate3d(0, 0, 0); }
 
 .dom-is-loaded .header_main-item:not(:last-child):before {
   transform: scale3d(1, 1, 1) translate3d(0, -50%, 0); }
 
-.dom-is-loaded .small-circle {
-  transition-delay: 2s;
-  transition: stroke-dashoffset 0.3s linear, stroke 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); }
-
 .dom-is-loaded .header_portfolio {
   transform: translate3d(0, 0, 0); }
 
-.dom-is-loaded .is-show .header_stroke:before {
-  transform: translate3d(0, 0, 0); }
-
-.dom-is-loaded .is-show .intro_title_line span {
+.dom-is-loaded .intro.is-show .intro_title_line span {
   transform: scale3d(1, 1, 1); }
 
-.dom-is-loaded .img_anim.is-show {
-  pointer-events: auto;
-  opacity: 1;
-  transform: perspective(1000px) rotateX(0); }
-
-.dom-is-loaded .intro.is-show .btn_circle_path {
+.dom-is-loaded .intro.is-show .btn_circle-path {
   animation: animCircle 2s 2.4s cubic-bezier(0.075, 0.82, 0.165, 1) forwards; }
 
 .dom-is-loaded .intro.is-show .btn_label_text {
   transition-delay: 2.8s;
   transform: translate3d(0, 0, 0); }
+
+.dom-is-loaded .anim_img.is-show {
+  pointer-events: auto;
+  opacity: 1;
+  transform: perspective(1000px) rotateX(0); }
+  .dom-is-loaded .anim_img.is-show img {
+    transform: scale3d(1, 1, 1); }
 
 @media (max-width: 1999px) and (min-width: 1600px) {
   html {
@@ -498,6 +640,12 @@ h6 {
     width: 50%; }
   .third {
     width: 33.3333%; }
+  .button {
+    padding: 0.875rem 0; }
+    .button .button_circle {
+      width: 4.25rem;
+      height: 4.25rem;
+      left: -2.125rem; }
   .header_stroke:before {
     right: 2.5rem;
     left: 2.5rem; }
@@ -565,9 +713,13 @@ h6 {
     transform: translate3d(0, 3.4vw, 0); }
     .intro_btn:hover .btn_label_text span {
       transform: translate3d(0, -1.5625rem, 0); }
-  .btn_label {
-    bottom: 4.375rem;
-    height: 6.25rem; }
+    .intro_btn .btn_label {
+      bottom: 4.375rem;
+      height: 6.25rem; }
+  .about_title {
+    margin-bottom: 3.125rem; }
+  .about_text {
+    padding: 2.5rem 5rem 2.5rem 0; }
   .dom-is-loaded .is-show .intro_title_wrap {
     transform: translate3d(0, 0, 0); }
   .dom-is-loaded .is-show .intro_title_line:nth-child(1) {
@@ -636,11 +788,7 @@ h6 {
     margin-left: -60px; }
   .dom-is-loaded .header_stroke:after {
     transform: translate3d(0, 0, 0) !important; }
-  .dom-is-loaded .img_anim.is-show {
-    pointer-events: auto;
-    opacity: 1;
-    transform: perspective(1000px) rotateX(0); }
-  .dom-is-loaded .intro.is-show .btn_circle_path {
+  .dom-is-loaded .intro.is-show .btn_circle-path {
     animation: animCircle 1.4s 1.1s cubic-bezier(0.075, 0.82, 0.165, 1) forwards; }
   .dom-is-loaded .intro.is-show .btn_label_text {
     transition-delay: 2.8s;
@@ -655,6 +803,15 @@ h6 {
   .header_main-link,
   .header_portfolio {
     font-size: 1.1875rem; } }
+
+@media (min-width: 1200px) {
+  .button {
+    font-size: 1.625rem; }
+    .button .button_label:before {
+      bottom: -0.125rem; }
+  .about_title {
+    font-size: 2rem;
+    line-height: 1.4; } }
 
 @media (max-width: 1799px) and (min-width: 1200px) {
   .header_change-btn,

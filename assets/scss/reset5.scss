@@ -16,6 +16,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "S-CoreDream-4Regular";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-4Regular.woff")
+    format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
 @import url("https://fonts.googleapis.com/css?family=Karla&display=swap");
 
 html,
@@ -210,5 +218,30 @@ h6 {
   font : {
     family: "Perpetua Titling MT";
     weight: 300;
+  }
+}
+
+//button tag
+
+button,
+.button {
+  display: inline-block;
+  overflow: visible;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  border: 0;
+  background: 0 0;
+  color: inherit;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  text-transform: none;
+  font: inherit;
+  line-height: normal;
+  cursor: pointer;
+  user-select: none;
+  &:hover {
+    text-decoration: none;
   }
 }
