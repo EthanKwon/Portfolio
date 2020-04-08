@@ -87,6 +87,9 @@ const body = document.querySelector("body");
       }px, 0)`;
       this.DOM.btnWrap.style.transform = `translate3d(0, ${value / 20}px, 0)`;
     }
+    class() {
+      this.DOM.intro.classList.add("is-show");
+    }
   }
 
   /*
@@ -178,9 +181,12 @@ const body = document.querySelector("body");
       if (this.intro.isVisible) {
         if (this.intro.insideViewport) {
           this.intro.layout(this.renderedStyles.translationY.previous);
+          this.intro.class();
         } else {
           this.intro.insideViewport = true;
           this.intro.layout(this.renderedStyles.translationY.previous);
+
+          this.intro.class();
         }
       } else {
         this.intro.insideViewport = false;

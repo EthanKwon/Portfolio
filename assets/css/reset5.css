@@ -147,7 +147,8 @@ body::-webkit-scrollbar {
 
 a {
   text-decoration: none;
-  color: inherit; }
+  color: inherit;
+  background-color: transparent; }
   a:visited {
     color: inherit; }
 
