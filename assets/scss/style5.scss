@@ -454,6 +454,7 @@
   align-items: center;
   height: 100%;
   .about_title {
+    line-height: 1.4;
     font : {
       family: "S-CoreDream-4Regular";
     }
@@ -1004,7 +1005,6 @@ $pink: #f4c4c4;
   }
   .about_title {
     font-size: 2rem;
-    line-height: 1.4;
   } //about_title
 }
 @media (max-width: 1799px) and (min-width: 1200px) {
@@ -1020,6 +1020,10 @@ $pink: #f4c4c4;
   .header_main-link,
   .header_portfolio {
     font-size: 1.1875rem;
+  }
+
+  .about_title {
+    font-size: 1.5rem;
   }
 }
 

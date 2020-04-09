@@ -533,6 +533,7 @@ button,
   align-items: center;
   height: 100%; }
   .about_text .about_title {
+    line-height: 1.4;
     font-family: "S-CoreDream-4Regular"; }
     .about_text .about_title strong {
       display: block;
@@ -831,8 +832,7 @@ button,
     .button .button_label:before {
       bottom: -0.125rem; }
   .about_title {
-    font-size: 2rem;
-    line-height: 1.4; } }
+    font-size: 2rem; } }
 
 @media (max-width: 1799px) and (min-width: 1200px) {
   .header_change-btn,
@@ -844,7 +844,9 @@ button,
   .header_change-btn,
   .header_main-link,
   .header_portfolio {
-    font-size: 1.1875rem; } }
+    font-size: 1.1875rem; }
+  .about_title {
+    font-size: 1.5rem; } }
 
 @media (max-width: 999px) and (min-width: 700px) {
   html {
