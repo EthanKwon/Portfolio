@@ -215,8 +215,7 @@ button,
 
 #sec1 {
   position: relative;
-  min-height: 100vh;
-  margin-bottom: 11.25rem; }
+  min-height: 100vh; }
 
 #sec2 {
   position: relative;
@@ -534,7 +533,6 @@ button,
   align-items: center;
   height: 100%; }
   .about_text .about_title {
-    margin-top: 0;
     font-family: "S-CoreDream-4Regular"; }
     .about_text .about_title strong {
       display: block;
@@ -630,6 +628,8 @@ button,
  * 
  */
 @media (min-width: 1000px) {
+  #sec1 {
+    margin-bottom: 11.25rem; }
   .container {
     padding: 0 2.5rem; }
   .quarter {
@@ -738,6 +738,18 @@ button,
     padding: 100px 0;
     flex-direction: column;
     justify-content: center; }
+  .grid {
+    display: block; }
+  .half {
+    padding-left: 30px; }
+  .button {
+    padding: 14px 0; }
+    .button .button_circle {
+      width: 3.75rem;
+      height: 3.75rem;
+      left: -1.875rem; }
+    .button .button_label:before {
+      bottom: -2px; }
   .header_stroke:before {
     right: 0;
     left: 0;
@@ -786,6 +798,15 @@ button,
     height: 120px;
     margin-top: -60px;
     margin-left: -60px; }
+  .about_main-grid {
+    margin-left: -30px; }
+  .about_text {
+    padding: 60px 0; }
+    .about_text h3 {
+      margin-top: 0; }
+  .about_title {
+    margin-top: 40px;
+    margin-bottom: 40px; }
   .dom-is-loaded .header_stroke:after {
     transform: translate3d(0, 0, 0) !important; }
   .dom-is-loaded .intro.is-show .btn_circle-path {
@@ -826,19 +847,43 @@ button,
     font-size: 1.1875rem; } }
 
 @media (max-width: 999px) and (min-width: 700px) {
+  html {
+    font-size: 12px; }
+  .quarter {
+    width: 50%; }
+  .button {
+    font-size: 26px; }
   .intro_title {
-    font-size: 50px; } }
+    font-size: 50px; }
+  .about_title {
+    font-size: 24px; } }
+
+@media (max-width: 699px) {
+  .about_main-grid {
+    flex-direction: column; } }
 
 @media (max-width: 699px) and (min-width: 500px) {
+  .button {
+    font-size: 20px; }
   .intro_title {
     font-size: 36px; }
   .intro_img {
     margin-top: -30px;
-    margin-bottom: -54px; } }
+    margin-bottom: -54px; }
+  .about_title {
+    font-size: 20px; } }
 
 @media (max-width: 499px) {
   .container {
     padding: 0 20px; }
+  .button {
+    font-size: 16px; }
+    .button .button_circle {
+      width: 2.5rem;
+      height: 2.5rem;
+      left: -1.25rem; }
+    .button .button_label:before {
+      bottom: -2px; }
   .header_stroke:after {
     right: 20px;
     left: 20px; }
@@ -851,7 +896,9 @@ button,
     margin-top: -20px;
     margin-bottom: -46px; }
   .intro_img_wrap .img {
-    width: calc(50.2857142857vw - 20px); } }
+    width: calc(50.2857142857vw - 20px); }
+  .about_title {
+    font-size: 16px; } }
 
 @media (max-width: 999px) and (min-width: 500px) {
   .container {
