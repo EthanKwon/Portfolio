@@ -265,7 +265,7 @@ button,
   opacity: 0;
   pointer-events: none; }
 
-.sec_bg {
+.sec-bg {
   pointer-events: auto;
   transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
@@ -552,7 +552,7 @@ button,
   background-color: #ebeded; }
   .theme-1 .small-circle {
     stroke: #e83c38; }
-  .theme-1 .sec_bg {
+  .theme-1 .sec-bg {
     background-color: #ebeded; }
   .theme-1 .button path {
     stroke: #e83c38; }
@@ -607,11 +607,11 @@ button,
   transition-delay: 2.8s;
   transform: translate3d(0, 0, 0); }
 
-.dom-is-loaded .anim_img.is-show {
+.dom-is-loaded .anim-img.is-show {
   pointer-events: auto;
   opacity: 1;
   transform: perspective(1000px) rotateX(0); }
-  .dom-is-loaded .anim_img.is-show img {
+  .dom-is-loaded .anim-img.is-show img {
     transform: scale3d(1, 1, 1); }
 
 @media (max-width: 1999px) and (min-width: 1600px) {
@@ -698,10 +698,9 @@ button,
     position: absolute;
     bottom: 5.6vw;
     left: 50.0571428571vw; }
+    .intro_img .anim-img {
+      transition-delay: 2.8s; }
   .intro_img_wrap {
-    position: absolute;
-    left: 50%;
-    bottom: 50%;
     width: 25.1428571429vw;
     height: 14.1142857143vw; }
     .intro_img_wrap .img {
@@ -787,6 +786,8 @@ button,
     padding-right: 40px;
     margin-top: -40px;
     margin-bottom: -60px; }
+    .intro_img .anim-img {
+      transition-delay: 1.6s; }
   .intro_img_wrap .img {
     width: calc(50.2857142857vw - 40px);
     height: 25.6571428571vw; }

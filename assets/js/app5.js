@@ -88,7 +88,7 @@ const body = document.querySelector("body");
       this.DOM.image = this.DOM.intro.querySelector(".intro_img");
       this.DOM.imgPara = this.DOM.intro.querySelector(".intro_img_parallax");
       this.DOM.btnWrap = this.DOM.intro.querySelector(".intro_btn_wrap");
-
+      this.DOM.show = this.DOM.intro.querySelectorAll(".js-class-show");
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => (this.isVisible = entry.isIntersecting));
       });
@@ -108,6 +108,9 @@ const body = document.querySelector("body");
     }
     class() {
       this.DOM.intro.classList.add("is-show");
+      this.DOM.show.forEach((dom) => {
+        dom.classList.add("is-show");
+      });
     }
   }
 
