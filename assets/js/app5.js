@@ -50,6 +50,7 @@ const body = document.querySelector("body");
 
   const getPageYScroll = () => {
     docScroll = window.pageYOffset || document.documentElement.scrollTop;
+    // console.log(`Scroll : ${docScroll}`);
   };
 
   window.addEventListener("scroll", getPageYScroll);
@@ -61,14 +62,18 @@ const body = document.querySelector("body");
    *
    */
 
-  class header {
-    constructor() {
-      this.DOM = {
-        header: document.querySelector(".header"),
-      };
-      this.DOM.stroke = this.DOM.header.querySelector(".js-stroke");
+  const header = document.querySelector(".header");
+  const headerStroke = header.querySelector(".js-class-show");
+
+  const addClassHeader = () => {
+    if (docScroll > 800) {
+      headerStroke.classList.add("is-show");
+    } else {
+      headerStroke.classList.remove("is-show");
     }
-  }
+  };
+
+  window.addEventListener("scroll", addClassHeader);
 
   /*
    *
@@ -85,11 +90,10 @@ const body = document.querySelector("body");
       this.DOM.btnWrap = this.DOM.intro.querySelector(".intro_btn_wrap");
 
       this.observer = new IntersectionObserver((entries) => {
-        entries.forEach(
-          (entry) => (this.isVisible = entry.intersectionRatio > 0)
-        );
+        entries.forEach((entry) => (this.isVisible = entry.isIntersecting));
       });
-      this.observer.observe(this.DOM.intro);
+      console.log(this.observer);
+      this.observer.observe(this.DOM.intro.parentNode);
     }
 
     layout(value) {
@@ -109,6 +113,133 @@ const body = document.querySelector("body");
 
   /*
    *
+   * about Item
+   *
+   */
+
+  class About {
+    constructor() {
+      this.DOM = { about: document.querySelector(".about") };
+      this.DOM.show = this.DOM.about.querySelectorAll(".js-class-show");
+      this.DOM.image = this.DOM.about.querySelector(".js-anim-img");
+      this.DOM.title = this.DOM.about.querySelector(".js-anim-title");
+
+      this.renderedStyles = {
+        imageScale: {
+          // interpolated value
+          previous: 0,
+          // current value
+          current: 0,
+          // amount to interpolate
+          ease: 0.1,
+          // current value setter
+          setValue: () => {
+            const toValue = 1.5;
+            const fromValue = 1;
+            const val = MathUtils.map(
+              this.props.top - docScroll,
+              winsize.height,
+              -1 * this.props.height,
+              fromValue,
+              toValue
+            );
+            return Math.max(Math.min(val, toValue), fromValue);
+          },
+        },
+        titleTranslationY: {
+          previous: 0,
+          current: 0,
+          ease: 0.1,
+          fromValue: Number(MathUtils.getRandomFloat(30, 70)),
+          setValue: () => {
+            const fromValue = this.renderedStyles.titleTranslationY.fromValue;
+            const toValue = -1 * fromValue;
+            const val = MathUtils.map(
+              this.props.top - docScroll,
+              winsize.height,
+              -1 * this.props.height,
+              fromValue,
+              toValue
+            );
+            return fromValue < 0
+              ? Math.min(Math.max(val, fromValue), toValue)
+              : Math.max(Math.min(val, fromValue), toValue);
+          },
+        },
+      };
+
+      this.getSize();
+
+      this.update();
+
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach(
+          (entry) => (this.isVisible = entry.intersectionRatio > 0)
+        );
+      });
+
+      this.observer.observe(this.DOM.about);
+
+      this.initEvents();
+    }
+
+    update() {
+      // sets the initial value (no interpolation)
+      for (const key in this.renderedStyles) {
+        this.renderedStyles[key].current = this.renderedStyles[
+          key
+        ].previous = this.renderedStyles[key].setValue();
+      }
+      // apply changes/styles
+      this.layout();
+    }
+    getSize() {
+      const rect = this.DOM.about.getBoundingClientRect();
+      this.props = {
+        // item's height
+        height: rect.height,
+        // offset top relative to the document
+        top: docScroll + rect.top,
+      };
+    }
+    initEvents() {
+      window.addEventListener("resize", () => this.resize());
+    }
+    resize() {
+      // gets the item's height and top (relative to the document)
+      this.getSize();
+      // on resize reset sizes and update styles
+      this.update();
+    }
+    render() {
+      // update the current and interpolated values
+      for (const key in this.renderedStyles) {
+        this.renderedStyles[key].current = this.renderedStyles[key].setValue();
+        this.renderedStyles[key].previous = MathUtils.lerp(
+          this.renderedStyles[key].previous,
+          this.renderedStyles[key].current,
+          this.renderedStyles[key].ease
+        );
+      }
+
+      // and apply changes
+      this.layout();
+    }
+    layout() {
+      // scale the image
+      this.DOM.image.style.transform = `scale3d(${this.renderedStyles.imageScale.previous},${this.renderedStyles.imageScale.previous},1)`;
+      // translate the title
+      this.DOM.title.style.transform = `translate3d(0,${this.renderedStyles.titleTranslationY.previous}px,0)`;
+    }
+    class() {
+      this.DOM.show.forEach((dom) => {
+        dom.classList.add("is-show");
+      });
+    }
+  }
+
+  /*
+   *
    * Smooth Scroll
    *
    */
@@ -121,12 +252,7 @@ const body = document.querySelector("body");
       this.DOM = { main: document.querySelector("main") };
       this.DOM.scrollable = this.DOM.main.querySelector("div[data-scroll]");
       this.intro = new Intro();
-      //   this.intro = this.DOM.main.querySelector(".intro");
-      //   this.introItem = {
-      //     titles: this.intro.querySelectorAll(".intro_fixed"),
-      //     image: this.intro.querySelector(".intro_img"),
-      //     circle: this.intro.querySelector(".intro_circle")
-      //   };
+      this.about = new About();
 
       // 적용할 스타일 목록
       this.renderedStyles = {
@@ -193,18 +319,34 @@ const body = document.querySelector("body");
       }
       this.layout();
 
+      //intro observer
+
       if (this.intro.isVisible) {
+        console.log("intro intersect");
         if (this.intro.insideViewport) {
           this.intro.layout(this.renderedStyles.translationY.previous);
           this.intro.class();
         } else {
           this.intro.insideViewport = true;
           this.intro.layout(this.renderedStyles.translationY.previous);
-
           this.intro.class();
         }
       } else {
         this.intro.insideViewport = false;
+      }
+
+      //about observer
+      if (this.about.isVisible) {
+        if (this.about.insideViewport) {
+          this.about.render();
+          this.about.class();
+        } else {
+          this.about.insideViewport = true;
+          this.about.update();
+          this.about.class();
+        }
+      } else {
+        this.about.insideViewport = false;
       }
 
       requestAnimationFrame(() => this.render());

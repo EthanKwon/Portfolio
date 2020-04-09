@@ -222,6 +222,9 @@ button,
   z-index: 5;
   pointer-events: none; }
 
+#sec3 {
+  height: 10000px; }
+
 .container {
   position: relative; }
 
@@ -516,12 +519,12 @@ button,
     transition-delay: 0.3s; }
   .about_img-wrap .about_img {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
-    transform: translate3d(-50%, -50%, 0);
+    transform-origin: center center;
     background-image: url(../img/me2.jpg);
     background-size: cover;
     background-position: center center; }
@@ -582,7 +585,7 @@ button,
   transition-delay: 2s;
   transition: stroke-dashoffset 0.3s linear, stroke 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
-.dom-is-loaded .header.is-show .header_stroke:before {
+.dom-is-loaded .header_stroke.is-show:before {
   transform: translate3d(0, 0, 0); }
 
 .dom-is-loaded .header_main {
@@ -647,6 +650,8 @@ button,
       width: 4.25rem;
       height: 4.25rem;
       left: -2.125rem; }
+    .button .button_label:before {
+      bottom: -0.125rem; }
   .header_stroke:before {
     right: 2.5rem;
     left: 2.5rem; }

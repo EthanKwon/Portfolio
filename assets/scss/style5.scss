@@ -27,6 +27,7 @@
   pointer-events: none;
 }
 #sec3 {
+  height: 10000px;
 }
 #sec4 {
 }
@@ -433,12 +434,13 @@
   } //img (blank)
   .about_img {
     position: absolute;
-    top: 50%;
-    left: 50%;
+    top: 0;
+    left: 0;
     min-width: 100%;
     min-height: 100%;
     object-fit: cover;
-    transform: translate3d(-50%, -50%, 0);
+    //transform: translate3d(-50%, -50%, 0);
+    transform-origin: center center;
     background: {
       image: url(../img/me2.jpg);
       size: cover;
@@ -558,14 +560,11 @@ $pink: #f4c4c4;
       stroke 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
-  .header.is-show {
-    // is-show class 추가시
-    .header_stroke {
-      &:before {
-        transform: translate3d(0, 0, 0);
-      }
-    } //header_stroke
-  }
+  .header_stroke.is-show {
+    &:before {
+      transform: translate3d(0, 0, 0);
+    }
+  } //header_stroke
   //is loaded - Header
 
   .header_main {
@@ -668,6 +667,12 @@ $pink: #f4c4c4;
       height: 4.25rem;
       left: -2.125rem;
     }
+
+    .button_label {
+      &:before {
+        bottom: -0.125rem;
+      }
+    } //button_label
   }
 
   //header - desktop
@@ -1001,8 +1006,8 @@ $pink: #f4c4c4;
       &:before {
         bottom: -0.125rem;
       }
-    }
-  }
+    } //button_label
+  } //button
   .about_title {
     font-size: 2rem;
   } //about_title
