@@ -223,7 +223,9 @@ button,
   pointer-events: none; }
 
 #sec3 {
-  height: 10000px; }
+  position: relative;
+  z-index: 5;
+  pointer-events: none; }
 
 .container {
   position: relative; }
@@ -302,6 +304,9 @@ button,
     stroke-dashoffset: -164; }
   .button:hover .button_label::before {
     transform: scale3d(1, 1, 1); }
+
+.text-word {
+  display: inline-block; }
 
 /* 
  *
@@ -491,7 +496,7 @@ button,
 
 /*
  *
- * About Part
+ * About Part - Base
  *
  */
 .about_main {
@@ -547,6 +552,31 @@ button,
 
 /*
  *
+ * skill Part - Base
+ *
+ */
+.skill_main {
+  position: relative; }
+  .skill_main:before, .skill_main:after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    content: "";
+    transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.9s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .skill_main:before {
+    top: 0;
+    transform-origin: right center; }
+  .skill_main:after {
+    bottom: 0;
+    transform-origin: left center; }
+
+.skill_title {
+  margin: 0;
+  font-family: "Perpetua Titling MT"; }
+
+/*
+ *
  * Theme Color
  *
  */
@@ -574,6 +604,8 @@ button,
   .theme-1 .intro .btn_circle-path {
     stroke: #e83c38; }
   .theme-1 .about .about_main:before {
+    background-color: #e83c38; }
+  .theme-1 .skill .skill_main:before, .theme-1 .skill .skill_main:after {
     background-color: #e83c38; }
 
 .theme-2 {
@@ -754,6 +786,12 @@ button,
     margin-bottom: 3.125rem; }
   .about_text {
     padding: 2.5rem 5rem 2.5rem 0; }
+  .skill_main {
+    padding-top: 12.57vw; }
+  .skill_title {
+    margin-left: 12.57vw;
+    padding-bottom: 4.571vw;
+    font-size: 6.25rem; }
   .dom-is-loaded .is-show .intro_title_wrap {
     transform: translate3d(0, 0, 0); }
   .dom-is-loaded .is-show .intro_title_line:nth-child(1) {
@@ -867,7 +905,9 @@ button,
     .button .button_label:before {
       bottom: -0.125rem; }
   .about_title {
-    font-size: 2rem; } }
+    font-size: 2rem; }
+  .skill_title {
+    font-size: 5.714vw; } }
 
 @media (max-width: 1799px) and (min-width: 1200px) {
   .header_change-btn,

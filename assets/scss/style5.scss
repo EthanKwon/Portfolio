@@ -27,7 +27,9 @@
   pointer-events: none;
 }
 #sec3 {
-  height: 10000px;
+  position: relative;
+  z-index: 5;
+  pointer-events: none;
 }
 #sec4 {
 }
@@ -140,6 +142,10 @@
     } //button_label
   } //hover
 } //button
+
+.text-word {
+  display: inline-block;
+}
 
 /* 
  *
@@ -400,7 +406,7 @@
 
 /*
  *
- * About Part
+ * About Part - Base
  *
  */
 
@@ -469,6 +475,43 @@
     } //strong
   } //about_title
 } //about_text
+
+/*
+ *
+ * skill Part - Base
+ *
+ */
+
+.skill_main {
+  position: relative;
+
+  &:before,
+  &:after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    content: "";
+    transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1),
+      background 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  &:before {
+    top: 0;
+    transform-origin: right center;
+  }
+  &:after {
+    bottom: 0;
+    transform-origin: left center;
+  }
+}
+
+.skill_title {
+  margin: 0;
+  font: {
+    family: "Perpetua Titling MT";
+  }
+}
 
 /*
  *
@@ -541,6 +584,15 @@ $pink: #f4c4c4;
   .about {
     .about_main {
       &:before {
+        background-color: $themeColor;
+      }
+    }
+  } //about
+
+  .skill {
+    .skill_main {
+      &:before,
+      &:after {
         background-color: $themeColor;
       }
     }
@@ -873,6 +925,18 @@ $pink: #f4c4c4;
     padding: 2.5rem 5rem 2.5rem 0;
   } //about_text
 
+  //skill -Desktop
+
+  .skill_main {
+    padding-top: 12.57vw;
+  }
+
+  .skill_title {
+    margin-left: 12.57vw;
+    padding-bottom: 4.571vw;
+    font-size: 6.25rem;
+  } //skill_title
+
   // dom-is-loaded
   .dom-is-loaded {
     .is-show {
@@ -1083,6 +1147,9 @@ $pink: #f4c4c4;
   .about_title {
     font-size: 2rem;
   } //about_title
+  .skill_title {
+    font-size: 5.714vw;
+  } //skill_title
 }
 @media (max-width: 1799px) and (min-width: 1200px) {
   .header_change-btn,

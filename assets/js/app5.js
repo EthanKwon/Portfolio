@@ -346,7 +346,6 @@ setTimeout(() => {
       //intro observer
 
       if (this.intro.isVisible) {
-        console.log("intro intersect");
         if (this.intro.insideViewport) {
           this.intro.layout(this.renderedStyles.translationY.previous);
           this.intro.class();
@@ -381,3 +380,24 @@ setTimeout(() => {
   lastScroll = docScroll;
   new SmoothScroll();
 }
+
+// //Text Word split
+
+// const textWordSplit = (dom) => {
+//   const textStr = dom.innerText;
+//   console.log(`textStr : ${textStr}`);
+//   const textWord = textStr.split(" ");
+//   console.log(`textStr : ${textWord}`);
+
+//   dom.textContent = "";
+//   textWord.map((word) => {
+//     const newWord = document.createElement("div");
+//     newWord.classList.add("text-word");
+//     newWord.innerText = ` ${word}`;
+
+//     console.log(newWord);
+//     dom.append(newWord);
+//   });
+// };
+
+// textWordSplit(document.querySelector(".skill_title"));
