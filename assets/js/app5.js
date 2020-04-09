@@ -2,6 +2,10 @@
 
 const body = document.querySelector("body");
 
+setTimeout(() => {
+  body.classList.add("dom-is-loaded");
+}, 500);
+
 /*
  *
  * MathUti Function
@@ -74,6 +78,23 @@ const body = document.querySelector("body");
   };
 
   window.addEventListener("scroll", addClassHeader);
+
+  //Change Theme
+
+  const headerColor = header.querySelector(".js-color-change");
+  let themeNum = 1;
+
+  const changeColorTheme = () => {
+    body.classList.remove(`theme-${themeNum}`);
+    if (themeNum === 2) {
+      themeNum = 1;
+    } else {
+      themeNum++;
+    }
+    body.classList.add(`theme-${themeNum}`);
+  };
+
+  headerColor.addEventListener("click", changeColorTheme);
 
   /*
    *

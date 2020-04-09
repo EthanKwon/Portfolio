@@ -332,7 +332,10 @@ button,
   display: inline-block;
   text-transform: uppercase;
   position: relative;
-  cursor: pointer; }
+  pointer-events: auto;
+  transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: translate3d(0, -3.75rem, 0);
+  transition-delay: 0.3s; }
   .header_change-btn:hover .small-circle {
     stroke-dashoffset: 0; }
   .header_change-btn .small-circle {
@@ -549,7 +552,8 @@ button,
  */
 .theme-1 {
   color: #e83c38;
-  background-color: #ebeded; }
+  background-color: #ebeded;
+  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
   .theme-1 .small-circle {
     stroke: #e83c38; }
   .theme-1 .sec-bg {
@@ -572,9 +576,31 @@ button,
   .theme-1 .about .about_main:before {
     background-color: #e83c38; }
 
-.theme-2 .page {
+.theme-2 {
   color: #ebeded;
-  background-color: #00a19a; }
+  background-color: #00a19a;
+  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .theme-2 .small-circle {
+    stroke: #ebeded; }
+  .theme-2 .sec-bg {
+    background-color: #00a19a; }
+  .theme-2 .button path {
+    stroke: #ebeded; }
+  .theme-2 .button .button_label:before {
+    background-color: #ebeded; }
+  .theme-2 .header .header_stroke:before {
+    background-color: #00a19a;
+    border-bottom: 1px solid #ebeded; }
+  .theme-2 .header .header_stroke:after {
+    background-color: #ebeded; }
+  .theme-2 .header .header_main-item:not(:last-child):before {
+    background-color: #ebeded; }
+  .theme-2 .intro .intro_btn:before {
+    background-color: #00a19a; }
+  .theme-2 .intro .btn_circle-path {
+    stroke: #ebeded; }
+  .theme-2 .about .about_main:before {
+    background-color: #ebeded; }
 
 /*
  *
@@ -586,6 +612,9 @@ button,
   transition: stroke-dashoffset 0.3s linear, stroke 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
 .dom-is-loaded .header_stroke.is-show:before {
+  transform: translate3d(0, 0, 0); }
+
+.dom-is-loaded .header_change-btn {
   transform: translate3d(0, 0, 0); }
 
 .dom-is-loaded .header_main {

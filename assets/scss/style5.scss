@@ -180,7 +180,10 @@
   display: inline-block;
   text-transform: uppercase;
   position: relative;
-  cursor: pointer;
+  pointer-events: auto;
+  transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: translate3d(0, -3.75rem, 0);
+  transition-delay: 0.3s;
   &:hover {
     .small-circle {
       stroke-dashoffset: 0;
@@ -481,22 +484,26 @@ $black: #282b29;
 $pink: #f4c4c4;
 
 .theme-1 {
-  color: $red;
-  background-color: $white;
+  $themeColor: $red;
+  $themeBackground: $white;
+  color: $themeColor;
+  background-color: $themeBackground;
+  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+    color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   .small-circle {
-    stroke: $red;
+    stroke: $themeColor;
   }
   .sec-bg {
-    background-color: $white;
+    background-color: $themeBackground;
   }
   .button {
     path {
-      stroke: $red;
+      stroke: $themeColor;
     } //path
     .button_label {
       &:before {
-        background-color: $red;
+        background-color: $themeColor;
       }
     }
   }
@@ -505,17 +512,17 @@ $pink: #f4c4c4;
   .header {
     .header_stroke {
       &:before {
-        background-color: $white;
-        border-bottom: 1px solid $red;
+        background-color: $themeBackground;
+        border-bottom: 1px solid $themeColor;
       }
       &:after {
-        background-color: $red;
+        background-color: $themeColor;
       }
     }
 
     .header_main-item {
       &:not(:last-child):before {
-        background-color: $red;
+        background-color: $themeColor;
       } //item:before
     } //header_main-item
   } //header
@@ -523,29 +530,86 @@ $pink: #f4c4c4;
   .intro {
     .intro_btn {
       &:before {
-        background-color: $white;
+        background-color: $themeBackground;
       }
     } //intro_btn
     .btn_circle-path {
-      stroke: $red;
+      stroke: $themeColor;
     } //btn_circle-path
   } //intro
 
   .about {
     .about_main {
       &:before {
-        background-color: $red;
+        background-color: $themeColor;
       }
     }
   }
-}
+} //theme-1
 
 .theme-2 {
-  .page {
-    color: $white;
-    background-color: $green;
+  $themeColor: $white;
+  $themeBackground: $green;
+  color: $themeColor;
+  background-color: $themeBackground;
+  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+    color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  .small-circle {
+    stroke: $themeColor;
   }
-}
+  .sec-bg {
+    background-color: $themeBackground;
+  }
+  .button {
+    path {
+      stroke: $themeColor;
+    } //path
+    .button_label {
+      &:before {
+        background-color: $themeColor;
+      }
+    }
+  }
+
+  //header color
+  .header {
+    .header_stroke {
+      &:before {
+        background-color: $themeBackground;
+        border-bottom: 1px solid $themeColor;
+      }
+      &:after {
+        background-color: $themeColor;
+      }
+    }
+
+    .header_main-item {
+      &:not(:last-child):before {
+        background-color: $themeColor;
+      } //item:before
+    } //header_main-item
+  } //header
+
+  .intro {
+    .intro_btn {
+      &:before {
+        background-color: $themeBackground;
+      }
+    } //intro_btn
+    .btn_circle-path {
+      stroke: $themeColor;
+    } //btn_circle-path
+  } //intro
+
+  .about {
+    .about_main {
+      &:before {
+        background-color: $themeColor;
+      }
+    }
+  }
+} //theme-2
 
 /*
  *
@@ -567,9 +631,13 @@ $pink: #f4c4c4;
   } //header_stroke
   //is loaded - Header
 
+  .header_change-btn {
+    transform: translate3d(0, 0, 0);
+  } //header_change-btn
+
   .header_main {
     transform: translate3d(0, 0, 0);
-  }
+  } //header_main
 
   .header_main-item {
     &:not(:last-child):before {
