@@ -1097,7 +1097,7 @@ $pink: #f4c4c4;
     &:nth-child(2n) {
       padding: 3.428vw 0 3.428vw 11.542vw;
     }
-  }
+  } //skill_item
 
   // dom-is-loaded
   .dom-is-loaded {
@@ -1257,6 +1257,39 @@ $pink: #f4c4c4;
     margin-bottom: 40px;
   }
 
+  //skill - Mobile
+
+  .skill_title {
+    margin-bottom: 60px;
+    padding-top: 100px;
+  } //skill_title
+
+  .skill_title-line {
+    display: inline-block;
+  }
+
+  .skill_stroke {
+    padding: 20px 0;
+  } //skill_stroke
+
+  .skill_item {
+    width: 100%;
+    padding: 50px 0 50px 100px;
+    &:before,
+    &:after {
+      transition-delay: 0;
+    }
+    &:after {
+      display: none;
+    }
+  } //skill_item
+
+  .skill_item.-last {
+    padding: 60px 20px;
+    transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    justify-content: center;
+  }
+
   //dom-is-loaded - Mobile
 
   .dom-is-loaded {
@@ -1301,8 +1334,8 @@ $pink: #f4c4c4;
       font-size: 1.1875rem;
       strong {
         font-size: 1.2rem;
-      }
-    }
+      } //strong
+    } //p
   } //skill_item
 }
 
@@ -1329,7 +1362,7 @@ $pink: #f4c4c4;
     h3 {
       font-size: 1.625rem;
       margin-bottom: 1.625rem;
-    }
+    } //h3
   } //skill_item
 }
 @media (max-width: 1799px) and (min-width: 1200px) {
@@ -1338,9 +1371,20 @@ $pink: #f4c4c4;
   .header_portfolio {
     font-size: 1.1875rem;
   }
+  .skill_item {
+    p {
+      font-size: 1.1875rem;
+      strong {
+        font-size: 1.2rem;
+      } //strong
+    } //p
+  } //skill_item
 }
 
 @media (max-width: 1199px) and (min-width: 1000px) {
+  h3 {
+    font-size: 1.375rem;
+  } //h3
   .header_change-btn,
   .header_main-link,
   .header_portfolio {
@@ -1349,10 +1393,20 @@ $pink: #f4c4c4;
 
   .about_title {
     font-size: 1.5rem;
-  }
+  } //about_title
+
+  .skill_item {
+    h3 {
+      font-size: 1.375rem;
+      margin-bottom: 1.375rem;
+    } //h3
+  } //skill_item
 }
 
 @media (max-width: 999px) and (min-width: 700px) {
+  h3 {
+    font-size: 26px;
+  } //h3
   html {
     font-size: 12px;
   }
@@ -1372,6 +1426,23 @@ $pink: #f4c4c4;
   .about_title {
     font-size: 24px;
   } //about_title
+
+  .skill_title {
+    font-size: 50px;
+  } //skill_title
+
+  .skill_item {
+    h3 {
+      font-size: 26px;
+      margin-bottom: 26px;
+    } //h3
+    p {
+      font-size: 16px;
+      strong {
+        font-size: 18px;
+      } //strong
+    } //p
+  } //skill_item
 }
 
 @media (max-width: 699px) {
@@ -1381,6 +1452,9 @@ $pink: #f4c4c4;
 }
 
 @media (max-width: 699px) and (min-width: 500px) {
+  h3 {
+    font-size: 20px;
+  } //h3
   .button {
     font-size: 20px;
   }
@@ -1397,9 +1471,29 @@ $pink: #f4c4c4;
   .about_title {
     font-size: 20px;
   } //about_title
+
+  .skill_title {
+    font-size: 36px;
+  } //skill_title
+
+  .skill_item {
+    h3 {
+      font-size: 20px;
+      margin-bottom: 20px;
+    } //h3
+    p {
+      font-size: 14px;
+      strong {
+        font-size: 16px;
+      } //strong
+    } //p
+  } //skill_item
 }
 
 @media (max-width: 499px) {
+  h3 {
+    font-size: 16px;
+  } //h3
   //layout
   .container {
     padding: 0 20px;
@@ -1453,7 +1547,24 @@ $pink: #f4c4c4;
 
   .about_title {
     font-size: 16px;
-  }
+  } //about_title
+
+  .skill_title {
+    font-size: 30px;
+  } //skill_title
+
+  .skill_item {
+    h3 {
+      font-size: 16px;
+      margin-bottom: 16px;
+    } //h3
+    p {
+      font-size: 14px;
+      strong {
+        font-size: 14px;
+      } //strong
+    } //p
+  } //skill_item
 }
 
 //containter media

@@ -979,6 +979,24 @@ button,
   .about_title {
     margin-top: 40px;
     margin-bottom: 40px; }
+  .skill_title {
+    margin-bottom: 60px;
+    padding-top: 100px; }
+  .skill_title-line {
+    display: inline-block; }
+  .skill_stroke {
+    padding: 20px 0; }
+  .skill_item {
+    width: 100%;
+    padding: 50px 0 50px 100px; }
+    .skill_item:before, .skill_item:after {
+      transition-delay: 0; }
+    .skill_item:after {
+      display: none; }
+  .skill_item.-last {
+    padding: 60px 20px;
+    transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    justify-content: center; }
   .dom-is-loaded .header_stroke:after {
     transform: translate3d(0, 0, 0) !important; }
   .dom-is-loaded .intro.is-show .btn_circle-path {
@@ -1020,17 +1038,28 @@ button,
   .header_change-btn,
   .header_main-link,
   .header_portfolio {
-    font-size: 1.1875rem; } }
+    font-size: 1.1875rem; }
+  .skill_item p {
+    font-size: 1.1875rem; }
+    .skill_item p strong {
+      font-size: 1.2rem; } }
 
 @media (max-width: 1199px) and (min-width: 1000px) {
+  h3 {
+    font-size: 1.375rem; }
   .header_change-btn,
   .header_main-link,
   .header_portfolio {
     font-size: 1.1875rem; }
   .about_title {
-    font-size: 1.5rem; } }
+    font-size: 1.5rem; }
+  .skill_item h3 {
+    font-size: 1.375rem;
+    margin-bottom: 1.375rem; } }
 
 @media (max-width: 999px) and (min-width: 700px) {
+  h3 {
+    font-size: 26px; }
   html {
     font-size: 12px; }
   .quarter {
@@ -1040,13 +1069,24 @@ button,
   .intro_title {
     font-size: 50px; }
   .about_title {
-    font-size: 24px; } }
+    font-size: 24px; }
+  .skill_title {
+    font-size: 50px; }
+  .skill_item h3 {
+    font-size: 26px;
+    margin-bottom: 26px; }
+  .skill_item p {
+    font-size: 16px; }
+    .skill_item p strong {
+      font-size: 18px; } }
 
 @media (max-width: 699px) {
   .about_main-grid {
     flex-direction: column; } }
 
 @media (max-width: 699px) and (min-width: 500px) {
+  h3 {
+    font-size: 20px; }
   .button {
     font-size: 20px; }
   .intro_title {
@@ -1055,9 +1095,20 @@ button,
     margin-top: -30px;
     margin-bottom: -54px; }
   .about_title {
-    font-size: 20px; } }
+    font-size: 20px; }
+  .skill_title {
+    font-size: 36px; }
+  .skill_item h3 {
+    font-size: 20px;
+    margin-bottom: 20px; }
+  .skill_item p {
+    font-size: 14px; }
+    .skill_item p strong {
+      font-size: 16px; } }
 
 @media (max-width: 499px) {
+  h3 {
+    font-size: 16px; }
   .container {
     padding: 0 20px; }
   .button {
@@ -1082,7 +1133,16 @@ button,
   .intro_img_wrap .img {
     width: calc(50.2857142857vw - 20px); }
   .about_title {
-    font-size: 16px; } }
+    font-size: 16px; }
+  .skill_title {
+    font-size: 30px; }
+  .skill_item h3 {
+    font-size: 16px;
+    margin-bottom: 16px; }
+  .skill_item p {
+    font-size: 14px; }
+    .skill_item p strong {
+      font-size: 14px; } }
 
 @media (max-width: 999px) and (min-width: 500px) {
   .container {
