@@ -145,7 +145,13 @@
 
 .text-word {
   display: inline-block;
-}
+} //text-word
+
+.-anim-opacity {
+  opacity: 0;
+  transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  transition-delay: 0.6s;
+} //-anim-opaciity
 
 /* 
  *
@@ -511,6 +517,97 @@
   font: {
     family: "Perpetua Titling MT";
   }
+} //skill_title
+
+.skill_stroke {
+  position: relative;
+  &:before,
+  &:after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    content: "";
+    transform: scale3d(0, 1, 1);
+    transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+      transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  &:before {
+    top: 0;
+    transform-origin: left center;
+  }
+
+  &:after {
+    bottom: 0;
+    transform-origin: right center;
+  }
+  h3 {
+    margin: 0;
+  }
+} //skill_stroke
+
+.skill_list {
+  display: flex;
+  flex-wrap: wrap;
+  .skill_item {
+    h3 {
+      font-family: perpetua titling mt, Georgia, times new roman, Times, serif;
+      position: relative;
+    } //h3
+    p {
+      margin: 0;
+      font-family: "S-CoreDream-4Regular";
+      strong {
+        font: {
+          weight: bolder;
+        }
+      } //strong
+    } //p
+  } //skill_item
+} //skill_list
+
+.skill_item {
+  position: relative;
+  //before,after
+  &:before {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    height: 1px;
+    content: "";
+    transform: scale3d(0, 1, 1);
+    transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+      background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transition-delay: transform 0.4s;
+  }
+
+  &:nth-child(2n-1):before {
+    transform-origin: right center;
+  }
+  &:nth-child(2n):before {
+    transform-origin: left center;
+  }
+
+  &:nth-child(2n-1):after {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    width: 1px;
+    content: "";
+    transform: scale3d(1, 0, 1);
+    transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+      background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform-origin: center center;
+    transition-delay: transform 0.4s;
+  }
+} //skill_item
+
+.skill_item.-last {
+  display: flex;
+  align-items: center;
 }
 
 /*
@@ -595,8 +692,20 @@ $pink: #f4c4c4;
       &:after {
         background-color: $themeColor;
       }
-    }
-  }
+    } //skill_main
+    .skill_stroke {
+      &:before,
+      &:after {
+        background-color: $themeColor;
+      }
+    } //skill_stroke
+    .skill_item {
+      &:before,
+      &:after {
+        background-color: $themeColor;
+      }
+    } //skill_item
+  } //skill
 } //theme-1
 
 .theme-2 {
@@ -659,8 +768,29 @@ $pink: #f4c4c4;
       &:before {
         background-color: $themeColor;
       }
-    }
-  }
+    } //about_main
+  } //about
+
+  .skill {
+    .skill_main {
+      &:before,
+      &:after {
+        background-color: $themeColor;
+      }
+    } //skill_main
+    .skill_stroke {
+      &:before,
+      &:after {
+        background-color: $themeColor;
+      }
+    } //skill_stroke
+    .skill_item {
+      &:before,
+      &:after {
+        background-color: $themeColor;
+      }
+    } //skill_item
+  } //skill
 } //theme-2
 
 /*
@@ -726,6 +856,24 @@ $pink: #f4c4c4;
       transform: scale3d(1, 1, 1);
     }
   } //anim-img
+
+  .skill.is-show {
+    .-anim-opacity {
+      opacity: 1;
+    }
+    .skill_stroke {
+      &::before,
+      &:after {
+        transform: scale3d(1, 1, 1);
+      }
+    } //skill_stroke
+    .skill_item {
+      &:before,
+      &:after {
+        transform: scale3d(1, 1, 1);
+      }
+    } //skill_item
+  } //skill.is-show
 } //dom-is-loaded
 
 //media query
@@ -929,13 +1077,27 @@ $pink: #f4c4c4;
 
   .skill_main {
     padding-top: 12.57vw;
-  }
+  } //skill_main
 
   .skill_title {
     margin-left: 12.57vw;
     padding-bottom: 4.571vw;
     font-size: 6.25rem;
   } //skill_title
+
+  .skill_stroke {
+    padding: 1.625rem 0;
+  } //skill_stroke
+
+  .skill_item {
+    width: 50%;
+    &:nth-child(2n-1) {
+      padding: 3.428vw 2.857vw 3.428vw 8.685vw;
+    }
+    &:nth-child(2n) {
+      padding: 3.428vw 0 3.428vw 11.542vw;
+    }
+  }
 
   // dom-is-loaded
   .dom-is-loaded {
@@ -1133,9 +1295,21 @@ $pink: #f4c4c4;
   .header_portfolio {
     font-size: 1.1875rem;
   }
+
+  .skill_item {
+    p {
+      font-size: 1.1875rem;
+      strong {
+        font-size: 1.2rem;
+      }
+    }
+  } //skill_item
 }
 
 @media (min-width: 1200px) {
+  h3 {
+    font-size: 1.625rem;
+  } //h3
   .button {
     font-size: 1.625rem;
     .button_label {
@@ -1150,6 +1324,13 @@ $pink: #f4c4c4;
   .skill_title {
     font-size: 5.714vw;
   } //skill_title
+
+  .skill_item {
+    h3 {
+      font-size: 1.625rem;
+      margin-bottom: 1.625rem;
+    }
+  } //skill_item
 }
 @media (max-width: 1799px) and (min-width: 1200px) {
   .header_change-btn,
