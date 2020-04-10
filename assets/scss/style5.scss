@@ -32,6 +32,7 @@
   pointer-events: none;
 }
 #sec4 {
+  height: 1000px;
 }
 #sec5 {
 }
@@ -857,7 +858,7 @@ $pink: #f4c4c4;
     }
   } //anim-img
 
-  .skill.is-show {
+  .is-show {
     .-anim-opacity {
       opacity: 1;
     }
@@ -1080,6 +1081,7 @@ $pink: #f4c4c4;
   } //skill_main
 
   .skill_title {
+    max-width: 70vw;
     margin-left: 12.57vw;
     padding-bottom: 4.571vw;
     font-size: 6.25rem;

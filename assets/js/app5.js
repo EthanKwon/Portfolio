@@ -113,7 +113,6 @@ setTimeout(() => {
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => (this.isVisible = entry.isIntersecting));
       });
-      console.log(this.observer);
       this.observer.observe(this.DOM.intro.parentNode);
     }
 
@@ -264,6 +263,118 @@ setTimeout(() => {
 
   /*
    *
+   * Skill class
+   *
+   */
+
+  class Skill {
+    constructor() {
+      this.DOM = {
+        skill: document.querySelector(".skill"),
+      };
+      this.DOM.titleH = this.DOM.skill.querySelector(
+        '.js-title-anim[data-horizontal="true"]'
+      );
+      this.DOM.title = this.DOM.skill.querySelector(
+        '.js-title-anim[data-horizontal="false"]'
+      );
+      this.DOM.skills = this.DOM.skill.querySelector(".js-skills");
+      this.DOM.show = this.DOM.skill.querySelectorAll(".js-class-show");
+      this.renderedStyles = {
+        titleTranslation: {
+          previous: 0,
+          current: 0,
+          ease: 0.1,
+          fromValue: Number(MathUtils.getRandomFloat(50, 80)),
+          setValue: () => {
+            const fromValue = this.renderedStyles.titleTranslation.fromValue;
+            const toValue = -1 * fromValue;
+            const val = MathUtils.map(
+              this.props.top - docScroll,
+              winsize.height,
+              -1 * this.props.height,
+              fromValue,
+              toValue
+            );
+            return fromValue < 0
+              ? Math.min(Math.max(val, fromValue), toValue)
+              : Math.max(Math.min(val, fromValue), toValue);
+          },
+        },
+      };
+
+      this.getSize();
+
+      this.update();
+
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach(
+          (entry) => (this.isVisible = entry.intersectionRatio > 0)
+        );
+      });
+
+      this.observer.observe(this.DOM.titleH);
+
+      this.initEvents();
+    } //constructor
+
+    update() {
+      // sets the initial value (no interpolation)
+      for (const key in this.renderedStyles) {
+        this.renderedStyles[key].current = this.renderedStyles[
+          key
+        ].previous = this.renderedStyles[key].setValue();
+      }
+      // apply changes/styles
+      this.layout();
+    }
+
+    getSize() {
+      const rect = this.DOM.titleH.getBoundingClientRect();
+      this.props = {
+        // item's height
+        height: rect.height,
+        // offset top relative to the document
+        top: docScroll + rect.top,
+      };
+    }
+    initEvents() {
+      window.addEventListener("resize", () => this.resize());
+    }
+    resize() {
+      // gets the item's height and top (relative to the document)
+      this.getSize();
+      // on resize reset sizes and update styles
+      this.update();
+    }
+
+    render() {
+      // update the current and interpolated values
+      for (const key in this.renderedStyles) {
+        this.renderedStyles[key].current = this.renderedStyles[key].setValue();
+        this.renderedStyles[key].previous = MathUtils.lerp(
+          this.renderedStyles[key].previous,
+          this.renderedStyles[key].current,
+          this.renderedStyles[key].ease
+        );
+      }
+
+      // and apply changes
+      this.layout();
+    }
+    layout() {
+      this.DOM.titleH.style.transform = `translate3d(-${this.renderedStyles.titleTranslation.previous}px,0,0)`;
+      this.DOM.title.style.transform = `translate3d(0,-${this.renderedStyles.titleTranslation.previous}px,0)`;
+    }
+    class() {
+      this.DOM.show.forEach((dom) => {
+        dom.classList.add("is-show");
+      });
+    }
+  }
+
+  /*
+   *
    * Smooth Scroll
    *
    */
@@ -277,6 +388,7 @@ setTimeout(() => {
       this.DOM.scrollable = this.DOM.main.querySelector("div[data-scroll]");
       this.intro = new Intro();
       this.about = new About();
+      this.skill = new Skill();
 
       // 적용할 스타일 목록
       this.renderedStyles = {
@@ -370,6 +482,20 @@ setTimeout(() => {
         }
       } else {
         this.about.insideViewport = false;
+      }
+
+      //skill observer
+      if (this.skill.isVisible) {
+        if (this.skill.insideViewport) {
+          this.skill.render();
+          this.skill.class();
+        } else {
+          this.skill.insideViewport = true;
+          this.skill.update();
+          this.skill.class();
+        }
+      } else {
+        this.skill.insideViewport = false;
       }
 
       requestAnimationFrame(() => this.render());

@@ -230,6 +230,9 @@ button,
   z-index: 5;
   pointer-events: none; }
 
+#sec4 {
+  height: 1000px; }
+
 .container {
   position: relative; }
 
@@ -756,13 +759,13 @@ button,
   .dom-is-loaded .anim-img.is-show img {
     transform: scale3d(1, 1, 1); }
 
-.dom-is-loaded .skill.is-show .-anim-opacity {
+.dom-is-loaded .is-show .-anim-opacity {
   opacity: 1; }
 
-.dom-is-loaded .skill.is-show .skill_stroke::before, .dom-is-loaded .skill.is-show .skill_stroke:after {
+.dom-is-loaded .is-show .skill_stroke::before, .dom-is-loaded .is-show .skill_stroke:after {
   transform: scale3d(1, 1, 1); }
 
-.dom-is-loaded .skill.is-show .skill_item:before, .dom-is-loaded .skill.is-show .skill_item:after {
+.dom-is-loaded .is-show .skill_item:before, .dom-is-loaded .is-show .skill_item:after {
   transform: scale3d(1, 1, 1); }
 
 @media (max-width: 1999px) and (min-width: 1600px) {
@@ -879,6 +882,7 @@ button,
   .skill_main {
     padding-top: 12.57vw; }
   .skill_title {
+    max-width: 70vw;
     margin-left: 12.57vw;
     padding-bottom: 4.571vw;
     font-size: 6.25rem; }
