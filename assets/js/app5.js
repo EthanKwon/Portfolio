@@ -104,33 +104,45 @@ setTimeout(() => {
 
   class Intro {
     constructor() {
-      this.DOM = { intro: document.querySelector(".intro") };
+      this.DOM = {
+        intro: document.querySelector(".intro"),
+        show: document.querySelector(".intro.js-class-show"),
+      };
       this.DOM.titles = this.DOM.intro.querySelectorAll(".intro_fixed");
       this.DOM.image = this.DOM.intro.querySelector(".intro_img");
       this.DOM.imgPara = this.DOM.intro.querySelector(".intro_img_parallax");
       this.DOM.btnWrap = this.DOM.intro.querySelector(".intro_btn_wrap");
-      this.DOM.show = this.DOM.intro.querySelectorAll(".js-class-show");
+
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => (this.isVisible = entry.isIntersecting));
       });
       this.observer.observe(this.DOM.intro.parentNode);
     }
 
-    layout(value) {
+    update(sValue) {
+      this.layout(sValue);
+    }
+
+    render(sValue) {
+      this.layout(sValue);
+    }
+
+    layout(scrollValue) {
       this.DOM.titles.forEach((title) => {
-        title.style.transform = `translate3d(0, ${value}px, 0)`;
+        title.style.transform = `translate3d(0, ${scrollValue}px, 0)`;
       });
-      this.DOM.image.style.transform = `translate3d(0, ${value / 10}px, 0)`;
-      this.DOM.imgPara.style.transform = `translate3d(0, ${
-        (-1 * value) / 10
+      this.DOM.image.style.transform = `translate3d(0, ${
+        scrollValue / 10
       }px, 0)`;
-      this.DOM.btnWrap.style.transform = `translate3d(0, ${value / 20}px, 0)`;
+      this.DOM.imgPara.style.transform = `translate3d(0, ${
+        (-1 * scrollValue) / 10
+      }px, 0)`;
+      this.DOM.btnWrap.style.transform = `translate3d(0, ${
+        scrollValue / 20
+      }px, 0)`;
     }
     class() {
-      this.DOM.intro.classList.add("is-show");
-      this.DOM.show.forEach((dom) => {
-        dom.classList.add("is-show");
-      });
+      this.DOM.show.classList.add("is-show");
     }
   }
 
@@ -142,8 +154,11 @@ setTimeout(() => {
 
   class About {
     constructor() {
-      this.DOM = { about: document.querySelector(".about") };
-      this.DOM.show = this.DOM.about.querySelectorAll(".js-class-show");
+      this.DOM = {
+        about: document.querySelector(".about"),
+        show: document.querySelector(".about.js-class-show"),
+      };
+
       this.DOM.image = this.DOM.about.querySelector(".js-anim-img");
       this.DOM.title = this.DOM.about.querySelector(".js-anim-title");
 
@@ -255,9 +270,7 @@ setTimeout(() => {
       this.DOM.title.style.transform = `translate3d(0,${this.renderedStyles.titleTranslationY.previous}px,0)`;
     }
     class() {
-      this.DOM.show.forEach((dom) => {
-        dom.classList.add("is-show");
-      });
+      this.DOM.show.classList.add("is-show");
     }
   }
 
@@ -271,6 +284,7 @@ setTimeout(() => {
     constructor() {
       this.DOM = {
         skill: document.querySelector(".skill"),
+        show: document.querySelector(".skill.js-class-show"),
       };
       this.DOM.titleH = this.DOM.skill.querySelector(
         '.js-title-anim[data-horizontal="true"]'
@@ -279,7 +293,6 @@ setTimeout(() => {
         '.js-title-anim[data-horizontal="false"]'
       );
       this.DOM.skills = this.DOM.skill.querySelector(".js-skills");
-      this.DOM.show = this.DOM.skill.querySelectorAll(".js-class-show");
       this.renderedStyles = {
         titleTranslation: {
           previous: 0,
@@ -366,9 +379,7 @@ setTimeout(() => {
       this.DOM.title.style.transform = `translate3d(0,-${this.renderedStyles.titleTranslation.previous}px,0)`;
     }
     class() {
-      this.DOM.show.forEach((dom) => {
-        dom.classList.add("is-show");
-      });
+      this.DOM.show.classList.add("is-show");
     }
   }
 
@@ -384,6 +395,7 @@ setTimeout(() => {
         project: document.querySelector(".project"),
       };
       this.DOM.proHeader = this.DOM.project.querySelector(".project_header");
+      this.DOM.show = this.DOM.project.querySelectorAll(".js-class-show");
 
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach(
@@ -412,6 +424,12 @@ setTimeout(() => {
     layout() {
       this.DOM.proHeader.style.transform = `translate3d(0,${-this.props
         .top}px,0)`;
+    }
+
+    class() {
+      this.DOM.show.forEach((dom) => {
+        dom.classList.add("is-show");
+      });
     }
   }
 
@@ -502,11 +520,10 @@ setTimeout(() => {
 
       if (this.intro.isVisible) {
         if (this.intro.insideViewport) {
-          this.intro.layout(this.renderedStyles.translationY.previous);
-          this.intro.class();
+          this.intro.render(this.renderedStyles.translationY.previous);
         } else {
           this.intro.insideViewport = true;
-          this.intro.layout(this.renderedStyles.translationY.previous);
+          this.intro.update(this.renderedStyles.translationY.previous);
           this.intro.class();
         }
       } else {
@@ -517,7 +534,6 @@ setTimeout(() => {
       if (this.about.isVisible) {
         if (this.about.insideViewport) {
           this.about.render();
-          this.about.class();
         } else {
           this.about.insideViewport = true;
           this.about.update();
@@ -531,7 +547,6 @@ setTimeout(() => {
       if (this.skill.isVisible) {
         if (this.skill.insideViewport) {
           this.skill.render();
-          this.skill.class();
         } else {
           this.skill.insideViewport = true;
           this.skill.update();
@@ -547,7 +562,7 @@ setTimeout(() => {
           this.project.render();
         } else {
           this.project.insideViewport = true;
-          this.project.render();
+          this.project.class();
         }
       } else {
         this.project.insideViewport = false;
