@@ -313,7 +313,7 @@ setTimeout(() => {
         );
       });
 
-      this.observer.observe(this.DOM.titleH);
+      this.observer.observe(this.DOM.skill);
 
       this.initEvents();
     } //constructor
@@ -358,7 +358,6 @@ setTimeout(() => {
           this.renderedStyles[key].ease
         );
       }
-
       // and apply changes
       this.layout();
     }
@@ -370,6 +369,49 @@ setTimeout(() => {
       this.DOM.show.forEach((dom) => {
         dom.classList.add("is-show");
       });
+    }
+  }
+
+  /*
+   *
+   * project Item
+   *
+   */
+
+  class Project {
+    constructor() {
+      this.DOM = {
+        project: document.querySelector(".project"),
+      };
+      this.DOM.proHeader = this.DOM.project.querySelector(".project_header");
+
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach(
+          (entry) => (this.isVisible = entry.intersectionRatio > 0)
+        );
+      });
+
+      this.observer.observe(this.DOM.project);
+      this.getPos();
+    }
+
+    getPos() {
+      const rect = this.DOM.project.getBoundingClientRect();
+      this.props = {
+        top: rect.top,
+      };
+    }
+
+    render() {
+      this.getPos();
+      if (this.props.top <= 0) {
+        this.layout();
+      }
+    }
+
+    layout() {
+      this.DOM.proHeader.style.transform = `translate3d(0,${-this.props
+        .top}px,0)`;
     }
   }
 
@@ -389,6 +431,7 @@ setTimeout(() => {
       this.intro = new Intro();
       this.about = new About();
       this.skill = new Skill();
+      this.project = new Project();
 
       // 적용할 스타일 목록
       this.renderedStyles = {
@@ -496,6 +539,18 @@ setTimeout(() => {
         }
       } else {
         this.skill.insideViewport = false;
+      }
+
+      //project observer
+      if (this.project.isVisible) {
+        if (this.project.insideViewport) {
+          this.project.render();
+        } else {
+          this.project.insideViewport = true;
+          this.project.render();
+        }
+      } else {
+        this.project.insideViewport = false;
       }
 
       requestAnimationFrame(() => this.render());

@@ -231,7 +231,9 @@ button,
   pointer-events: none; }
 
 #sec4 {
-  height: 1000px; }
+  position: relative;
+  z-index: 5;
+  pointer-events: none; }
 
 .container {
   position: relative; }
@@ -649,6 +651,30 @@ button,
   display: flex;
   align-items: center; }
 
+.project_main {
+  position: relative;
+  overflow: hidden; }
+  .project_main:after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    content: "";
+    transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.9s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .project_main:after {
+    bottom: 0;
+    transform-origin: left center; }
+
+.project_header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%; }
+
+.project_title {
+  text-align: center;
+  margin: 0; }
+
 /*
  *
  * Theme Color
@@ -684,6 +710,8 @@ button,
   .theme-1 .skill .skill_stroke:before, .theme-1 .skill .skill_stroke:after {
     background-color: #e83c38; }
   .theme-1 .skill .skill_item:before, .theme-1 .skill .skill_item:after {
+    background-color: #e83c38; }
+  .theme-1 .project .project_main:after {
     background-color: #e83c38; }
 
 .theme-2 {
@@ -894,6 +922,14 @@ button,
       padding: 3.428vw 2.857vw 3.428vw 8.685vw; }
     .skill_item:nth-child(2n) {
       padding: 3.428vw 0 3.428vw 11.542vw; }
+  .project_main {
+    padding-bottom: 6.25rem; }
+  .project_header {
+    height: 100vh;
+    padding-top: 6rem;
+    margin-bottom: -7.5rem; }
+  .project_title {
+    font-size: 6.25rem; }
   .dom-is-loaded .is-show .intro_title_wrap {
     transform: translate3d(0, 0, 0); }
   .dom-is-loaded .is-show .intro_title_line:nth-child(1) {
@@ -1036,7 +1072,9 @@ button,
     font-size: 5.714vw; }
   .skill_item h3 {
     font-size: 1.625rem;
-    margin-bottom: 1.625rem; } }
+    margin-bottom: 1.625rem; }
+  .project_title {
+    font-size: 5.714vw; } }
 
 @media (max-width: 1799px) and (min-width: 1200px) {
   .header_change-btn,
