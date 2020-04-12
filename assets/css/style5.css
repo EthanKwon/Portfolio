@@ -687,14 +687,46 @@ button,
       display: block;
       position: relative;
       overflow: hidden; }
+      .project_list .project_item .project_link:hover .project_name-marguee {
+        opacity: 1; }
+        .project_list .project_item .project_link:hover .project_name-marguee .proejct_name-marquee-wrap {
+          animation-play-state: running; }
 
 .project_img-wrap {
   position: relative;
   transform-origin: center center; }
   .project_img-wrap img {
     width: 100%;
+    object-fit: cover;
     transition: transform 2.4s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition-delay: 0.3s; }
+
+.project_name {
+  position: relative;
+  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  transition-delay: 0.6s;
+  opacity: 0; }
+  .project_name:before {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    content: "";
+    height: 1px;
+    transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .project_name .project_name-normal {
+    text-transform: uppercase;
+    transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .project_name .project_name-marquee {
+    opacity: 0; }
+    .project_name .project_name-marquee .project_name-marquee-wrap {
+      display: table-cell;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-name: marquee;
+      animation-duration: 16s;
+      animation-play-state: paused; }
 
 /*
  *
@@ -734,6 +766,10 @@ button,
     background-color: #e83c38; }
   .theme-1 .project .project_main:after {
     background-color: #e83c38; }
+  .theme-1 .project .project_name {
+    background-color: #ebeded; }
+    .theme-1 .project .project_name:before {
+      background-color: #e83c38; }
 
 .theme-2 {
   color: #ebeded;
@@ -819,6 +855,9 @@ button,
 
 .dom-is-loaded .project_item.is-show .project_img img {
   transform: scale3d(1, 1, 1); }
+
+.dom-is-loaded .project_item.is-show .project_name {
+  opacity: 1; }
 
 @media (max-width: 1999px) and (min-width: 1600px) {
   html {
@@ -955,15 +994,25 @@ button,
   .project_title {
     font-size: 6.25rem; }
   .project_item {
-    margin-bottom: 75rem; }
+    margin-bottom: 7.5rem; }
     .project_item:nth-child(1) {
       padding-left: 4.5714285714vw;
       padding-right: 4.5714285714vw; }
+    .project_item:nth-child(2) {
+      padding-left: 11.4285714286vw; }
+    .project_item:nth-child(3) {
+      padding-left: 11.4285714286vw; }
+    .project_item:nth-child(4) {
+      padding-left: 5.7142857143vw;
+      padding-right: 11.4285714286vw; }
     .project_item:nth-child(2n-1) .project_img {
       padding-right: 2.5rem; }
   .project_img {
     padding-top: 2.5rem;
     padding-right: 0 !important;
+    padding-left: 0 !important; }
+  .project_name-normal {
+    padding: 2.125rem 0;
     padding-left: 0 !important; }
   .dom-is-loaded .is-show .intro_title_wrap {
     transform: translate3d(0, 0, 0); }
@@ -1092,7 +1141,9 @@ button,
   .skill_item p {
     font-size: 1.1875rem; }
     .skill_item p strong {
-      font-size: 1.2rem; } }
+      font-size: 1.2rem; }
+  .project_name-normal {
+    font-size: 1.1875rem; } }
 
 @media (min-width: 1200px) {
   h3 {
