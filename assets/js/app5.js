@@ -210,9 +210,11 @@ setTimeout(() => {
 
       this.update();
 
+      this.getImgTop();
+
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach(
-          (entry) => (this.isVisible = entry.intersectionRatio > 0)
+          (entry) => (this.isVisible = entry.intersectionRatio >= 0)
         );
       });
 
@@ -240,6 +242,10 @@ setTimeout(() => {
         top: docScroll + rect.top,
       };
     }
+    getImgTop() {
+      const imgRect = this.DOM.image.getBoundingClientRect();
+      this.imgTop = imgRect.top;
+    }
     initEvents() {
       window.addEventListener("resize", () => this.resize());
     }
@@ -259,9 +265,13 @@ setTimeout(() => {
           this.renderedStyles[key].ease
         );
       }
-
       // and apply changes
       this.layout();
+      this.getImgTop();
+
+      if (this.imgTop < 700) {
+        this.class();
+      }
     }
     layout() {
       // scale the image
@@ -375,8 +385,12 @@ setTimeout(() => {
       this.layout();
     }
     layout() {
-      this.DOM.titleH.style.transform = `translate3d(-${this.renderedStyles.titleTranslation.previous}px,0,0)`;
-      this.DOM.title.style.transform = `translate3d(0,-${this.renderedStyles.titleTranslation.previous}px,0)`;
+      this.DOM.titleH.style.transform = `translate3d(${
+        -1 * this.renderedStyles.titleTranslation.previous
+      }px,0,0)`;
+      this.DOM.title.style.transform = `translate3d(0,${
+        -1 * this.renderedStyles.titleTranslation.previous
+      }px,0)`;
     }
     class() {
       this.DOM.show.classList.add("is-show");
@@ -395,7 +409,45 @@ setTimeout(() => {
         project: document.querySelector(".project"),
       };
       this.DOM.proHeader = this.DOM.project.querySelector(".project_header");
-      this.DOM.show = this.DOM.project.querySelectorAll(".js-class-show");
+      this.DOM.imgFirstLine = this.DOM.project.querySelectorAll(
+        ".js-first-line"
+      );
+      this.DOM.imgSecondLine = this.DOM.project.querySelectorAll(
+        ".js-second-line"
+      );
+
+      this.DOM.firstShow = this.DOM.project.querySelectorAll(".js-first-show");
+      this.DOM.secondShow = this.DOM.project.querySelectorAll(
+        ".js-second-show"
+      );
+
+      this.renderedStyles = {
+        titleTranslation: {
+          previous: 0,
+          current: 0,
+          ease: 0.1,
+          fromValue: Number(MathUtils.getRandomFloat(70, 80)),
+          setValue: () => {
+            const fromValue = this.renderedStyles.titleTranslation.fromValue;
+            const toValue = -1 * fromValue;
+            const val = MathUtils.map(
+              this.props.top - docScroll,
+              winsize.height,
+              -1 * this.props.height,
+              fromValue,
+              toValue
+            );
+            return fromValue < 0
+              ? Math.min(Math.max(val, fromValue), toValue)
+              : Math.max(Math.min(val, fromValue), toValue);
+          },
+        },
+      };
+
+      this.getSize();
+      this.getPos();
+
+      this.update();
 
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach(
@@ -404,11 +456,157 @@ setTimeout(() => {
       });
 
       this.observer.observe(this.DOM.project);
-      this.getPos();
+
+      this.initEvents();
+    }
+
+    update() {
+      // sets the initial value (no interpolation)
+      for (const key in this.renderedStyles) {
+        this.renderedStyles[key].current = this.renderedStyles[
+          key
+        ].previous = this.renderedStyles[key].setValue();
+      }
+      // apply changes/styles
+
+      this.imgLayout("first");
+      this.imgLayout("second");
+    }
+
+    getSize() {
+      const rect = this.DOM.project.getBoundingClientRect();
+      this.props = {
+        // item's height
+        height: rect.height,
+        // offset top relative to the document
+        top: docScroll + rect.top,
+      };
+    }
+    initEvents() {
+      window.addEventListener("resize", () => this.resize());
+    }
+    resize() {
+      // gets the item's height and top (relative to the document)
+      this.getSize();
+      // on resize reset sizes and update styles
+      this.update();
     }
 
     getPos() {
       const rect = this.DOM.project.getBoundingClientRect();
+      const imgFirstRect = this.DOM.imgFirstLine[0].getBoundingClientRect();
+      const imgSecondRect = this.DOM.imgSecondLine[0].getBoundingClientRect();
+
+      this.topPos = {
+        top: rect.top,
+        imgFirstTop: imgFirstRect.top,
+        imgSecondTop: imgSecondRect.top,
+      };
+    }
+
+    render() {
+      for (const key in this.renderedStyles) {
+        this.renderedStyles[key].current = this.renderedStyles[key].setValue();
+        this.renderedStyles[key].previous = MathUtils.lerp(
+          this.renderedStyles[key].previous,
+          this.renderedStyles[key].current,
+          this.renderedStyles[key].ease
+        );
+      }
+
+      this.getPos();
+      if (this.topPos.top <= 0) {
+        this.layout();
+      } //header fixed
+
+      if (this.topPos.imgFirstTop < 700 && this.topPos.imgFirstTop > -700) {
+        this.imgLayout("first");
+        this.class("first");
+      } // first line img show
+      if (this.topPos.imgSecondTop < 700 && this.topPos.imgSecondTop > -700) {
+        this.imgLayout("second");
+        this.class("second");
+      } // second line img show
+    }
+
+    layout() {
+      this.DOM.proHeader.style.transform = `translate3d(0,${
+        -1 * this.topPos.top
+      }px,0)`;
+    }
+
+    imgLayout(order) {
+      switch (order) {
+        case "first": {
+          this.DOM.imgFirstLine.forEach((dom, index) => {
+            if (index % 2 === 0)
+              dom.style.transform = `translate3d(0,${this.renderedStyles.titleTranslation.previous}px,0)`;
+            else
+              dom.style.transform = `translate3d(0,${
+                -2 * this.renderedStyles.titleTranslation.previous
+              }px,0)`;
+          });
+          break;
+        } //first
+        case "second": {
+          this.DOM.imgSecondLine.forEach((dom, index) => {
+            if (index % 2 === 0)
+              dom.style.transform = `translate3d(0,${
+                -1 * this.renderedStyles.titleTranslation.previous
+              }px,0)`;
+            else
+              dom.style.transform = `translate3d(0,${
+                2 * this.renderedStyles.titleTranslation.previous
+              }px,0)`;
+          });
+          break;
+        } //second
+      } //switch
+    }
+
+    class(order) {
+      switch (order) {
+        case "first": {
+          this.DOM.firstShow.forEach((dom) => {
+            dom.classList.add("is-show");
+          });
+          break;
+        } //first
+        case "second": {
+          this.DOM.secondShow.forEach((dom) => {
+            dom.classList.add("is-show");
+          });
+          break;
+        } //second
+      } //switch
+    } //class
+  }
+
+  /*
+   *
+   * Mini class
+   *
+   */
+
+  class Mini {
+    constructor() {
+      this.DOM = {
+        mini: document.querySelector(".mini"),
+        show: document.querySelector(".mini.js-class-show"),
+      };
+      this.DOM.items = this.DOM.mini.querySelectorAll(".mini_item");
+
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach(
+          (entry) => (this.isVisible = entry.intersectionRatio > 0)
+        );
+      });
+
+      this.observer.observe(this.DOM.mini);
+    }
+
+    getPos() {
+      const rect = this.DOM.mini.getBoundingClientRect();
       this.props = {
         top: rect.top,
       };
@@ -418,18 +616,25 @@ setTimeout(() => {
       this.getPos();
       if (this.props.top <= 0) {
         this.layout();
+        this.class();
       }
     }
 
     layout() {
-      this.DOM.proHeader.style.transform = `translate3d(0,${-this.props
-        .top}px,0)`;
+      console.log("mini layout");
+      this.DOM.items.forEach((item, index) => {
+        if (index % 2 === 0) {
+          item.style.transform = `translate3d(0,${
+            (-1 * this.props.top) / 7
+          }px,0)`;
+        } else {
+          item.style.transform = `translate3d(0,${this.props.top / 7}px,0)`;
+        }
+      });
     }
 
     class() {
-      this.DOM.show.forEach((dom) => {
-        dom.classList.add("is-show");
-      });
+      this.DOM.show.classList.add("is-show");
     }
   }
 
@@ -450,6 +655,7 @@ setTimeout(() => {
       this.about = new About();
       this.skill = new Skill();
       this.project = new Project();
+      this.mini = new Mini();
 
       // 적용할 스타일 목록
       this.renderedStyles = {
@@ -537,7 +743,6 @@ setTimeout(() => {
         } else {
           this.about.insideViewport = true;
           this.about.update();
-          this.about.class();
         }
       } else {
         this.about.insideViewport = false;
@@ -562,7 +767,20 @@ setTimeout(() => {
           this.project.render();
         } else {
           this.project.insideViewport = true;
+          this.project.render();
           this.project.class();
+        }
+      } else {
+        this.project.insideViewport = false;
+      }
+
+      //mini observer
+      if (this.mini.isVisible) {
+        if (this.mini.insideViewport) {
+          this.mini.render();
+        } else {
+          this.mini.insideViewport = true;
+          this.mini.render();
         }
       } else {
         this.project.insideViewport = false;

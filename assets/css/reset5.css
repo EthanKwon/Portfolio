@@ -160,7 +160,8 @@ a {
 
 img {
   width: 100%;
-  border: 0 none; }
+  border: 0 none;
+  vertical-align: top; }
 
 p {
   line-height: 1.5; }
