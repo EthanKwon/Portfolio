@@ -54,7 +54,7 @@ setTimeout(() => {
 
   const getPageYScroll = () => {
     docScroll = window.pageYOffset || document.documentElement.scrollTop;
-    // console.log(`Scroll : ${docScroll}`);
+    console.log(`Scroll : ${docScroll}`);
   };
 
   window.addEventListener("scroll", getPageYScroll);
@@ -74,6 +74,11 @@ setTimeout(() => {
       headerStroke.classList.add("is-show");
     } else {
       headerStroke.classList.remove("is-show");
+    }
+    if (docScroll > 8000) {
+      header.classList.add("hide");
+    } else {
+      header.classList.remove("hide");
     }
   };
 
