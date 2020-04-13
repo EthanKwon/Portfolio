@@ -62,6 +62,20 @@ setTimeout(() => {
 
   /*
    *
+   * SVG Path function
+   *
+   */
+
+  const svgPath = (el) => {
+    const paths = el.querySelectorAll("path");
+    paths.forEach((path) => {
+      path.style.strokeDasharray = path.getTotalLength();
+      path.style.strokeDashoffset = path.getTotalLength();
+    });
+  };
+
+  /*
+   *
    * header Item
    *
    */
@@ -308,6 +322,28 @@ setTimeout(() => {
         '.js-title-anim[data-horizontal="false"]'
       );
       this.DOM.skills = this.DOM.skill.querySelector(".js-skills");
+      this.DOM.skillItem = this.DOM.skill.querySelectorAll(".skill_item");
+      this.DOM.svgs = this.DOM.skill.querySelectorAll(".js-svg");
+      this.DOM.svgPaths = [];
+      this.DOM.svgs.forEach((svg) => {
+        this.DOM.svgPaths.push(svg.querySelectorAll("path"));
+        svgPath(svg);
+      });
+
+      this.DOM.skillItem.forEach((item) => {
+        const itemPath = item.querySelectorAll("path");
+        item.addEventListener("mouseenter", () => {
+          itemPath.forEach((path) => {
+            path.style.strokeDashoffset = path.getTotalLength();
+          });
+        });
+        item.addEventListener("mouseleave", () => {
+          itemPath.forEach((path) => {
+            path.style.strokeDashoffset = 0;
+          });
+        });
+      });
+
       this.renderedStyles = {
         titleTranslation: {
           previous: 0,
@@ -399,6 +435,13 @@ setTimeout(() => {
     }
     class() {
       this.DOM.show.classList.add("is-show");
+    }
+    layoutSVG() {
+      this.DOM.svgPaths.forEach((paths) => {
+        paths.forEach((path) => {
+          path.style.strokeDashoffset = 0;
+        });
+      });
     }
   }
 
@@ -761,6 +804,7 @@ setTimeout(() => {
           this.skill.insideViewport = true;
           this.skill.update();
           this.skill.class();
+          this.skill.layoutSVG();
         }
       } else {
         this.skill.insideViewport = false;
