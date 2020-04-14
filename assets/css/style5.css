@@ -363,7 +363,10 @@ button,
   display: flex;
   justify-content: space-between; }
 
-.header_change-btn {
+.body_change.-mobile {
+  z-index: 100; }
+
+.body_change-btn {
   display: inline-block;
   text-transform: uppercase;
   position: relative;
@@ -371,9 +374,9 @@ button,
   transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
   transform: translate3d(0, -3.75rem, 0);
   transition-delay: 0.3s; }
-  .header_change-btn:hover .small-circle {
+  .body_change-btn:hover .small-circle {
     stroke-dashoffset: 0; }
-  .header_change-btn .small-circle {
+  .body_change-btn .small-circle {
     position: absolute;
     stroke-width: 2; }
 
@@ -715,6 +718,8 @@ button,
       display: block;
       position: relative;
       overflow: hidden; }
+      .project_list .project_item .project_link .project_name {
+        font-family: "S-CoreDream-4Regular"; }
       .project_list .project_item .project_link:hover .project_name-marguee {
         opacity: 1; }
         .project_list .project_item .project_link:hover .project_name-marguee .proejct_name-marquee-wrap {
@@ -775,7 +780,7 @@ button,
   .mini_list .mini_item {
     position: relative; }
     .mini_list .mini_item:before, .mini_list .mini_item:after {
-      transition: transform 0.9s 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); }
+      transition: transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); }
     .mini_list .mini_item:nth-child(2n):before {
       position: absolute;
       top: 0;
@@ -826,7 +831,7 @@ button,
       position: absolute;
       transform: scale3d(0, 1, 1);
       transform-origin: center center;
-      transition: transform 0.9s 0.3s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); }
+      transition: transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
 .mini_text {
   display: flex;
@@ -995,7 +1000,7 @@ button,
 .dom-is-loaded .header_stroke.is-show:before {
   transform: translate3d(0, 0, 0); }
 
-.dom-is-loaded .header_change-btn {
+.dom-is-loaded .body_change {
   transform: translate3d(0, 0, 0); }
 
 .dom-is-loaded .header_main {
@@ -1053,10 +1058,6 @@ button,
   html {
     font-size: 12px; } }
 
-@media (max-width: 1199px) and (min-width: 1000px) {
-  html {
-    font-size: 11px; } }
-
 /*
  *
  * desktop - media query
@@ -1088,9 +1089,11 @@ button,
   .header_stroke:before {
     right: 2.5rem;
     left: 2.5rem; }
-  .header_change-btn {
+  .body_change.-mobile {
+    display: none !important; }
+  .body_change-btn {
     padding: 2.5rem 0; }
-    .header_change-btn .small-circle {
+    .body_change-btn .small-circle {
       width: 0.625rem;
       height: 0.625rem;
       bottom: 1.125rem; }
@@ -1220,8 +1223,9 @@ button,
     padding-right: 2.5rem; }
   .mini_text {
     min-height: 26vw;
-    padding-left: 2.5rem;
     font-weight: bolder; }
+  .mini_item.item_last .mini_text {
+    padding-left: 2.5rem; }
   .mini_img {
     padding-top: 2.5rem; }
   .contact_text {
@@ -1270,10 +1274,23 @@ button,
       left: -1.875rem; }
     .button .button_label:before {
       bottom: -2px; }
+  .body_change {
+    position: fixed;
+    right: 76px;
+    bottom: 40px; }
+    .body_change button {
+      transform: rotate(90deg);
+      transform-origin: right bottom;
+      padding: 20px 0; }
+      .body_change button .small-circle {
+        width: 8px;
+        height: 8px;
+        bottom: 8px; }
   .header_stroke:before {
     right: 0;
     left: 0;
-    border: none !important; }
+    border: none !important;
+    transform: none !important; }
   .header_blank {
     display: none !important; }
   .header_portfolio {
@@ -1372,6 +1389,18 @@ button,
   .mini_title_normal {
     padding: 20px 0;
     padding-right: 20px; }
+  .contact_text .grid {
+    display: flex;
+    width: 100%;
+    margin: 0;
+    flex-wrap: wrap;
+    text-align: center; }
+    .contact_text .grid .third {
+      width: 100%;
+      padding: 0; }
+  .contact_address {
+    padding: 40px 0;
+    display: flex; }
   .dom-is-loaded .header_stroke:after {
     transform: translate3d(0, 0, 0) !important; }
   .dom-is-loaded .intro.is-show .btn_circle-path {
@@ -1382,10 +1411,12 @@ button,
   .-sticky {
     transform: none !important; }
   .-parallax {
-    transform: none !important; } }
+    transform: none !important; }
+  .-hover path {
+    stroke-dashoffset: 0 !important; } }
 
 @media (min-width: 1800px) {
-  .header_change-btn,
+  .body_change-btn,
   .header_main-link,
   .header_portfolio {
     font-size: 1.1875rem; }
@@ -1423,11 +1454,13 @@ button,
     font-size: 1.2rem; }
     .mini_text_title strong {
       font-size: 2.5rem; }
+    .mini_text_title span {
+      display: block; }
   .contact_title_main {
     font-size: 2.125rem; } }
 
 @media (max-width: 1799px) and (min-width: 1200px) {
-  .header_change-btn,
+  .body_change-btn,
   .header_main-link,
   .header_portfolio {
     font-size: 1.1875rem; }
@@ -1438,10 +1471,19 @@ button,
   .mini_title_normal {
     font-size: 1.1875rem; } }
 
+@media (max-width: 1199px) {
+  .skill_item:nth-child(2n) .skill_svg {
+    left: 0; }
+  .skill_svg {
+    width: 5.3rem;
+    height: 4.8rem; } }
+
 @media (max-width: 1199px) and (min-width: 1000px) {
+  html {
+    font-size: 11px; }
   h3 {
     font-size: 1.375rem; }
-  .header_change-btn,
+  .body_change-btn,
   .header_main-link,
   .header_portfolio {
     font-size: 1.1875rem; }
@@ -1453,7 +1495,9 @@ button,
   .mini_text_title strong {
     font-size: 2rem; }
   .mini_title {
-    font-size: 1.185rem; } }
+    font-size: 1.185rem; }
+  .contact_text p {
+    font-size: 1.1875rem; } }
 
 @media (max-width: 999px) and (min-width: 700px) {
   h3 {
@@ -1464,6 +1508,10 @@ button,
     width: 50%; }
   .button {
     font-size: 26px; }
+  .body_change button {
+    font-size: 16px; }
+  .header_main-link {
+    font-size: 16px; }
   .intro_title {
     font-size: 50px; }
   .about_title {
@@ -1487,13 +1535,31 @@ button,
     .mini_text_title strong {
       font-size: 26px !important; }
   .mini_title_normal {
-    font-size: 16px; } }
+    font-size: 16px; }
+  .contact_text {
+    padding: 180px 0 60px;
+    height: 100vh; }
+    .contact_text p {
+      font-size: 16px; }
+  .contact_title {
+    font-size: 24px; }
+    .contact_title .contact_title_main {
+      font-size: 36px;
+      margin-bottom: 0.625rem; }
+  .contact_comment .third {
+    width: 33.33333% !important;
+    text-align: left !important; }
+  .comment_text {
+    padding: 120px 0 0; } }
 
 @media (min-width: 700px) {
   .project_item {
     width: 50%; }
   .mini_item {
-    width: 50%; } }
+    width: 50%; }
+  .contact_address .third {
+    width: 33.333333% !important;
+    text-align: left !important; } }
 
 @media (max-width: 699px) {
   .about_main-grid {
@@ -1506,7 +1572,24 @@ button,
     justify-content: center;
     text-align: center;
     padding: 0;
-    padding-bottom: 30px; } }
+    padding-bottom: 30px; }
+  .contact_text {
+    padding: 100px 0 40px; }
+  .contact_text h3 {
+    font-size: 16px;
+    text-align: center;
+    line-height: 1.3;
+    margin-bottom: 40px; }
+    .contact_text h3 .contact_title_main {
+      font-size: 20px;
+      margin-bottom: 0.625rem; }
+  .contact_text .grid .third:nth-child(3) {
+    position: relative;
+    padding-top: 20px; }
+  .contact_text p {
+    font-size: 14px; }
+  .contact_comment .comment_text {
+    padding: 80px 0 0; } }
 
 @media (max-width: 699px) and (min-width: 500px) {
   h3 {
@@ -1552,6 +1635,9 @@ button,
       left: -1.25rem; }
     .button .button_label:before {
       bottom: -2px; }
+  .body_change {
+    right: 56px;
+    bottom: 23px; }
   .header_stroke:after {
     right: 20px;
     left: 20px; }

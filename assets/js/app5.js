@@ -30,15 +30,20 @@ setTimeout(() => {
    */
 
   let winsize;
-  const calcWinsize = () => {
+  let docsize;
+  const calcSize = () => {
     winsize = {
       width: window.innerWidth,
       height: window.innerHeight,
     };
+    docsize = {
+      height: document.body.clientHeight,
+    };
+    console.log(`doc size: ${docsize.height - winsize.height}`);
   };
-  calcWinsize(); // 최초 창의 크기 초기화
+  calcSize(); // 최초 창의 크기 초기화
 
-  window.addEventListener("resize", calcWinsize);
+  window.addEventListener("resize", calcSize);
   // 창의 크기 변경시 창의 크기 측정
 
   /*
@@ -50,12 +55,22 @@ setTimeout(() => {
 
   let docScroll;
   let lastScroll;
+  let linkScroll;
   let scrollingSpeed = 0;
 
   const getPageYScroll = () => {
     docScroll = window.pageYOffset || document.documentElement.scrollTop;
+    linkScroll = [
+      docScroll + document.querySelector("#sec2").getBoundingClientRect().top,
+      docScroll + document.querySelector("#sec3").getBoundingClientRect().top,
+      docScroll + document.querySelector("#sec4").getBoundingClientRect().top,
+      docScroll + document.querySelector("#sec5").getBoundingClientRect().top,
+      docScroll + document.querySelector("#footer").getBoundingClientRect().top,
+    ];
     console.log(`Scroll : ${docScroll}`);
   };
+
+  getPageYScroll();
 
   window.addEventListener("scroll", getPageYScroll);
   //스크롤 움직일 때, 스크롤의 위치값 설정
@@ -89,7 +104,8 @@ setTimeout(() => {
     } else {
       headerStroke.classList.remove("is-show");
     }
-    if (docScroll > 8000) {
+    if (docScroll > 0.98 * (docsize.height - winsize.height)) {
+      console.log("header hide");
       header.classList.add("hide");
     } else {
       header.classList.remove("hide");
@@ -100,7 +116,7 @@ setTimeout(() => {
 
   //Change Theme
 
-  const headerColor = header.querySelector(".js-color-change");
+  const bodyColor = document.querySelectorAll(".js-color-change");
   let themeNum = 1;
 
   const changeColorTheme = () => {
@@ -113,7 +129,24 @@ setTimeout(() => {
     body.classList.add(`theme-${themeNum}`);
   };
 
-  headerColor.addEventListener("click", changeColorTheme);
+  bodyColor.forEach((colorDom) => {
+    colorDom.addEventListener("click", changeColorTheme);
+  });
+
+  // scroll href
+
+  const headerLink = header.querySelectorAll(".js-link");
+
+  const clickLink = (dom, scroll) => {
+    dom.addEventListener("click", (e) => {
+      e.preventDefault();
+      window.scrollTo(0, scroll);
+    });
+  };
+
+  linkScroll.map((sec, index) => {
+    clickLink(headerLink[index], sec);
+  });
 
   /*
    *
@@ -131,6 +164,11 @@ setTimeout(() => {
       this.DOM.image = this.DOM.intro.querySelector(".intro_img");
       this.DOM.imgPara = this.DOM.intro.querySelector(".intro_img_parallax");
       this.DOM.btnWrap = this.DOM.intro.querySelector(".intro_btn_wrap");
+
+      //intro link
+      this.DOM.link = this.DOM.intro.querySelector(".js-link");
+
+      clickLink(this.DOM.link, linkScroll[0]);
 
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => (this.isVisible = entry.isIntersecting));
@@ -181,6 +219,11 @@ setTimeout(() => {
       this.DOM.image = this.DOM.about.querySelector(".js-anim-img");
       this.DOM.title = this.DOM.about.querySelector(".js-anim-title");
 
+      //intro link
+      this.DOM.link = this.DOM.about.querySelector(".js-link");
+
+      clickLink(this.DOM.link, linkScroll[2]);
+      //
       this.renderedStyles = {
         imageScale: {
           // interpolated value
@@ -233,7 +276,7 @@ setTimeout(() => {
 
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach(
-          (entry) => (this.isVisible = entry.intersectionRatio >= 0)
+          (entry) => (this.isVisible = entry.intersectionRatio > 0)
         );
       });
 
@@ -563,7 +606,7 @@ setTimeout(() => {
       }
 
       this.getPos();
-      if (this.topPos.top <= 0) {
+      if (this.topPos.top <= 10) {
         this.layout();
       } //header fixed
 
@@ -662,14 +705,13 @@ setTimeout(() => {
 
     render() {
       this.getPos();
-      if (this.props.top <= 0) {
+      if (this.props.top <= 10) {
         this.layout();
         this.class();
       }
     }
 
     layout() {
-      console.log("mini layout");
       this.DOM.items.forEach((item, index) => {
         if (index % 2 === 0) {
           item.style.transform = `translate3d(0,${
@@ -825,14 +867,7 @@ setTimeout(() => {
 
       //mini observer
       if (this.mini.isVisible) {
-        if (this.mini.insideViewport) {
-          this.mini.render();
-        } else {
-          this.mini.insideViewport = true;
-          this.mini.render();
-        }
-      } else {
-        this.project.insideViewport = false;
+        this.mini.render();
       }
 
       requestAnimationFrame(() => this.render());

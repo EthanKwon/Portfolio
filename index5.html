@@ -9,13 +9,35 @@
     <link rel="stylesheet" href="./assets/css/style5.css" />
   </head>
   <body class="theme-1">
+    <nav class="body_change -mobile">
+      <button class="js-color-change body_change-btn">
+        <span>color</span>
+        <svg
+          class="small-circle"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          x="0px"
+          y="0px"
+          width="30px"
+          height="30px"
+          viewBox="0 0 30 30"
+          style="enable-background: new 0 0 30 30;"
+          xml:space="preserve"
+        >
+          <path
+            d="M29,15c-0.1,7.7-6.3,14-14,14C7.3,29,1,22.7,1,15S7.3,1,15,1C22.7,1,28.9,7.3,29,15"
+          ></path>
+        </svg>
+      </button>
+    </nav>
     <header id="header" class="header">
       <div class="container">
         <div class="header_stroke js-class-show">
           <div class="grid">
             <div class="quarter header_blank">
-              <div class="header_change">
-                <button class="js-color-change header_change-btn">
+              <div class="body_change - desktop">
+                <button class="js-color-change body_change-btn">
                   <span>color</span>
                   <svg
                     class="small-circle"
@@ -42,7 +64,7 @@
                 <nav class="header_main">
                   <ul class="header_main-list">
                     <li class="header_main-item">
-                      <a href="#" class="header_main-link">
+                      <a href="#sec2" class="js-link header_main-link">
                         <span>about</span>
                         <svg
                           class="small-circle"
@@ -64,7 +86,7 @@
                       </a>
                     </li>
                     <li class="header_main-item">
-                      <a href="#" class="header_main-link">
+                      <a href="#sec3" class="js-link header_main-link">
                         <span>skill</span>
                         <svg
                           class="small-circle"
@@ -86,7 +108,7 @@
                       </a>
                     </li>
                     <li class="header_main-item">
-                      <a href="#" class="header_main-link">
+                      <a href="#sec4" class="js-link header_main-link">
                         <span>project</span>
                         <svg
                           class="small-circle"
@@ -108,7 +130,7 @@
                       </a>
                     </li>
                     <li class="header_main-item">
-                      <a href="#" class="header_main-link">
+                      <a href="#sec5" class="js-link header_main-link">
                         <span>mini</span>
                         <svg
                           class="small-circle"
@@ -130,7 +152,7 @@
                       </a>
                     </li>
                     <li class="header_main-item">
-                      <a href="#" class="header_main-link">
+                      <a href="#footer" class="js-link header_main-link">
                         <span>contact</span>
                         <svg
                           class="small-circle"
@@ -217,7 +239,7 @@
             <!-- intro_img -->
 
             <div class="intro_btn_wrap -parallax">
-              <a href="#sec2" class="intro_btn">
+              <a href="#sec2" class="js-link intro_btn">
                 <span class="btn_label">
                   <span class="btn_label_text">
                     <span>Scroll</span>
@@ -275,7 +297,7 @@
                                 스스로 만들어 보며, 새로운 웹 기술에 대해
                                 학습하고 있습니다.
                               </h3>
-                              <a href="#" class="button">
+                              <a href="#project" class="js-link button">
                                 <svg
                                   class="button_circle"
                                   version="1.1"
@@ -340,7 +362,7 @@
                       <li class="skill_item">
                         <div class="-anim-opacity">
                           <svg
-                            class="js-svg skill_svg html"
+                            class="js-svg skill_svg html -hover"
                             version="1.1"
                             id="Capa_1"
                             xmlns="http://www.w3.org/2000/svg"
@@ -414,7 +436,7 @@
                       <li class="skill_item">
                         <div class="-anim-opacity">
                           <svg
-                            class="js-svg skill_svg css"
+                            class="js-svg skill_svg css -hover"
                             version="1.1"
                             id="Capa_1"
                             xmlns="http://www.w3.org/2000/svg"
@@ -489,7 +511,7 @@
                       <li class="skill_item">
                         <div class="-anim-opacity">
                           <svg
-                            class="js-svg skill_svg js"
+                            class="js-svg skill_svg js -hover"
                             version="1.1"
                             id="Layer_1"
                             xmlns="http://www.w3.org/2000/svg"
@@ -545,7 +567,7 @@
                       <li class="skill_item">
                         <div class="-anim-opacity">
                           <svg
-                            class="js-svg skill_svg react"
+                            class="js-svg skill_svg react -hover"
                             aria-hidden="true"
                             focusable="false"
                             data-prefix="fab"
@@ -576,7 +598,7 @@
                       <li class="skill_item">
                         <div class="-anim-opacity">
                           <svg
-                            class="js-svg skill_svg ts"
+                            class="js-svg skill_svg ts -hover"
                             version="1.1"
                             id="Layer_1"
                             xmlns="http://www.w3.org/2000/svg"
@@ -875,7 +897,8 @@
                           <strong>
                             I never stop that I grow.
                           </strong>
-                          다양한 미니 프로젝트를 진행 하였습니다.
+                          프로젝트를 통해 많은 것을 경험 하고, 몸소 익힐수
+                          있다고 생각합니다.
                         </h3>
                       </div>
                     </li>
@@ -907,24 +930,24 @@
                         </p>
                       </div>
                       <div class="third">
-                        <div class="contact_social">
+                        <p class="contact_social">
                           <a
                             href="https://github.com/EthanKwon"
                             target="_blank"
                             rel="noopener noreferrer"
                             >github</a
                           >
-                        </div>
+                        </p>
                       </div>
                       <div class="third">
-                        <div class="contact_social">
+                        <p class="contact_social">
                           <a
                             href="https://github.com/EthanKwon"
                             target="_blank"
                             rel="noopener noreferrer"
                             >github</a
                           >
-                        </div>
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -936,10 +959,10 @@
                       <div class="third">
                         <div class="comment_text">
                           <p>
-                            <span>이곳은 conmment 부분입니다.</span>
-                            <span>이곳은 conmment 부분입니다.</span>
-                            <span>이곳은 conmment 부분입니다.</span>
-                            <span>이곳은 conmment 부분입니다.</span>
+                            <span
+                              >Copyright 2020. 5scontent Co. all rights
+                              reserved.</span
+                            >
                           </p>
                         </div>
                       </div>
