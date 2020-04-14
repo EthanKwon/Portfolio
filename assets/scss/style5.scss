@@ -1,5 +1,5 @@
 @import "./reset5.scss";
-
+@import "./mixin";
 // layout
 
 .page {
@@ -999,225 +999,31 @@ $pink: #f4c4c4;
 .theme-1 {
   $themeColor: $red;
   $themeBackground: $white;
-  color: $themeColor;
-  background-color: $themeBackground;
-  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
-
-  .small-circle {
-    stroke: $themeColor;
-  }
-  .sec-bg {
-    background-color: $themeBackground;
-  }
-  .button {
-    path {
-      stroke: $themeColor;
-    } //path
-    .button_label {
-      &:before {
-        background-color: $themeColor;
-      }
-    }
-  }
-
-  //logo color
-
-  .body_logo_svg {
-    fill: $themeColor;
-    .nc {
-      fill: $themeBackground;
-    }
-  } //logo_body_svg
-
-  //header color
-  .header {
-    .header_stroke {
-      &:before {
-        background-color: $themeBackground;
-        border-bottom: 1px solid $themeColor;
-      }
-      &:after {
-        background-color: $themeColor;
-      }
-    }
-
-    .header_main-item {
-      &:not(:last-child):before {
-        background-color: $themeColor;
-      } //item:before
-    } //header_main-item
-  } //header
-
-  .intro {
-    .intro_btn {
-      &:before {
-        background-color: $themeBackground;
-      }
-    } //intro_btn
-    .btn_circle-path {
-      stroke: $themeColor;
-    } //btn_circle-path
-  } //intro
-
-  .about {
-    .about_main {
-      &:before {
-        background-color: $themeColor;
-      }
-    }
-  } //about
-
-  .skill {
-    .skill_main {
-      &:before,
-      &:after {
-        background-color: $themeColor;
-      }
-    } //skill_main
-    .skill_stroke {
-      &:before,
-      &:after {
-        background-color: $themeColor;
-      }
-    } //skill_stroke
-    .skill_item {
-      &:before,
-      &:after {
-        background-color: $themeColor;
-      }
-    } //skill_item
-    .skill_svg {
-      path {
-        stroke: $themeColor;
-      }
-    }
-  } //skill
-
-  .project {
-    .project_main {
-      &:after {
-        background-color: $themeColor;
-      }
-    } //project_main
-    .project_name {
-      background-color: $themeBackground;
-      &:before {
-        background-color: $themeColor;
-      }
-    } //project_name
-  } //project
-
-  .mini {
-    .mini_main {
-      &:after {
-        background-color: $themeColor;
-      }
-    } //mini_main
-    .mini_item {
-      &:before,
-      &:after {
-        background-color: $themeColor;
-      }
-    } //mini_item
-    .mini_link {
-      &:before {
-        background-color: $themeColor;
-      }
-    } //mini_link
-  } //mini
-
-  .contact {
-    .contact_address {
-      &:before,
-      &:after {
-        background-color: $themeColor;
-      }
-    }
-  }
+  @include themeMixin($themeColor, $themeBackground);
 } //theme-1
 
 .theme-2 {
   $themeColor: $white;
   $themeBackground: $green;
-  color: $themeColor;
-  background-color: $themeBackground;
-  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  @include themeMixin($themeColor, $themeBackground);
+} //theme-2
 
-  .small-circle {
-    stroke: $themeColor;
-  }
-  .sec-bg {
-    background-color: $themeBackground;
-  }
-  .button {
-    path {
-      stroke: $themeColor;
-    } //path
-    .button_label {
-      &:before {
-        background-color: $themeColor;
-      }
-    }
-  }
+.theme-3 {
+  $themeColor: $red;
+  $themeBackground: $green2;
+  @include themeMixin($themeColor, $themeBackground);
+} //theme-2
 
-  //header color
-  .header {
-    .header_stroke {
-      &:before {
-        background-color: $themeBackground;
-        border-bottom: 1px solid $themeColor;
-      }
-      &:after {
-        background-color: $themeColor;
-      }
-    }
+.theme-4 {
+  $themeColor: $green2;
+  $themeBackground: $black;
+  @include themeMixin($themeColor, $themeBackground);
+} //theme-2
 
-    .header_main-item {
-      &:not(:last-child):before {
-        background-color: $themeColor;
-      } //item:before
-    } //header_main-item
-  } //header
-
-  .intro {
-    .intro_btn {
-      &:before {
-        background-color: $themeBackground;
-      }
-    } //intro_btn
-    .btn_circle-path {
-      stroke: $themeColor;
-    } //btn_circle-path
-  } //intro
-
-  .about {
-    .about_main {
-      &:before {
-        background-color: $themeColor;
-      }
-    } //about_main
-  } //about
-
-  .skill {
-    .skill_main {
-      &:before,
-      &:after {
-        background-color: $themeColor;
-      }
-    } //skill_main
-    .skill_stroke {
-      &:before,
-      &:after {
-        background-color: $themeColor;
-      }
-    } //skill_stroke
-    .skill_item {
-      &:before,
-      &:after {
-        background-color: $themeColor;
-      }
-    } //skill_item
-  } //skill
+.theme-5 {
+  $themeColor: $black;
+  $themeBackground: $pink;
+  @include themeMixin($themeColor, $themeBackground);
 } //theme-2
 
 /*
@@ -2082,7 +1888,7 @@ $pink: #f4c4c4;
     } //button_label
   } //button
   .about_title {
-    font-size: 2rem;
+    font-size: 1.8rem;
   } //about_title
   .skill_title {
     font-size: 5.714vw;
@@ -2206,7 +2012,7 @@ $pink: #f4c4c4;
   }
 
   .button {
-    font-size: 26px;
+    font-size: 24px;
   }
 
   .body_logo {
@@ -2233,7 +2039,7 @@ $pink: #f4c4c4;
   } //intro_title
 
   .about_title {
-    font-size: 24px;
+    font-size: 20px;
   } //about_title
 
   .skill_title {
@@ -2394,7 +2200,7 @@ $pink: #f4c4c4;
   } //intro_img
 
   .about_title {
-    font-size: 20px;
+    font-size: 18px;
   } //about_title
 
   .skill_title {

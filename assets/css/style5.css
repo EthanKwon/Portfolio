@@ -998,6 +998,10 @@ svg {
     stroke: #ebeded; }
   .theme-2 .button .button_label:before {
     background-color: #ebeded; }
+  .theme-2 .body_logo_svg {
+    fill: #ebeded; }
+    .theme-2 .body_logo_svg .nc {
+      fill: #00a19a; }
   .theme-2 .header .header_stroke:before {
     background-color: #00a19a;
     border-bottom: 1px solid #ebeded; }
@@ -1017,6 +1021,178 @@ svg {
     background-color: #ebeded; }
   .theme-2 .skill .skill_item:before, .theme-2 .skill .skill_item:after {
     background-color: #ebeded; }
+  .theme-2 .skill .skill_svg path {
+    stroke: #ebeded; }
+  .theme-2 .project .project_main:after {
+    background-color: #ebeded; }
+  .theme-2 .project .project_name {
+    background-color: #00a19a; }
+    .theme-2 .project .project_name:before {
+      background-color: #ebeded; }
+  .theme-2 .mini .mini_main:after {
+    background-color: #ebeded; }
+  .theme-2 .mini .mini_item:before, .theme-2 .mini .mini_item:after {
+    background-color: #ebeded; }
+  .theme-2 .mini .mini_link:before {
+    background-color: #ebeded; }
+  .theme-2 .contact .contact_address:before, .theme-2 .contact .contact_address:after {
+    background-color: #ebeded; }
+
+.theme-3 {
+  color: #e83c38;
+  background-color: #a6d1c9;
+  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .theme-3 .small-circle {
+    stroke: #e83c38; }
+  .theme-3 .sec-bg {
+    background-color: #a6d1c9; }
+  .theme-3 .button path {
+    stroke: #e83c38; }
+  .theme-3 .button .button_label:before {
+    background-color: #e83c38; }
+  .theme-3 .body_logo_svg {
+    fill: #e83c38; }
+    .theme-3 .body_logo_svg .nc {
+      fill: #a6d1c9; }
+  .theme-3 .header .header_stroke:before {
+    background-color: #a6d1c9;
+    border-bottom: 1px solid #e83c38; }
+  .theme-3 .header .header_stroke:after {
+    background-color: #e83c38; }
+  .theme-3 .header .header_main-item:not(:last-child):before {
+    background-color: #e83c38; }
+  .theme-3 .intro .intro_btn:before {
+    background-color: #a6d1c9; }
+  .theme-3 .intro .btn_circle-path {
+    stroke: #e83c38; }
+  .theme-3 .about .about_main:before {
+    background-color: #e83c38; }
+  .theme-3 .skill .skill_main:before, .theme-3 .skill .skill_main:after {
+    background-color: #e83c38; }
+  .theme-3 .skill .skill_stroke:before, .theme-3 .skill .skill_stroke:after {
+    background-color: #e83c38; }
+  .theme-3 .skill .skill_item:before, .theme-3 .skill .skill_item:after {
+    background-color: #e83c38; }
+  .theme-3 .skill .skill_svg path {
+    stroke: #e83c38; }
+  .theme-3 .project .project_main:after {
+    background-color: #e83c38; }
+  .theme-3 .project .project_name {
+    background-color: #a6d1c9; }
+    .theme-3 .project .project_name:before {
+      background-color: #e83c38; }
+  .theme-3 .mini .mini_main:after {
+    background-color: #e83c38; }
+  .theme-3 .mini .mini_item:before, .theme-3 .mini .mini_item:after {
+    background-color: #e83c38; }
+  .theme-3 .mini .mini_link:before {
+    background-color: #e83c38; }
+  .theme-3 .contact .contact_address:before, .theme-3 .contact .contact_address:after {
+    background-color: #e83c38; }
+
+.theme-4 {
+  color: #a6d1c9;
+  background-color: #282b29;
+  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .theme-4 .small-circle {
+    stroke: #a6d1c9; }
+  .theme-4 .sec-bg {
+    background-color: #282b29; }
+  .theme-4 .button path {
+    stroke: #a6d1c9; }
+  .theme-4 .button .button_label:before {
+    background-color: #a6d1c9; }
+  .theme-4 .body_logo_svg {
+    fill: #a6d1c9; }
+    .theme-4 .body_logo_svg .nc {
+      fill: #282b29; }
+  .theme-4 .header .header_stroke:before {
+    background-color: #282b29;
+    border-bottom: 1px solid #a6d1c9; }
+  .theme-4 .header .header_stroke:after {
+    background-color: #a6d1c9; }
+  .theme-4 .header .header_main-item:not(:last-child):before {
+    background-color: #a6d1c9; }
+  .theme-4 .intro .intro_btn:before {
+    background-color: #282b29; }
+  .theme-4 .intro .btn_circle-path {
+    stroke: #a6d1c9; }
+  .theme-4 .about .about_main:before {
+    background-color: #a6d1c9; }
+  .theme-4 .skill .skill_main:before, .theme-4 .skill .skill_main:after {
+    background-color: #a6d1c9; }
+  .theme-4 .skill .skill_stroke:before, .theme-4 .skill .skill_stroke:after {
+    background-color: #a6d1c9; }
+  .theme-4 .skill .skill_item:before, .theme-4 .skill .skill_item:after {
+    background-color: #a6d1c9; }
+  .theme-4 .skill .skill_svg path {
+    stroke: #a6d1c9; }
+  .theme-4 .project .project_main:after {
+    background-color: #a6d1c9; }
+  .theme-4 .project .project_name {
+    background-color: #282b29; }
+    .theme-4 .project .project_name:before {
+      background-color: #a6d1c9; }
+  .theme-4 .mini .mini_main:after {
+    background-color: #a6d1c9; }
+  .theme-4 .mini .mini_item:before, .theme-4 .mini .mini_item:after {
+    background-color: #a6d1c9; }
+  .theme-4 .mini .mini_link:before {
+    background-color: #a6d1c9; }
+  .theme-4 .contact .contact_address:before, .theme-4 .contact .contact_address:after {
+    background-color: #a6d1c9; }
+
+.theme-5 {
+  color: #282b29;
+  background-color: #f4c4c4;
+  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .theme-5 .small-circle {
+    stroke: #282b29; }
+  .theme-5 .sec-bg {
+    background-color: #f4c4c4; }
+  .theme-5 .button path {
+    stroke: #282b29; }
+  .theme-5 .button .button_label:before {
+    background-color: #282b29; }
+  .theme-5 .body_logo_svg {
+    fill: #282b29; }
+    .theme-5 .body_logo_svg .nc {
+      fill: #f4c4c4; }
+  .theme-5 .header .header_stroke:before {
+    background-color: #f4c4c4;
+    border-bottom: 1px solid #282b29; }
+  .theme-5 .header .header_stroke:after {
+    background-color: #282b29; }
+  .theme-5 .header .header_main-item:not(:last-child):before {
+    background-color: #282b29; }
+  .theme-5 .intro .intro_btn:before {
+    background-color: #f4c4c4; }
+  .theme-5 .intro .btn_circle-path {
+    stroke: #282b29; }
+  .theme-5 .about .about_main:before {
+    background-color: #282b29; }
+  .theme-5 .skill .skill_main:before, .theme-5 .skill .skill_main:after {
+    background-color: #282b29; }
+  .theme-5 .skill .skill_stroke:before, .theme-5 .skill .skill_stroke:after {
+    background-color: #282b29; }
+  .theme-5 .skill .skill_item:before, .theme-5 .skill .skill_item:after {
+    background-color: #282b29; }
+  .theme-5 .skill .skill_svg path {
+    stroke: #282b29; }
+  .theme-5 .project .project_main:after {
+    background-color: #282b29; }
+  .theme-5 .project .project_name {
+    background-color: #f4c4c4; }
+    .theme-5 .project .project_name:before {
+      background-color: #282b29; }
+  .theme-5 .mini .mini_main:after {
+    background-color: #282b29; }
+  .theme-5 .mini .mini_item:before, .theme-5 .mini .mini_item:after {
+    background-color: #282b29; }
+  .theme-5 .mini .mini_link:before {
+    background-color: #282b29; }
+  .theme-5 .contact .contact_address:before, .theme-5 .contact .contact_address:after {
+    background-color: #282b29; }
 
 /*
  *
@@ -1482,7 +1658,7 @@ svg {
     .button .button_label:before {
       bottom: -0.125rem; }
   .about_title {
-    font-size: 2rem; }
+    font-size: 1.8rem; }
   .skill_title {
     font-size: 5.714vw; }
   .skill_item h3 {
@@ -1550,7 +1726,7 @@ svg {
   .quarter {
     width: 50%; }
   .button {
-    font-size: 26px; }
+    font-size: 24px; }
   .body_logo svg {
     width: 100px;
     height: 67px; }
@@ -1561,7 +1737,7 @@ svg {
   .intro_title {
     font-size: 50px; }
   .about_title {
-    font-size: 24px; }
+    font-size: 20px; }
   .skill_title {
     font-size: 50px; }
   .skill_item h3 {
@@ -1651,7 +1827,7 @@ svg {
     margin-top: -30px;
     margin-bottom: -54px; }
   .about_title {
-    font-size: 20px; }
+    font-size: 18px; }
   .skill_title {
     font-size: 36px; }
   .skill_item h3 {

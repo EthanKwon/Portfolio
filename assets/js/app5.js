@@ -121,7 +121,7 @@ setTimeout(() => {
 
   const changeColorTheme = () => {
     body.classList.remove(`theme-${themeNum}`);
-    if (themeNum === 2) {
+    if (themeNum === 5) {
       themeNum = 1;
     } else {
       themeNum++;
