@@ -39,7 +39,7 @@ setTimeout(() => {
     docsize = {
       height: document.body.clientHeight,
     };
-    console.log(`doc size: ${docsize.height - winsize.height}`);
+    console.log(`doc size: ${docsize.height}`);
   };
   calcSize(); // 최초 창의 크기 초기화
 
@@ -104,6 +104,7 @@ setTimeout(() => {
     } else {
       headerStroke.classList.remove("is-show");
     }
+    console.log(docsize.height, winsize.height);
     if (docScroll > 0.98 * (docsize.height - winsize.height)) {
       console.log("header hide");
       header.classList.add("hide");
@@ -730,6 +731,37 @@ setTimeout(() => {
 
   /*
    *
+   * Contact class
+   *
+   */
+
+  class Contact {
+    constructor() {
+      this.DOM = {
+        contact: document.querySelector(".contact"),
+        show: document.querySelector(".contact.js-class-show"),
+      };
+
+      this.observer = new IntersectionObserver((entries) => {
+        entries.forEach(
+          (entry) => (this.isVisible = entry.intersectionRatio > 0)
+        );
+      });
+
+      this.observer.observe(this.DOM.contact);
+    }
+
+    render() {
+      this.class();
+    }
+
+    class() {
+      this.DOM.show.classList.add("is-show");
+    }
+  }
+
+  /*
+   *
    * Smooth Scroll
    *
    */
@@ -746,6 +778,7 @@ setTimeout(() => {
       this.skill = new Skill();
       this.project = new Project();
       this.mini = new Mini();
+      this.contact = new Contact();
 
       // 적용할 스타일 목록
       this.renderedStyles = {
@@ -868,6 +901,11 @@ setTimeout(() => {
       //mini observer
       if (this.mini.isVisible) {
         this.mini.render();
+      }
+
+      //contact observer
+      if (this.contact.isVisible) {
+        this.contact.render();
       }
 
       requestAnimationFrame(() => this.render());

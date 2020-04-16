@@ -339,29 +339,23 @@ svg {
 
 /* 
  *
- * Logo
+ * Header - Base
  *
  */
 .body_logo {
   position: fixed;
   z-index: 100;
   transform: translateZ(1px); }
-  .body_logo a {
-    position: relative;
-    display: inline-block;
+  .body_logo .body_logo-anim {
     transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .body_logo a {
+    pointer-events: auto;
+    display: inline-block;
+    position: relative;
+    transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .body_logo svg {
+    transition: fill 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
-.body_logo-anim {
-  transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1); }
-
-.body_logo_svg {
-  transition: fill 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
-
-/* 
- *
- * Header - Base
- *
- */
 .header.hide {
   transform: translate3d(0, -102%, 0);
   transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1); }
@@ -389,16 +383,13 @@ svg {
 .body_change.-mobile {
   z-index: 100; }
 
-.body_change {
-  transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-  transition-delay: 0.3s; }
-
 .body_change-btn {
   display: inline-block;
   text-transform: uppercase;
   position: relative;
   pointer-events: auto;
   transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform: translate3d(0, -3.75rem, 0);
   transition-delay: 0.3s; }
   .body_change-btn:hover .small-circle {
     stroke-dashoffset: 0; }
@@ -892,6 +883,24 @@ svg {
     display: block;
     transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
+.contact_spin {
+  position: absolute;
+  left: -0.714286vw;
+  top: -32.857143vw;
+  animation: spin 48s infinite linear;
+  animation-play-state: paused; }
+  .contact_spin .contact_spin-wrap {
+    transition: transform 1.4s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 1.4s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: scale3d(0.5, 0.5, 1);
+    transition-delay: 0.4s;
+    opacity: 0; }
+  .contact_spin path {
+    fill: none; }
+  .contact_spin text {
+    font-family: "Perpetua Titling MT";
+    font-size: 10.5rem;
+    text-transform: uppercase; }
+
 .contact_title span {
   display: block;
   font-family: "S-CoreDream-4Regular"; }
@@ -983,6 +992,8 @@ svg {
     background-color: #e83c38; }
   .theme-1 .mini .mini_link:before {
     background-color: #e83c38; }
+  .theme-1 .contact_spin text {
+    fill: #e83c38; }
   .theme-1 .contact .contact_address:before, .theme-1 .contact .contact_address:after {
     background-color: #e83c38; }
 
@@ -1035,6 +1046,8 @@ svg {
     background-color: #ebeded; }
   .theme-2 .mini .mini_link:before {
     background-color: #ebeded; }
+  .theme-2 .contact_spin text {
+    fill: #ebeded; }
   .theme-2 .contact .contact_address:before, .theme-2 .contact .contact_address:after {
     background-color: #ebeded; }
 
@@ -1087,6 +1100,8 @@ svg {
     background-color: #e83c38; }
   .theme-3 .mini .mini_link:before {
     background-color: #e83c38; }
+  .theme-3 .contact_spin text {
+    fill: #e83c38; }
   .theme-3 .contact .contact_address:before, .theme-3 .contact .contact_address:after {
     background-color: #e83c38; }
 
@@ -1139,6 +1154,8 @@ svg {
     background-color: #a6d1c9; }
   .theme-4 .mini .mini_link:before {
     background-color: #a6d1c9; }
+  .theme-4 .contact_spin text {
+    fill: #a6d1c9; }
   .theme-4 .contact .contact_address:before, .theme-4 .contact .contact_address:after {
     background-color: #a6d1c9; }
 
@@ -1191,6 +1208,8 @@ svg {
     background-color: #282b29; }
   .theme-5 .mini .mini_link:before {
     background-color: #282b29; }
+  .theme-5 .contact_spin text {
+    fill: #282b29; }
   .theme-5 .contact .contact_address:before, .theme-5 .contact .contact_address:after {
     background-color: #282b29; }
 
@@ -1209,7 +1228,10 @@ svg {
 .dom-is-loaded .header_stroke.is-show:before {
   transform: translate3d(0, 0, 0); }
 
-.dom-is-loaded .body_change {
+.dom-is-loaded .body_change.-mobile .body_change-btn {
+  transform: rotate(90deg); }
+
+.dom-is-loaded .body_change-btn {
   transform: translate3d(0, 0, 0); }
 
 .dom-is-loaded .header_main {
@@ -1259,6 +1281,13 @@ svg {
 .dom-is-loaded .mini.is-show .mini_link:before {
   transform: scale3d(1, 1, 1); }
 
+.dom-is-loaded .contact.is-show .contact_spin {
+  animation-play-state: running; }
+  .dom-is-loaded .contact.is-show .contact_spin .contact_spin-wrap {
+    transition-delay: 0.2s;
+    transform: scale3d(1, 1, 1);
+    opacity: 1; }
+
 @media (max-width: 1999px) and (min-width: 1600px) {
   html {
     font-size: 13px; } }
@@ -1300,16 +1329,14 @@ svg {
     bottom: 2.5rem; }
     .body_logo a {
       transform: translate3d(0, 7.875rem, 0); }
-      .body_logo a svg {
-        width: 7.5rem;
-        height: 5rem; }
+    .body_logo svg {
+      width: 7.5rem;
+      height: 5rem; }
   .header_stroke:before {
     right: 2.5rem;
     left: 2.5rem; }
   .body_change.-mobile {
     display: none !important; }
-  .body_change {
-    transform: translate3d(0, -3.75rem, 0); }
   .body_change-btn {
     padding: 2.5rem 0; }
     .body_change-btn .small-circle {
@@ -1447,6 +1474,9 @@ svg {
     padding-left: 2.5rem; }
   .mini_img {
     padding-top: 2.5rem; }
+  .contact_spin svg {
+    width: 120vw;
+    height: 120vw; }
   .contact_text {
     height: 100vh;
     max-height: 62.857vw;
@@ -1658,7 +1688,7 @@ svg {
     .button .button_label:before {
       bottom: -0.125rem; }
   .about_title {
-    font-size: 1.8rem; }
+    font-size: 2rem; }
   .skill_title {
     font-size: 5.714vw; }
   .skill_item h3 {
@@ -1673,8 +1703,6 @@ svg {
     font-size: 1.2rem; }
     .mini_text_title strong {
       font-size: 2.5rem; }
-    .mini_text_title span {
-      display: block; }
   .contact_title_main {
     font-size: 2.125rem; } }
 
@@ -1726,7 +1754,7 @@ svg {
   .quarter {
     width: 50%; }
   .button {
-    font-size: 24px; }
+    font-size: 26px; }
   .body_logo svg {
     width: 100px;
     height: 67px; }
@@ -1737,7 +1765,7 @@ svg {
   .intro_title {
     font-size: 50px; }
   .about_title {
-    font-size: 20px; }
+    font-size: 24px; }
   .skill_title {
     font-size: 50px; }
   .skill_item h3 {
@@ -1827,7 +1855,7 @@ svg {
     margin-top: -30px;
     margin-bottom: -54px; }
   .about_title {
-    font-size: 18px; }
+    font-size: 20px; }
   .skill_title {
     font-size: 36px; }
   .skill_item h3 {
@@ -1918,3 +1946,9 @@ svg {
 @keyframes dash {
   to {
     stroke-dashoffset: 0; } }
+
+@keyframes spin {
+  from {
+    transform: rotate(0); }
+  to {
+    transform: rotate(360deg); } }

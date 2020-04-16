@@ -72,7 +72,8 @@ $max-width-mobile-land: 812px;
 @mixin themeMixin($themeColor, $themeBackground) {
   color: $themeColor;
   background-color: $themeBackground;
-  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
+    color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
   .small-circle {
     stroke: $themeColor;
   }
@@ -195,6 +196,11 @@ $max-width-mobile-land: 812px;
       }
     } //mini_link
   } //mini
+  .contact_spin {
+    text {
+      fill: $themeColor;
+    } //text
+  } //contact_spin
 
   .contact {
     .contact_address {
@@ -202,6 +208,6 @@ $max-width-mobile-land: 812px;
       &:after {
         background-color: $themeColor;
       }
-    }
+    } //contact_address
   } //contact
 }
