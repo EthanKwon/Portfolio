@@ -196,6 +196,7 @@ $max-width-mobile-land: 812px;
       }
     } //mini_link
   } //mini
+
   .contact_spin {
     text {
       fill: $themeColor;
@@ -210,4 +211,10 @@ $max-width-mobile-land: 812px;
       }
     } //contact_address
   } //contact
+
+  .comment_spin {
+    text {
+      fill: $themeColor;
+    } //text
+  } //comment_spin
 }

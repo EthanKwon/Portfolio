@@ -898,7 +898,6 @@ svg {
     fill: none; }
   .contact_spin text {
     font-family: "Perpetua Titling MT";
-    font-size: 10.5rem;
     text-transform: uppercase; }
 
 .contact_title span {
@@ -916,14 +915,14 @@ svg {
     left: 0;
     height: 1px;
     content: "";
-    transition: background 0.6s 0s cubic-bezier(0.075, 0.82, 0.165, 1), transform 0.9s 0s cubic-bezier(0.075, 0.82, 0.165, 1);
     transform: scale3d(0, 1, 1);
-    transition: background 0.6s 0s cubic-bezier(0.075, 0.82, 0.165, 1), transform 0.9s 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-    transform: scale3d(1, 1, 1); }
+    transition: background 0.6s 0s cubic-bezier(0.075, 0.82, 0.165, 1), transform 0.9s 1.2s cubic-bezier(0.075, 0.82, 0.165, 1); }
   .contact_address:before {
-    top: 0; }
+    top: 0;
+    transform-origin: right center; }
   .contact_address:after {
-    bottom: 0; }
+    bottom: 0;
+    transform-origin: left center; }
   .contact_address .contact_info span {
     display: block; }
 
@@ -935,8 +934,29 @@ svg {
     text-transform: uppercase;
     line-height: 1.3; }
 
-.comment_text span {
-  display: block; }
+.comment_text {
+  position: relative; }
+  .comment_text span {
+    display: block; }
+
+.comment_spin {
+  position: absolute;
+  top: -70%;
+  left: 40%;
+  transform: translate3d(-50%, 0, 0); }
+  .comment_spin .comment_spin-wrap {
+    transform: scale3d(0.5, 0.5, 1);
+    transition: transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+    opacity: 0;
+    transition-delay: 0.4s; }
+  .comment_spin svg {
+    animation: spin 38s infinite linear;
+    animation-play-state: paused; }
+  .comment_spin path {
+    fill: none; }
+  .comment_spin text {
+    font-family: "Perpetua Titling MT";
+    text-transform: uppercase; }
 
 /*
  *
@@ -996,6 +1016,8 @@ svg {
     fill: #e83c38; }
   .theme-1 .contact .contact_address:before, .theme-1 .contact .contact_address:after {
     background-color: #e83c38; }
+  .theme-1 .comment_spin text {
+    fill: #e83c38; }
 
 .theme-2 {
   color: #ebeded;
@@ -1050,6 +1072,8 @@ svg {
     fill: #ebeded; }
   .theme-2 .contact .contact_address:before, .theme-2 .contact .contact_address:after {
     background-color: #ebeded; }
+  .theme-2 .comment_spin text {
+    fill: #ebeded; }
 
 .theme-3 {
   color: #e83c38;
@@ -1104,6 +1128,8 @@ svg {
     fill: #e83c38; }
   .theme-3 .contact .contact_address:before, .theme-3 .contact .contact_address:after {
     background-color: #e83c38; }
+  .theme-3 .comment_spin text {
+    fill: #e83c38; }
 
 .theme-4 {
   color: #a6d1c9;
@@ -1158,6 +1184,8 @@ svg {
     fill: #a6d1c9; }
   .theme-4 .contact .contact_address:before, .theme-4 .contact .contact_address:after {
     background-color: #a6d1c9; }
+  .theme-4 .comment_spin text {
+    fill: #a6d1c9; }
 
 .theme-5 {
   color: #282b29;
@@ -1212,6 +1240,8 @@ svg {
     fill: #282b29; }
   .theme-5 .contact .contact_address:before, .theme-5 .contact .contact_address:after {
     background-color: #282b29; }
+  .theme-5 .comment_spin text {
+    fill: #282b29; }
 
 /*
  *
@@ -1287,6 +1317,16 @@ svg {
     transition-delay: 0.2s;
     transform: scale3d(1, 1, 1);
     opacity: 1; }
+
+.dom-is-loaded .contact.is-show .contact_address:before, .dom-is-loaded .contact.is-show .contact_address:after {
+  transform: scale3d(1, 1, 1); }
+
+.dom-is-loaded .contact.is-show .comment_spin .comment_spin-wrap {
+  transition-delay: 1s;
+  opacity: 1;
+  transform: scale3d(1, 1, 1); }
+  .dom-is-loaded .contact.is-show .comment_spin .comment_spin-wrap svg {
+    animation-play-state: running; }
 
 @media (max-width: 1999px) and (min-width: 1600px) {
   html {
@@ -1489,6 +1529,9 @@ svg {
   .contact_address {
     margin: 5rem 0;
     padding: 3.75rem 0; }
+  .comment_spin svg {
+    width: 50vw;
+    height: 50vw; }
   .comment_text {
     padding: 6.857vw 0 0; }
   .dom-is-loaded .is-show .intro_title_wrap {
@@ -1649,6 +1692,8 @@ svg {
     .contact_text .grid .third {
       width: 100%;
       padding: 0; }
+  .contact_spin {
+    display: none; }
   .contact_address {
     padding: 40px 0;
     display: flex; }
@@ -1680,7 +1725,11 @@ svg {
   .mini_title_normal {
     font-size: 1.1875rem; }
   .contact_text p {
-    font-size: 1.1875rem; } }
+    font-size: 1.1875rem; }
+  .contact_spin text {
+    font-size: 9rem; }
+  .comment_spin text {
+    font-size: 4.5rem; } }
 
 @media (min-width: 1200px) {
   h3 {
@@ -1706,7 +1755,11 @@ svg {
     .mini_text_title strong {
       font-size: 2.5rem; }
   .contact_title_main {
-    font-size: 2.125rem; } }
+    font-size: 2.125rem; }
+  .contact_spin text {
+    font-size: 9rem; }
+  .comment_spin text {
+    font-size: 4.5rem; } }
 
 @media (max-width: 1799px) and (min-width: 1200px) {
   .body_change-btn,
@@ -1744,7 +1797,11 @@ svg {
   .mini_title {
     font-size: 1.185rem; }
   .contact_text p {
-    font-size: 1.1875rem; } }
+    font-size: 1.1875rem; }
+  .contact_spin text {
+    font-size: 10.5rem; }
+  .comment_spin text {
+    font-size: 4.5rem; } }
 
 @media (max-width: 999px) and (min-width: 700px) {
   h3 {
@@ -1799,6 +1856,14 @@ svg {
   .contact_comment .third {
     width: 33.33333% !important;
     text-align: left !important; }
+  .comment_spin {
+    top: -100%;
+    left: 30%; }
+    .comment_spin svg {
+      width: 137vw;
+      height: 137vw; }
+    .comment_spin text {
+      font-size: 5rem; }
   .comment_text {
     padding: 120px 0 0; } }
 
@@ -1842,7 +1907,9 @@ svg {
   .contact_text p {
     font-size: 14px; }
   .contact_comment .comment_text {
-    padding: 80px 0 0; } }
+    padding: 80px 0 0; }
+    .contact_comment .comment_text .span {
+      display: block; } }
 
 @media (max-width: 699px) and (min-width: 500px) {
   h3 {
@@ -1873,7 +1940,15 @@ svg {
     font-size: 36px;
     font-weight: 300; }
   .mini_title_normal {
-    font-size: 14px; } }
+    font-size: 14px; }
+  .comment_spin {
+    top: -100%;
+    left: 50%; }
+    .comment_spin svg {
+      width: 166vw;
+      height: 166vw; }
+    .comment_spin text {
+      font-size: 48px; } }
 
 @media (max-width: 499px) {
   h3 {
@@ -1925,7 +2000,15 @@ svg {
   .mini_text strong {
     font-size: 30px; }
   .mini_title_normal {
-    font-size: 14px; } }
+    font-size: 14px; }
+  .comment_spin {
+    top: -70%;
+    left: 50%; }
+    .comment_spin svg {
+      width: 166vw;
+      height: 166vw; }
+    .comment_spin text {
+      font-size: 40px; } }
 
 @media (max-width: 999px) and (min-width: 500px) {
   .container {

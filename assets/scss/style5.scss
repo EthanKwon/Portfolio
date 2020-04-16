@@ -947,7 +947,6 @@
   text {
     font: {
       family: "Perpetua Titling MT";
-      size: 10.5rem;
     }
     text-transform: uppercase;
   }
@@ -976,19 +975,17 @@
     left: 0;
     height: 1px;
     content: "";
-    transition: background 0.6s 0s cubic-bezier(0.075, 0.82, 0.165, 1),
-      transform 0.9s 0s cubic-bezier(0.075, 0.82, 0.165, 1);
-
     transform: scale3d(0, 1, 1);
     transition: background 0.6s 0s cubic-bezier(0.075, 0.82, 0.165, 1),
       transform 0.9s 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
-    transform: scale3d(1, 1, 1);
   }
   &:before {
     top: 0;
+    transform-origin: right center;
   }
   &:after {
     bottom: 0;
+    transform-origin: left center;
   }
   .contact_info {
     span {
@@ -1008,10 +1005,40 @@
 } //contact_text
 
 .comment_text {
+  position: relative;
   span {
     display: block;
   }
 } //comment_text
+
+.comment_spin {
+  position: absolute;
+  top: -70%;
+  left: 40%;
+  transform: translate3d(-50%, 0, 0);
+
+  .comment_spin-wrap {
+    transform: scale3d(0.5, 0.5, 1);
+    transition: transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1),
+      opacity 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+    opacity: 0;
+    transition-delay: 0.4s;
+  } //comment_spin-wrap
+
+  svg {
+    animation: spin 38s infinite linear;
+    animation-play-state: paused;
+  } //svg
+  path {
+    fill: none;
+  } //path
+  text {
+    font: {
+      family: "Perpetua Titling MT";
+    }
+    text-transform: uppercase;
+  } //text
+} //comment_spin
 
 /*
  *
@@ -1189,6 +1216,24 @@ $pink: #f4c4c4;
         opacity: 1;
       }
     } //contact_spin
+
+    .contact_address {
+      &:before,
+      &:after {
+        transform: scale3d(1, 1, 1);
+      }
+    }
+
+    .comment_spin {
+      .comment_spin-wrap {
+        transition-delay: 1s;
+        opacity: 1;
+        transform: scale3d(1, 1, 1);
+        svg {
+          animation-play-state: running;
+        } //svg
+      } //comment_spin-wrap
+    } //comment_spin
   }
 } //dom-is-loaded
 
@@ -1562,6 +1607,13 @@ $pink: #f4c4c4;
     padding: 3.75rem 0;
   } //contact_address
 
+  .comment_spin {
+    svg {
+      width: 50vw;
+      height: 50vw;
+    } //svg
+  } //comment_spin
+
   .comment_text {
     padding: 6.857vw 0 0;
   } //comment_text
@@ -1856,6 +1908,10 @@ $pink: #f4c4c4;
     } //gird
   } //contact_text
 
+  .contact_spin {
+    display: none;
+  } //999-contact_spin
+
   .contact_address {
     padding: 40px 0;
     display: flex;
@@ -1928,6 +1984,17 @@ $pink: #f4c4c4;
       font-size: 1.1875rem;
     }
   } //contact_text
+  .contact_spin {
+    text {
+      font-size: 9rem;
+    } //text
+  } //contact_spin
+
+  .comment_spin {
+    text {
+      font-size: 4.5rem;
+    } //text
+  } //comment_spin
 }
 
 @media (min-width: 1200px) {
@@ -1974,7 +2041,19 @@ $pink: #f4c4c4;
 
   .contact_title_main {
     font-size: 2.125rem;
-  }
+  } //contact_title_main
+
+  .contact_spin {
+    text {
+      font-size: 9rem;
+    } //text
+  } //contact_spin
+
+  .comment_spin {
+    text {
+      font-size: 4.5rem;
+    } //text
+  } //comment_spin
 }
 @media (max-width: 1799px) and (min-width: 1200px) {
   .body_change-btn,
@@ -2043,6 +2122,18 @@ $pink: #f4c4c4;
       font-size: 1.1875rem;
     }
   } //contact_text
+
+  .contact_spin {
+    text {
+      font-size: 10.5rem;
+    } //text
+  } //contact_spin
+
+  .comment_spin {
+    text {
+      font-size: 4.5rem;
+    } //text
+  } //comment_spin
 }
 
 @media (max-width: 999px) and (min-width: 700px) {
@@ -2146,6 +2237,18 @@ $pink: #f4c4c4;
     } //third
   } //contact_comment
 
+  .comment_spin {
+    top: -100%;
+    left: 30%;
+    svg {
+      width: 137vw;
+      height: 137vw;
+    } //svg
+    text {
+      font-size: 5rem;
+    } //text
+  } //comment_spin
+
   .comment_text {
     padding: 120px 0 0;
   } //contact_comment
@@ -2223,6 +2326,9 @@ $pink: #f4c4c4;
   .contact_comment {
     .comment_text {
       padding: 80px 0 0;
+      .span {
+        display: block;
+      }
     } //comment_text
   } //contact_comment
 }
@@ -2281,6 +2387,18 @@ $pink: #f4c4c4;
   .mini_title_normal {
     font-size: 14px;
   } //mini_title_normal
+
+  .comment_spin {
+    top: -100%;
+    left: 50%;
+    svg {
+      width: 166vw;
+      height: 166vw;
+    } //svg
+    text {
+      font-size: 48px;
+    } //text
+  } //comment_spin
 }
 
 @media (max-width: 499px) {
@@ -2385,6 +2503,18 @@ $pink: #f4c4c4;
   .mini_title_normal {
     font-size: 14px;
   } //mini_title_normal
+
+  .comment_spin {
+    top: -70%;
+    left: 50%;
+    svg {
+      width: 166vw;
+      height: 166vw;
+    } //svg
+    text {
+      font-size: 40px;
+    } //text
+  } //comment_spin
 }
 
 //containter media
