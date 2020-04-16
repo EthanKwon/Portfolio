@@ -1755,6 +1755,13 @@ $pink: #f4c4c4;
   .skill_title-line {
     display: inline-block;
   }
+  .skill_item {
+    &:nth-child(2n) {
+      .skill_svg {
+        left: 0;
+      } //skill_svg
+    }
+  } //skill_item
 
   .skill_stroke {
     padding: 20px 0;
@@ -1990,13 +1997,6 @@ $pink: #f4c4c4;
 }
 
 @media (max-width: 1199px) {
-  .skill_item {
-    &:nth-child(2n) {
-      .skill_svg {
-        left: 0;
-      } //skill_svg
-    }
-  } //skill_item
   .skill_svg {
     width: 5.3rem;
     height: 4.8rem;
