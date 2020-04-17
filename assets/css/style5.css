@@ -282,6 +282,9 @@ svg {
   transform: translate3d(-50%, 0, 0);
   left: 50%; }
 
+.small-circle.active {
+  stroke-dashoffset: 0; }
+
 .anim-img {
   transition: transform 1.6s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   transform-origin: top center;

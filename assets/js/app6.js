@@ -29,8 +29,8 @@ setTimeout(() => {
    *
    */
 
-  let winsize;
-  let docsize;
+  let winsize; //window창 크기 관리
+  let docsize; //body창 크기 관리
   const calcSize = () => {
     winsize = {
       width: window.innerWidth,
@@ -39,9 +39,9 @@ setTimeout(() => {
     docsize = {
       height: document.body.clientHeight,
     };
-    console.log(`doc size: ${docsize.height}`);
   };
-  calcSize(); // 최초 창의 크기 초기화
+
+  calcSize(); // 창의 크기 초기화
 
   window.addEventListener("resize", calcSize);
   // 창의 크기 변경시 창의 크기 측정
@@ -67,17 +67,16 @@ setTimeout(() => {
       docScroll + document.querySelector("#sec5").getBoundingClientRect().top,
       docScroll + document.querySelector("#footer").getBoundingClientRect().top,
     ];
-    console.log(`Scroll : ${docScroll}`);
   };
 
-  getPageYScroll();
+  getPageYScroll(); // 스크롤 위치 초기화
 
   window.addEventListener("scroll", getPageYScroll);
   //스크롤 움직일 때, 스크롤의 위치값 설정
 
   /*
    *
-   * SVG Path function
+   * SVG Path function - skill icon
    *
    */
 
@@ -89,24 +88,30 @@ setTimeout(() => {
     });
   };
 
+  //is-show class function
+
   /*
    *
-   * header Item
+   * header
    *
    */
 
   const header = document.querySelector(".header");
-  const headerStroke = header.querySelector(".js-class-show");
+  const headerShow = header.querySelector(".js-class-show");
 
   const addClassHeader = () => {
     if (docScroll > 800) {
-      headerStroke.classList.add("is-show");
+      //width 1000 이상시 header line 생성
+      headerShow.classList.add("is-show");
     } else {
-      headerStroke.classList.remove("is-show");
+      headerShow.classList.remove("is-show");
     }
-    console.log(docsize.height, winsize.height);
-    if (docScroll > 0.98 * (docsize.height - winsize.height)) {
-      console.log("header hide");
+
+    console.log(`Scroll : ${docScroll}`);
+    console.log(`linkScroll : ${linkScroll[4] * 0.95}`);
+
+    //contact 만날시 header hide
+    if (docScroll > linkScroll[4] * 0.97) {
       header.classList.add("hide");
     } else {
       header.classList.remove("hide");
@@ -115,7 +120,7 @@ setTimeout(() => {
 
   window.addEventListener("scroll", addClassHeader);
 
-  //Change Theme
+  //Change Theme - color change
 
   const bodyColor = document.querySelectorAll(".js-color-change");
   let themeNum = 1;
@@ -134,7 +139,7 @@ setTimeout(() => {
     colorDom.addEventListener("click", changeColorTheme);
   });
 
-  // scroll href
+  // Scroll href - document section scroll
 
   const headerLink = header.querySelectorAll(".js-link");
 
@@ -142,18 +147,6 @@ setTimeout(() => {
     dom.addEventListener("click", (e) => {
       e.preventDefault();
       window.scrollTo(0, scroll);
-    });
-  };
-
-  const AddlinkActive = (link) => {
-    const svg = link.querySelector("svg");
-    svg.classList.add("active");
-  };
-
-  const RemovelinkActive = (links) => {
-    links.forEach((link) => {
-      const svg = link.querySelector("svg");
-      svg.classList.remove("active");
     });
   };
 
@@ -861,7 +854,6 @@ setTimeout(() => {
 
       if (this.intro.isVisible) {
         if (this.intro.insideViewport) {
-          RemovelinkActive(headerLink);
           this.intro.render(this.renderedStyles.translationY.previous);
         } else {
           this.intro.insideViewport = true;
@@ -874,8 +866,6 @@ setTimeout(() => {
 
       //about observer
       if (this.about.isVisible) {
-        RemovelinkActive(headerLink);
-        AddlinkActive(headerLink[0]);
         if (this.about.insideViewport) {
           this.about.render();
         } else {
@@ -889,8 +879,6 @@ setTimeout(() => {
       //skill observer
       if (this.skill.isVisible) {
         if (this.skill.insideViewport) {
-          RemovelinkActive(headerLink);
-          AddlinkActive(headerLink[1]);
           this.skill.render();
         } else {
           this.skill.insideViewport = true;
@@ -905,8 +893,6 @@ setTimeout(() => {
       //project observer
       if (this.project.isVisible) {
         if (this.project.insideViewport) {
-          RemovelinkActive(headerLink);
-          AddlinkActive(headerLink[2]);
           this.project.render();
         } else {
           this.project.insideViewport = true;
@@ -919,16 +905,12 @@ setTimeout(() => {
 
       //mini observer
       if (this.mini.isVisible) {
-        RemovelinkActive(headerLink);
-        AddlinkActive(headerLink[3]);
         this.mini.render();
-      } else {
       }
 
       //contact observer
       if (this.contact.isVisible) {
         this.contact.render();
-      } else {
       }
 
       requestAnimationFrame(() => this.render());
@@ -939,24 +921,3 @@ setTimeout(() => {
   lastScroll = docScroll;
   new SmoothScroll();
 }
-
-// //Text Word split
-
-// const textWordSplit = (dom) => {
-//   const textStr = dom.innerText;
-//   console.log(`textStr : ${textStr}`);
-//   const textWord = textStr.split(" ");
-//   console.log(`textStr : ${textWord}`);
-
-//   dom.textContent = "";
-//   textWord.map((word) => {
-//     const newWord = document.createElement("div");
-//     newWord.classList.add("text-word");
-//     newWord.innerText = ` ${word}`;
-
-//     console.log(newWord);
-//     dom.append(newWord);
-//   });
-// };
-
-// textWordSplit(document.querySelector(".skill_title"));

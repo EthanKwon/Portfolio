@@ -88,7 +88,11 @@
   position: absolute;
   transform: translate3d(-50%, 0, 0);
   left: 50%;
-}
+} //small-circle
+
+.small-circle.active {
+  stroke-dashoffset: 0;
+} //small-circle.active
 
 .anim-img {
   transition: transform 1.6s cubic-bezier(0.075, 0.82, 0.165, 1),
