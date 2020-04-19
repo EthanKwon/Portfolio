@@ -274,7 +274,7 @@ svg {
 .small-circle {
   fill: none;
   stroke-miterlimit: 10;
-  stroke-width: 1;
+  stroke-width: 2;
   transition: stroke-dashoffset 0.3s linear, stroke 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   transition-delay: 0s;
   stroke-dasharray: 90;
@@ -526,9 +526,6 @@ svg {
   transition-delay: 0.3s; }
   .body_change-btn:hover .small-circle {
     stroke-dashoffset: 0; }
-  .body_change-btn .small-circle {
-    position: absolute;
-    stroke-width: 2; }
 
 .header_main {
   transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1);
@@ -548,9 +545,6 @@ svg {
   display: inline-block; }
   .header_main-link:hover .small-circle {
     stroke-dashoffset: 0; }
-  .header_main-link .small-circle {
-    position: absolute;
-    stroke-width: 2; }
 
 .header_main-item {
   position: relative; }
@@ -1056,8 +1050,17 @@ svg {
   .contact_address:after {
     bottom: 0;
     transform-origin: left center; }
-  .contact_address .contact_info span {
+  .contact_address .contact_info span,
+  .contact_address .contact_social span {
     display: block; }
+  .contact_address .contact_social a {
+    position: relative;
+    pointer-events: auto; }
+    .contact_address .contact_social a:hover svg {
+      stroke-dashoffset: 0; }
+    .contact_address .contact_social a svg {
+      left: -1rem;
+      top: 0.375rem; }
 
 .contact_text {
   display: flex;
@@ -1717,6 +1720,10 @@ iframe.kakao {
       left: -2.125rem; }
     .button .button_label:before {
       bottom: -0.125rem; }
+  .small-circle {
+    width: 0.625rem;
+    height: 0.625rem;
+    bottom: 1.125rem; }
   .body_logo {
     left: 2.5rem;
     bottom: 2.5rem; }
@@ -1732,20 +1739,12 @@ iframe.kakao {
     display: none !important; }
   .body_change-btn {
     padding: 2.5rem 0; }
-    .body_change-btn .small-circle {
-      width: 0.625rem;
-      height: 0.625rem;
-      bottom: 1.125rem; }
   .header_main-list {
     margin-left: -0.75rem; }
   .header_main-item:not(:last-child):before {
     height: 1.25rem; }
   .header_main-link {
     padding: 2.5rem 0.75rem; }
-    .header_main-link .small-circle {
-      width: 0.625rem;
-      height: 0.625rem;
-      bottom: 1.125rem; }
   .header_portfolio {
     padding: 2.5rem 0; }
   .intro_fixed {
@@ -1940,6 +1939,10 @@ iframe.kakao {
       left: -1.875rem; }
     .button .button_label:before {
       bottom: -2px; }
+  .small-circle {
+    width: 8px;
+    height: 8px;
+    bottom: 8px; }
   .body_change {
     position: fixed;
     right: 76px;
@@ -1948,10 +1951,6 @@ iframe.kakao {
       transform: rotate(90deg);
       transform-origin: right bottom;
       padding: 20px 0; }
-      .body_change button .small-circle {
-        width: 8px;
-        height: 8px;
-        bottom: 8px; }
   .header_stroke:before {
     right: 0;
     left: 0;
@@ -1969,10 +1968,6 @@ iframe.kakao {
   .header_main-link {
     padding: 20px 0;
     position: relative; }
-    .header_main-link .small-circle {
-      width: 8px;
-      height: 8px;
-      bottom: 8px; }
   .intro_fixed {
     display: none; }
   .intro_fixed.on-top {
