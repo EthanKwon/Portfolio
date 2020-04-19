@@ -145,7 +145,13 @@ const randomColor = (max, min) => {
   let themeNum = 1;
 
   const changeColorTheme = () => {
-    body.classList.remove(`theme-${themeNum}`);
+    body.classList.remove(
+      `theme-1`,
+      `theme-2`,
+      `theme-3`,
+      `theme-4`,
+      `theme-5`
+    );
     if (themeNum === 5) {
       themeNum = 1;
     } else {
