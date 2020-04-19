@@ -203,23 +203,24 @@ $max-width-mobile-land: 812px;
         background-color: $themeColor;
       }
     } //mini_link
-    .quickview_label {
-      &:before {
-        background-color: $themeBackground;
-      }
-    } //quickview_label
-    .quickview_code {
-      &:before {
-        background-color: $themeBackground;
-      }
-      &:after {
-        border-color: $themeColor;
-      }
-      svg {
-        fill: $themeColor;
-      }
-    } //quickview_code
   } //mini
+
+  .quickview_label {
+    &:before {
+      background-color: $themeBackground;
+    }
+  } //quickview_label
+  .quickview_code {
+    &:before {
+      background-color: $themeBackground;
+    }
+    &:after {
+      border-color: $themeColor;
+    }
+    svg {
+      fill: $themeColor;
+    }
+  } //quickview_code
 
   .contact_spin {
     text {
