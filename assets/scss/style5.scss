@@ -932,6 +932,12 @@
     .quickview_label {
       transform: translate3d(0, -50%, 0);
     } //quickview_lable
+    .mini_title_marquee {
+      opacity: 1;
+      .mini_title_marquee_wrap {
+        animation-play-state: running;
+      } //mini_title_marquee_wrap
+    } //mini_title_marquee
   }
 } //mini_link
 
@@ -1060,6 +1066,28 @@
     display: block;
     transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
+  .mini_title_marquee {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    white-space: nowrap;
+    transition: opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    padding: 2.125rem 0;
+    opacity: 0;
+    text-transform: uppercase;
+    .mini_title_marquee_wrap {
+      display: table-cell;
+      animation-iteration-count: infinite;
+      animation-timing-function: linear;
+      animation-name: marquee;
+      animation-duration: 16s;
+      animation-play-state: paused;
+      div {
+        display: inline-block;
+      }
+    }
+  } //mini_title_marquee
 } //mini_title
 
 // contact - Base
@@ -1857,6 +1885,14 @@ $pink: #f4c4c4;
     }
   }
 
+  .mini_link {
+    &:hover {
+      .mini_title_normal {
+        opacity: 0;
+      }
+    }
+  }
+
   .mini_img {
     padding-top: 2.5rem;
   } //mini_img
@@ -1872,6 +1908,13 @@ $pink: #f4c4c4;
       height: 3.75rem;
     } //svg
   } //quickview_code
+
+  .mini_title_marquee_wrap {
+    margin-right: 3rem;
+    div {
+      margin-right: 3rem;
+    } //div
+  } //mini_title_marquee_wrap
 
   // contact - Desktop
 
@@ -2199,6 +2242,10 @@ $pink: #f4c4c4;
     padding-right: 20px;
   }
 
+  .mini_title_marquee {
+    display: none;
+  }
+
   //contact - Mobile
 
   .contact_text {
@@ -2294,7 +2341,8 @@ $pink: #f4c4c4;
     font-size: 1.1875rem;
   } //project_name-normal
 
-  .mini_title_normal {
+  .mini_title_normal,
+  .mini_title_marquee {
     font-size: 1.1875rem;
   } //mini_title_normal
 
@@ -2393,7 +2441,8 @@ $pink: #f4c4c4;
     } //p
   } //skill_item
 
-  .mini_title_normal {
+  .mini_title_normal,
+  .mini_title_marquee {
     font-size: 1.1875rem;
   } //mini_title_normal
 }
@@ -2909,5 +2958,14 @@ $pink: #f4c4c4;
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-100%, 0, 0);
   }
 }

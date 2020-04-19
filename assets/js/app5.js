@@ -730,6 +730,7 @@ const randomColor = (max, min) => {
       };
       this.DOM.items = this.DOM.mini.querySelectorAll(".mini_item");
       this.DOM.links = this.DOM.mini.querySelectorAll(".mini_link");
+      this.DOM.marquees = this.DOM.mini.querySelectorAll(".js-marquee");
 
       this.DOM.links.forEach((link) => {
         link.addEventListener("click", (e) => {
@@ -743,6 +744,11 @@ const randomColor = (max, min) => {
             overlayLink.parentNode.classList.add("kakao");
           }
         });
+      });
+
+      this.DOM.marquees.forEach((marquee) => {
+        const str = marquee.dataset.str;
+        for (let i = 0; i < 10; i++) marquee.innerHTML += `<div>${str}</div>`;
       });
 
       this.observer = new IntersectionObserver((entries) => {
