@@ -340,6 +340,25 @@ svg {
   transition: opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1);
   transition-delay: 0.6s; }
 
+.loading {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 200;
+  transform: translate3d(0, 0, 0);
+  transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .loading .loading_line {
+    width: 200px;
+    height: 5px; }
+
+.dom-is-loaded .loading {
+  transform: translate3d(0, -102%, 0); }
+
 /* 
  *
  * Header - Base
@@ -970,6 +989,10 @@ svg {
   color: #e83c38;
   background-color: #ebeded;
   transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .theme-1 .loading {
+    background-color: #ebeded; }
+  .theme-1 .loading_line {
+    background-color: #e83c38; }
   .theme-1 .small-circle {
     stroke: #e83c38; }
   .theme-1 .sec-bg {
@@ -1026,6 +1049,10 @@ svg {
   color: #ebeded;
   background-color: #00a19a;
   transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .theme-2 .loading {
+    background-color: #00a19a; }
+  .theme-2 .loading_line {
+    background-color: #ebeded; }
   .theme-2 .small-circle {
     stroke: #ebeded; }
   .theme-2 .sec-bg {
@@ -1082,6 +1109,10 @@ svg {
   color: #e83c38;
   background-color: #a6d1c9;
   transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .theme-3 .loading {
+    background-color: #a6d1c9; }
+  .theme-3 .loading_line {
+    background-color: #e83c38; }
   .theme-3 .small-circle {
     stroke: #e83c38; }
   .theme-3 .sec-bg {
@@ -1138,6 +1169,10 @@ svg {
   color: #a6d1c9;
   background-color: #282b29;
   transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .theme-4 .loading {
+    background-color: #282b29; }
+  .theme-4 .loading_line {
+    background-color: #a6d1c9; }
   .theme-4 .small-circle {
     stroke: #a6d1c9; }
   .theme-4 .sec-bg {
@@ -1194,6 +1229,10 @@ svg {
   color: #282b29;
   background-color: #f4c4c4;
   transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .theme-5 .loading {
+    background-color: #f4c4c4; }
+  .theme-5 .loading_line {
+    background-color: #282b29; }
   .theme-5 .small-circle {
     stroke: #282b29; }
   .theme-5 .sec-bg {

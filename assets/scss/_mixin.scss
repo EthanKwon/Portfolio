@@ -74,6 +74,14 @@ $max-width-mobile-land: 812px;
   background-color: $themeBackground;
   transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
     color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+  .loading {
+    background-color: $themeBackground;
+  } //loading
+
+  .loading_line {
+    background-color: $themeColor;
+  }
   .small-circle {
     stroke: $themeColor;
   }

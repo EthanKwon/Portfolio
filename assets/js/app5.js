@@ -2,9 +2,25 @@
 
 const body = document.querySelector("body");
 
-setTimeout(() => {
+// setTimeout(() => {
+//   body.classList.add("dom-is-loaded");
+// }, 500);
+
+/*
+ *
+ * Loading
+ *
+ */
+
+window.addEventListener("load", () => {
   body.classList.add("dom-is-loaded");
-}, 500);
+  randomColor(5, 1);
+});
+
+const randomColor = (max, min) => {
+  const rNum = Math.floor(Math.random() * (max - min + 1)) + min;
+  body.classList.add(`theme-${rNum}`);
+};
 
 /*
  *
