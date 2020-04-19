@@ -207,7 +207,8 @@ svg {
   vertical-align: middle; }
 
 .page {
-  will-change: transform; }
+  will-change: transform;
+  overflow: auto; }
 
 #header {
   position: fixed;
@@ -778,7 +779,6 @@ svg {
   position: relative;
   transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.9s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-  transition-delay: 0.6s;
   opacity: 0; }
   .project_name:before {
     position: absolute;
@@ -886,7 +886,8 @@ svg {
 .mini_link {
   display: block;
   position: relative;
-  overflow: hidden; }
+  overflow: hidden;
+  pointer-events: auto; }
 
 .mini_img .mini_img_wrap {
   position: relative;
@@ -980,6 +981,111 @@ svg {
     font-family: "Perpetua Titling MT";
     text-transform: uppercase; }
 
+.overlay {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  z-index: 200;
+  pointer-events: none;
+  transition: transform 1.6s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transform-origin: top center;
+  transform: perspective(1000px) rotateX(-90deg);
+  overflow: hidden; }
+
+.overlay.open {
+  transform: perspective(1000px) rotateX(0);
+  opacity: 1;
+  pointer-events: auto; }
+
+.overlay button {
+  position: absolute;
+  z-index: 200;
+  pointer-events: auto; }
+  .overlay button:hover .button_close span:nth-child(1) {
+    transform: rotate(45deg) scale3d(1, 1, 1); }
+  .overlay button:hover .button_close span:nth-child(2) {
+    transform: rotate(-45deg) scale3d(1, 1, 1); }
+  .overlay button:hover .close_label:before {
+    transform: scale3d(1, 1, 1); }
+
+.overlay .button_close {
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  top: 50%;
+  left: -2.5rem;
+  transform: translate3d(0, -50%, 0); }
+  .overlay .button_close span {
+    position: absolute;
+    height: 1px;
+    background: #282b29;
+    transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), background 0.6s 0s cubic-bezier(0.075, 0.82, 0.165, 1);
+    left: 0;
+    right: 0;
+    top: 50%; }
+    .overlay .button_close span:nth-child(1) {
+      transform: rotate(0) scale3d(0, 1, 1); }
+    .overlay .button_close span:nth-child(2) {
+      transform: rotate(0) scale3d(0, 1, 1); }
+
+.overlay .close_label {
+  display: inline-block;
+  position: relative;
+  transition: opacity 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  .overlay .close_label:before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    content: "";
+    height: 1px;
+    transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), transform 0.9s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform: scale3d(0, 1, 1);
+    transform-origin: right center; }
+
+.overlay_content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  transform: translate(-50%, -50%);
+  overflow: auto;
+  z-index: 20;
+  pointer-events: none; }
+
+.overlay_inner {
+  position: relative;
+  padding-top: 56.65%; }
+  .overlay_inner iframe {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-height: calc(100vh - 120px);
+    transform: translate3d(0, -50%, 0);
+    pointer-events: auto; }
+
+iframe.kakao {
+  top: 10%;
+  left: 50%;
+  width: 375px;
+  height: 100%;
+  max-height: calc(100vh - 50px);
+  transform: translate3d(-50%, -10%, 0); }
+
+.overlay_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: #282b29;
+  opacity: 0.9;
+  z-index: 1;
+  transition: opacity 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
+
 /*
  *
  * Theme Color
@@ -1044,6 +1150,16 @@ svg {
     background-color: #e83c38; }
   .theme-1 .comment_spin text {
     fill: #e83c38; }
+  .theme-1 .overlay button {
+    color: #ebeded; }
+    .theme-1 .overlay button .button_close span {
+      background-color: #ebeded; }
+    .theme-1 .overlay button svg path {
+      stroke: #ebeded; }
+    .theme-1 .overlay button .close_label:before {
+      background-color: #ebeded; }
+  .theme-1 .overlay_bg {
+    background-color: #e83c38; }
 
 .theme-2 {
   color: #ebeded;
@@ -1104,6 +1220,16 @@ svg {
     background-color: #ebeded; }
   .theme-2 .comment_spin text {
     fill: #ebeded; }
+  .theme-2 .overlay button {
+    color: #00a19a; }
+    .theme-2 .overlay button .button_close span {
+      background-color: #00a19a; }
+    .theme-2 .overlay button svg path {
+      stroke: #00a19a; }
+    .theme-2 .overlay button .close_label:before {
+      background-color: #00a19a; }
+  .theme-2 .overlay_bg {
+    background-color: #ebeded; }
 
 .theme-3 {
   color: #e83c38;
@@ -1164,6 +1290,16 @@ svg {
     background-color: #e83c38; }
   .theme-3 .comment_spin text {
     fill: #e83c38; }
+  .theme-3 .overlay button {
+    color: #a6d1c9; }
+    .theme-3 .overlay button .button_close span {
+      background-color: #a6d1c9; }
+    .theme-3 .overlay button svg path {
+      stroke: #a6d1c9; }
+    .theme-3 .overlay button .close_label:before {
+      background-color: #a6d1c9; }
+  .theme-3 .overlay_bg {
+    background-color: #e83c38; }
 
 .theme-4 {
   color: #a6d1c9;
@@ -1224,6 +1360,16 @@ svg {
     background-color: #a6d1c9; }
   .theme-4 .comment_spin text {
     fill: #a6d1c9; }
+  .theme-4 .overlay button {
+    color: #282b29; }
+    .theme-4 .overlay button .button_close span {
+      background-color: #282b29; }
+    .theme-4 .overlay button svg path {
+      stroke: #282b29; }
+    .theme-4 .overlay button .close_label:before {
+      background-color: #282b29; }
+  .theme-4 .overlay_bg {
+    background-color: #a6d1c9; }
 
 .theme-5 {
   color: #282b29;
@@ -1284,6 +1430,16 @@ svg {
     background-color: #282b29; }
   .theme-5 .comment_spin text {
     fill: #282b29; }
+  .theme-5 .overlay button {
+    color: #f4c4c4; }
+    .theme-5 .overlay button .button_close span {
+      background-color: #f4c4c4; }
+    .theme-5 .overlay button svg path {
+      stroke: #f4c4c4; }
+    .theme-5 .overlay button .close_label:before {
+      background-color: #f4c4c4; }
+  .theme-5 .overlay_bg {
+    background-color: #282b29; }
 
 /*
  *
@@ -1576,6 +1732,13 @@ svg {
     height: 50vw; }
   .comment_text {
     padding: 6.857vw 0 0; }
+  .overlay button {
+    right: 40px;
+    top: 40px; }
+  .overlay .close_label:before {
+    bottom: -0.125rem; }
+  .overlay_content {
+    padding: 6.25rem; }
   .dom-is-loaded .is-show .intro_title_wrap {
     transform: translate3d(0, 0, 0); }
   .dom-is-loaded .is-show .intro_title_line:nth-child(1) {
@@ -1739,6 +1902,11 @@ svg {
   .contact_address {
     padding: 40px 0;
     display: flex; }
+  .overlay button {
+    top: 20px;
+    right: 20px; }
+  .overlay .close_label:before {
+    bottom: -2px; }
   .dom-is-loaded .header_stroke:after {
     transform: translate3d(0, 0, 0) !important; }
   .dom-is-loaded .intro.is-show .btn_circle-path {
@@ -1825,6 +1993,8 @@ svg {
     font-size: 11px; }
   h3 {
     font-size: 1.375rem; }
+  .button {
+    font-size: 1.375rem; }
   .body_change-btn,
   .header_main-link,
   .header_portfolio {
@@ -1843,7 +2013,9 @@ svg {
   .contact_spin text {
     font-size: 10.5rem; }
   .comment_spin text {
-    font-size: 4.5rem; } }
+    font-size: 4.5rem; }
+  .overlay_inner.kakao {
+    padding-top: 60%; } }
 
 @media (max-width: 999px) and (min-width: 700px) {
   h3 {
@@ -1907,7 +2079,9 @@ svg {
     .comment_spin text {
       font-size: 5rem; }
   .comment_text {
-    padding: 120px 0 0; } }
+    padding: 120px 0 0; }
+  .overlay_inner.kakao {
+    padding-top: 80%; } }
 
 @media (min-width: 700px) {
   .project_item {
@@ -1990,7 +2164,9 @@ svg {
       width: 166vw;
       height: 166vw; }
     .comment_spin text {
-      font-size: 48px; } }
+      font-size: 48px; }
+  .overlay_inner.kakao {
+    padding-top: 100%; } }
 
 @media (max-width: 499px) {
   h3 {
@@ -2050,7 +2226,9 @@ svg {
       width: 166vw;
       height: 166vw; }
     .comment_spin text {
-      font-size: 40px; } }
+      font-size: 40px; }
+  .overlay_inner.kakao {
+    padding-top: 140%; } }
 
 @media (max-width: 999px) and (min-width: 500px) {
   .container {

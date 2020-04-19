@@ -225,4 +225,29 @@ $max-width-mobile-land: 812px;
       fill: $themeColor;
     } //text
   } //comment_spin
+
+  .overlay {
+    button {
+      color: $themeBackground;
+      .button_close {
+        span {
+          background-color: $themeBackground;
+        }
+      } //button_close
+      svg {
+        path {
+          stroke: $themeBackground;
+        } //path
+      } //svg
+      .close_label {
+        &:before {
+          background-color: $themeBackground;
+        }
+      }
+    } //button
+  } //overlay
+
+  .overlay_bg {
+    background-color: $themeColor;
+  } //overlay_bg
 }

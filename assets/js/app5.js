@@ -1,6 +1,14 @@
 //Element
 
 const body = document.querySelector("body");
+const overlay = document.querySelector(".overlay");
+const overlayClose = overlay.querySelector(".js-close");
+const overlayLink = overlay.querySelector("iframe");
+
+overlayClose.addEventListener("click", () => {
+  overlay.classList.remove("open");
+  overlayLink.className = "";
+});
 
 // setTimeout(() => {
 //   body.classList.add("dom-is-loaded");
@@ -715,6 +723,21 @@ const randomColor = (max, min) => {
         show: document.querySelector(".mini.js-class-show"),
       };
       this.DOM.items = this.DOM.mini.querySelectorAll(".mini_item");
+      this.DOM.links = this.DOM.mini.querySelectorAll(".mini_link");
+
+      this.DOM.links.forEach((link) => {
+        link.addEventListener("click", (e) => {
+          e.preventDefault();
+          const { src, name } = e.path[4].dataset;
+          console.log(src, name);
+          overlay.classList.add("open");
+          overlayLink.classList.add(`${name}`);
+          overlayLink.src = `${src}`;
+          if (name === "kakao") {
+            overlayLink.parentNode.classList.add("kakao");
+          }
+        });
+      });
 
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach(
