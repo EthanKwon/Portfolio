@@ -130,6 +130,25 @@ const randomColor = (max, min) => {
 
   /*
    *
+   * hover Image
+   *
+   */
+
+  const imageHoverFun = (el, imgName, dpImg) => {
+    new hoverEffect({
+      parent: el,
+      intensity1: 3,
+      intensity2: 1,
+      speedIn: 1,
+      speedOut: 1,
+      image1: `../img/${imgName}.jpg`,
+      image2: `../img/${imgName}2.jpg`,
+      displacementImage: `../img/displacement/${dpImg}`,
+    });
+  };
+
+  /*
+   *
    * header Item
    *
    */
@@ -277,8 +296,21 @@ const randomColor = (max, min) => {
       this.DOM.image = this.DOM.about.querySelector(".js-anim-img");
       this.DOM.title = this.DOM.about.querySelector(".js-anim-title");
 
-      //intro link
+      //about link
       this.DOM.link = this.DOM.about.querySelector(".js-link");
+
+      //about Image hover
+
+      new hoverEffect({
+        parent: this.DOM.image,
+        intensity1: 3,
+        intensity2: 1,
+        speedIn: 1,
+        speedOut: 1,
+        image1: `../img/me.jpg`,
+        image2: `../img/me2.jpg`,
+        displacementImage: `../img/displacement/1.jpg`,
+      });
 
       clickLink(this.DOM.link, linkScroll[2]);
       //
