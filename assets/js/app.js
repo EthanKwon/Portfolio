@@ -11,9 +11,12 @@ const overlayLink = overlay.querySelector("iframe");
  *
  */
 
-window.addEventListener("load", () => {
+const loaded = () => {
   body.classList.add("dom-is-loaded");
-  randomColor(5, 1);
+};
+
+window.addEventListener("load", () => {
+  window.setTimeout(loaded, 3000);
 });
 
 /*
@@ -31,6 +34,7 @@ const randomColor = (max, min) => {
   const rNum = Math.floor(Math.random() * (max - min + 1)) + min;
   body.classList.add(`theme-${rNum}`);
 };
+randomColor(5, 1);
 
 /*
  *
@@ -127,6 +131,20 @@ const randomColor = (max, min) => {
     const str = marquee.dataset.str;
     for (let i = 0; i < 10; i++) marquee.innerHTML += `<div>${str}</div>`;
   });
+
+  /*
+   *
+   * button github URL
+   *
+   */
+
+  const githubURL = (doms) => {
+    doms.forEach((github) => {
+      github.addEventListener("click", () => {
+        window.open(github.dataset.url, "_blank");
+      });
+    });
+  };
 
   /*
    *
@@ -608,6 +626,11 @@ const randomColor = (max, min) => {
         ".js-second-show"
       );
 
+      this.DOM.githubs = this.DOM.project.querySelectorAll(".js-github");
+
+      //button click
+      githubURL(this.DOM.githubs);
+
       this.renderedStyles = {
         titleTranslation: {
           previous: 0,
@@ -797,6 +820,10 @@ const randomColor = (max, min) => {
           }
         });
       });
+
+      //button click URL
+      this.DOM.githubs = this.DOM.mini.querySelectorAll(".js-github");
+      githubURL(this.DOM.githubs);
 
       this.observer = new IntersectionObserver((entries) => {
         entries.forEach(
