@@ -134,18 +134,25 @@ const randomColor = (max, min) => {
    *
    */
 
-  const imageHoverFun = (el, imgName, dpImg) => {
-    new hoverEffect({
-      parent: el,
-      intensity1: 3,
-      intensity2: 1,
-      speedIn: 1,
-      speedOut: 1,
-      image1: `../img/${imgName}.jpg`,
-      image2: `../img/${imgName}2.jpg`,
-      displacementImage: `../img/displacement/${dpImg}`,
+  const hoverImgEffect = () => {
+    const images = document.querySelectorAll(".js-hover-image");
+    images.forEach((el) => {
+      const imgs = el.querySelectorAll("img");
+      new hoverEffect({
+        parent: el,
+        intensity: el.dataset.intensity || undefined,
+        speedIn: el.dataset.speedin || undefined,
+        speedOut: el.dataset.speedout || undefined,
+        easing: el.dataset.easing || undefined,
+        hover: el.dataset.hover || undefined,
+        image1: imgs[0].getAttribute("src"),
+        image2: imgs[1].getAttribute("src"),
+        displacementImage: el.dataset.displacement,
+      });
     });
   };
+
+  hoverImgEffect();
 
   /*
    *
@@ -299,18 +306,17 @@ const randomColor = (max, min) => {
       //about link
       this.DOM.link = this.DOM.about.querySelector(".js-link");
 
-      //about Image hover
+      // //about Image hover
 
-      new hoverEffect({
-        parent: this.DOM.image,
-        intensity1: 3,
-        intensity2: 1,
-        speedIn: 1,
-        speedOut: 1,
-        image1: `../img/me.jpg`,
-        image2: `../img/me2.jpg`,
-        displacementImage: `../img/displacement/1.jpg`,
-      });
+      // new hoverEffect({
+      //   parent: this.DOM.image,
+      //   intensity: 0.4,
+      //   speedIn: 1,
+      //   speedOut: 1,
+      //   image1: `./assets/img/me.jpg`,
+      //   image2: `./assets/img/me2.jpg`,
+      //   displacementImage: `./assets/img/displacement/8.jpg`,
+      // });
 
       clickLink(this.DOM.link, linkScroll[2]);
       //

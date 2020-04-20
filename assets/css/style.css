@@ -467,6 +467,9 @@ svg {
     .title_marquee .title_marquee_wrap div {
       display: inline-block; }
 
+.js-hover-image img {
+  display: none; }
+
 .dom-is-loaded .loading {
   transform: translate3d(0, -102%, 0); }
 

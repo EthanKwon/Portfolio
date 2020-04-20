@@ -324,6 +324,12 @@
   }
 } //title_marquee
 
+.js-hover-image {
+  img {
+    display: none;
+  }
+}
+
 .dom-is-loaded {
   .loading {
     transform: translate3d(0, -102%, 0);
