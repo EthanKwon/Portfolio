@@ -72,16 +72,17 @@ $max-width-mobile-land: 812px;
 @mixin themeMixin($themeColor, $themeBackground) {
   color: $themeColor;
   background-color: $themeBackground;
-  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1),
-    color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
 
   .loading {
     background-color: $themeBackground;
-  } //loading
-
+  } //loding
   .loading_line {
-    background-color: $themeColor;
-  }
+    &:after {
+      background-color: $themeColor;
+    }
+  } //loading_line
+
   .small-circle {
     stroke: $themeColor;
   }

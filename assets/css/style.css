@@ -219,7 +219,7 @@ svg {
   overflow: hidden;
   line-height: 1;
   pointer-events: none;
-  transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  transition: transform 3s cubic-bezier(0.075, 0.82, 0.165, 1); }
 
 #sec1 {
   position: relative;
@@ -343,19 +343,36 @@ svg {
 
 .loading {
   position: fixed;
+  width: 100%;
+  height: 100vh;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 200;
   transform: translate3d(0, 0, 0);
-  transition: transform 1.2s cubic-bezier(0.075, 0.82, 0.165, 1); }
+  transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  z-index: 100;
+  pointer-events: none; }
   .loading .loading_line {
-    width: 200px;
-    height: 5px; }
+    display: block;
+    width: 7.5rem;
+    height: 1px;
+    overflow: hidden;
+    transition: translate 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
+    transform-origin: center right;
+    transform: scalex(1); }
+    .loading .loading_line:after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: #282b29;
+      transform: scaleX(0);
+      transform-origin: left center;
+      animation: loading 1.2s cubic-bezier(0.075, 0.82, 0.165, 1) infinite forwards; }
 
 .quickview_link:hover .quickview_label {
   transform: translate3d(0, -50%, 0); }
@@ -469,9 +486,6 @@ svg {
 
 .js-hover-image img {
   display: none; }
-
-.dom-is-loaded .loading {
-  transform: translate3d(0, -102%, 0); }
 
 /* 
  *
@@ -1100,10 +1114,11 @@ svg {
 .overlay {
   position: fixed;
   left: 0;
+  bottom: 0;
   width: 100%;
   height: 100%;
-  bottom: 0;
   z-index: 200;
+  opacity: 0;
   pointer-events: none;
   transition: transform 1.6s cubic-bezier(0.075, 0.82, 0.165, 1), opacity 0.3s cubic-bezier(0.075, 0.82, 0.165, 1);
   transform-origin: top center;
@@ -1213,7 +1228,7 @@ iframe.kakao {
   transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
   .theme-1 .loading {
     background-color: #ebeded; }
-  .theme-1 .loading_line {
+  .theme-1 .loading_line:after {
     background-color: #e83c38; }
   .theme-1 .small-circle {
     stroke: #e83c38; }
@@ -1291,7 +1306,7 @@ iframe.kakao {
   transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
   .theme-2 .loading {
     background-color: #00a19a; }
-  .theme-2 .loading_line {
+  .theme-2 .loading_line:after {
     background-color: #ebeded; }
   .theme-2 .small-circle {
     stroke: #ebeded; }
@@ -1369,7 +1384,7 @@ iframe.kakao {
   transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
   .theme-3 .loading {
     background-color: #a6d1c9; }
-  .theme-3 .loading_line {
+  .theme-3 .loading_line:after {
     background-color: #e83c38; }
   .theme-3 .small-circle {
     stroke: #e83c38; }
@@ -1447,7 +1462,7 @@ iframe.kakao {
   transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
   .theme-4 .loading {
     background-color: #282b29; }
-  .theme-4 .loading_line {
+  .theme-4 .loading_line:after {
     background-color: #a6d1c9; }
   .theme-4 .small-circle {
     stroke: #a6d1c9; }
@@ -1525,7 +1540,7 @@ iframe.kakao {
   transition: background 0.6s cubic-bezier(0.075, 0.82, 0.165, 1), color 0.6s cubic-bezier(0.075, 0.82, 0.165, 1); }
   .theme-5 .loading {
     background-color: #f4c4c4; }
-  .theme-5 .loading_line {
+  .theme-5 .loading_line:after {
     background-color: #282b29; }
   .theme-5 .small-circle {
     stroke: #282b29; }
@@ -1602,6 +1617,10 @@ iframe.kakao {
  * DOM is Laaded
  *
  */
+.dom-is-loaded .loading {
+  transform: translate3d(0, -102%, 0);
+  transition: transform 3s cubic-bezier(0.075, 0.82, 0.165, 1); }
+
 .dom-is-loaded .small-circle {
   transition-delay: 2s;
   transition: stroke-dashoffset 0.3s linear, stroke 0.3s cubic-bezier(0.075, 0.82, 0.165, 1); }
@@ -1909,7 +1928,7 @@ iframe.kakao {
   .overlay .close_label:before {
     bottom: -0.125rem; }
   .overlay_content {
-    padding: 6.25rem; }
+    padding: 10rem 6.25rem; }
   .dom-is-loaded .is-show .intro_title_wrap {
     transform: translate3d(0, 0, 0); }
   .dom-is-loaded .is-show .intro_title_line:nth-child(1) {
@@ -2436,3 +2455,13 @@ iframe.kakao {
     transform: translate3d(0, 0, 0); }
   100% {
     transform: translate3d(-100%, 0, 0); } }
+
+@keyframes loading {
+  0% {
+    transform: translate(0) scaleX(0); }
+  30% {
+    transform: translate(0) scaleX(1); }
+  80% {
+    transform: translate(100%) scaleX(0); }
+  100% {
+    transform: translate(100%) scaleX(0); } }
