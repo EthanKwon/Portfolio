@@ -163,6 +163,7 @@ randomColor(5, 1);
         speedOut: el.dataset.speedout || undefined,
         easing: el.dataset.easing || undefined,
         hover: el.dataset.hover || undefined,
+        imagesRatio: el.dataset.imagesratio || undefined,
         image1: imgs[0].getAttribute("src"),
         image2: imgs[1].getAttribute("src"),
         displacementImage: el.dataset.displacement,
