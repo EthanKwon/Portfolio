@@ -69,7 +69,7 @@ randomColor(5, 1);
     docsize = {
       height: document.body.clientHeight,
     };
-    console.log(`doc size: ${docsize.height}`);
+    //console.log(`doc size: ${docsize.height}`);
   };
   calcSize(); // 최초 창의 크기 초기화
 
@@ -97,7 +97,7 @@ randomColor(5, 1);
       docScroll + document.querySelector("#sec5").getBoundingClientRect().top,
       docScroll + document.querySelector("#footer").getBoundingClientRect().top,
     ];
-    console.log(`Scroll : ${docScroll}`);
+    //console.log(`Scroll : ${docScroll}`);
   };
 
   getPageYScroll();
@@ -163,6 +163,7 @@ randomColor(5, 1);
         speedOut: el.dataset.speedout || undefined,
         easing: el.dataset.easing || undefined,
         hover: el.dataset.hover || undefined,
+        imagesRatio: el.dataset.imagesratio || undefined,
         image1: imgs[0].getAttribute("src"),
         image2: imgs[1].getAttribute("src"),
         displacementImage: el.dataset.displacement,
@@ -851,12 +852,12 @@ randomColor(5, 1);
 
     layout() {
       this.DOM.items.forEach((item, index) => {
+        let topValue = this.props.top;
+        if (topValue > -7) topValue = 0;
         if (index % 2 === 0) {
-          item.style.transform = `translate3d(0,${
-            (-1 * this.props.top) / 7
-          }px,0)`;
+          item.style.transform = `translate3d(0,${(-1 * topValue) / 7}px,0)`;
         } else {
-          item.style.transform = `translate3d(0,${this.props.top / 7}px,0)`;
+          item.style.transform = `translate3d(0,${topValue / 7}px,0)`;
         }
       });
     }

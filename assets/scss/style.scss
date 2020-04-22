@@ -179,7 +179,7 @@
   align-items: center;
   transform: translate3d(0, 0, 0);
   transition: transform 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
-  z-index: 100;
+  z-index: 1000;
   pointer-events: none;
   .loading_line {
     display: block;
@@ -658,16 +658,9 @@
     position: absolute;
     top: 0;
     left: 0;
-    min-width: 100%;
-    min-height: 100%;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    //transform: translate3d(-50%, -50%, 0);
-    transform-origin: center center;
-    background: {
-      image: url(../img/me2.jpg);
-      size: cover;
-      position: center center;
-    }
   }
 }
 
@@ -894,13 +887,24 @@
   position: relative;
   transform-origin: center center;
   overflow: hidden;
-  img {
+  .project_img-box {
     width: 100%;
+    opacity: 0;
     object-fit: cover;
     transition: transform 2.4s cubic-bezier(0.075, 0.82, 0.165, 1);
     transition-delay: 0.3s;
+    overflow: hidden;
   }
 } //project_img-wrap
+
+.project_hover {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+} //project_hover
 
 .project_name {
   position: relative;
@@ -1060,6 +1064,11 @@
   position: relative;
   overflow: hidden;
   pointer-events: auto;
+  &:hover {
+    img {
+      transform: scale(1.1);
+    }
+  }
 } //mini_link
 
 .mini_img {
@@ -1068,6 +1077,8 @@
     transform-origin: center center;
     .img_anim {
       opacity: 1;
+      width: 100%;
+      overflow: hidden;
       transform: none;
     }
     img {
@@ -1591,7 +1602,7 @@ $pink: #f4c4c4;
   }
 
   #sec5 {
-    padding-top: 17.5rem;
+    padding-top: 16.5rem;
   }
 
   .container {
@@ -1773,12 +1784,12 @@ $pink: #f4c4c4;
   //skill -Desktop
 
   .skill_main {
-    padding-top: 12.57vw;
+    padding-top: 16.5rem;
   } //skill_main
 
   .skill_title {
     max-width: 70vw;
-    margin-left: 12.57vw;
+    margin-left: 16.5rem;
     padding-bottom: 4.571vw;
     font-size: 6.25rem;
   } //skill_title
