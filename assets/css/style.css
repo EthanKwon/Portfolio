@@ -1015,12 +1015,16 @@ svg {
   position: relative;
   overflow: hidden;
   pointer-events: auto; }
+  .mini_link:hover img {
+    transform: scale(1.1); }
 
 .mini_img .mini_img_wrap {
   position: relative;
   transform-origin: center center; }
   .mini_img .mini_img_wrap .img_anim {
     opacity: 1;
+    width: 100%;
+    overflow: hidden;
     transform: none; }
   .mini_img .mini_img_wrap img {
     width: 100%;
@@ -1729,7 +1733,7 @@ iframe.kakao {
   #sec1 {
     margin-bottom: 11.25rem; }
   #sec5 {
-    padding-top: 17.5rem; }
+    padding-top: 16.5rem; }
   .container {
     padding: 0 2.5rem; }
   .quarter {
@@ -1828,10 +1832,10 @@ iframe.kakao {
   .about_text {
     padding: 2.5rem 5rem 2.5rem 0; }
   .skill_main {
-    padding-top: 12.57vw; }
+    padding-top: 16.5rem; }
   .skill_title {
     max-width: 70vw;
-    margin-left: 12.57vw;
+    margin-left: 16.5rem;
     padding-bottom: 4.571vw;
     font-size: 6.25rem; }
   .skill_stroke {
