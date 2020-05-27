@@ -1042,5 +1042,5 @@ window.addEventListener("load", () => {
   calcSize();
   lastScroll = docScroll;
   new SmoothScroll();
-  window.setTimeout(loaded, 3000);
+  loaded();
 });
