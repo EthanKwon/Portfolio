@@ -7,20 +7,6 @@ const overlayLink = overlay.querySelector("iframe");
 
 /*
  *
- * Loading
- *
- */
-
-const loaded = () => {
-  body.classList.add("dom-is-loaded");
-};
-
-window.addEventListener("load", () => {
-  window.setTimeout(loaded, 3000);
-});
-
-/*
- *
  * overlay
  *
  */
@@ -1061,28 +1047,20 @@ randomColor(5, 1);
     }
   }
 
-  getPageYScroll();
-  lastScroll = docScroll;
-  new SmoothScroll();
+  /*
+   *
+   * Loading
+   *
+   */
+
+  const loaded = () => {
+    body.classList.add("dom-is-loaded");
+  };
+
+  window.addEventListener("load", () => {
+    getPageYScroll();
+    lastScroll = docScroll;
+    new SmoothScroll();
+    window.setTimeout(loaded, 3000);
+  });
 }
-
-// //Text Word split
-
-// const textWordSplit = (dom) => {
-//   const textStr = dom.innerText;
-//   console.log(`textStr : ${textStr}`);
-//   const textWord = textStr.split(" ");
-//   console.log(`textStr : ${textWord}`);
-
-//   dom.textContent = "";
-//   textWord.map((word) => {
-//     const newWord = document.createElement("div");
-//     newWord.classList.add("text-word");
-//     newWord.innerText = ` ${word}`;
-
-//     console.log(newWord);
-//     dom.append(newWord);
-//   });
-// };
-
-// textWordSplit(document.querySelector(".skill_title"));
