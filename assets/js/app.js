@@ -175,8 +175,6 @@ const addClassHeader = () => {
   }
 };
 
-window.addEventListener("scroll", addClassHeader);
-
 //Change Theme
 
 let themeNum = 1;
@@ -217,10 +215,6 @@ const RemovelinkActive = (links) => {
     svg.classList.remove("active");
   });
 };
-
-linkScroll.map((sec, index) => {
-  clickLink(headerLink[index], sec);
-});
 
 /*
  *
@@ -1037,10 +1031,14 @@ const loaded = () => {
 };
 
 window.addEventListener("load", () => {
-  hoverImgEffect();
-  getPageYScroll();
   calcSize();
+  getPageYScroll();
+  hoverImgEffect();
   lastScroll = docScroll;
   new SmoothScroll();
-  loaded();
+  window.addEventListener("scroll", addClassHeader);
+  linkScroll.map((sec, index) => {
+    clickLink(headerLink[index], sec);
+  });
+  window.setTimeout(loaded, 3000);
 });
