@@ -57,7 +57,6 @@ randomColor(5, 1);
     };
     //console.log(`doc size: ${docsize.height}`);
   };
-  calcSize(); // 최초 창의 크기 초기화
 
   window.addEventListener("resize", calcSize);
   // 창의 크기 변경시 창의 크기 측정
@@ -85,8 +84,6 @@ randomColor(5, 1);
     ];
     //console.log(`Scroll : ${docScroll}`);
   };
-
-  getPageYScroll();
 
   window.addEventListener("scroll", getPageYScroll);
   //스크롤 움직일 때, 스크롤의 위치값 설정
@@ -156,8 +153,6 @@ randomColor(5, 1);
       });
     });
   };
-
-  hoverImgEffect();
 
   /*
    *
@@ -1058,7 +1053,9 @@ randomColor(5, 1);
   };
 
   window.addEventListener("load", () => {
+    hoverImgEffect();
     getPageYScroll();
+    calcSize();
     lastScroll = docScroll;
     new SmoothScroll();
     window.setTimeout(loaded, 3000);
